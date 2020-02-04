@@ -113,7 +113,7 @@ public:
     }
 };
 
-void print_vector(vector<vector<string>> results) {
+void print_vector(vector<vector<string>> & results) {
     cout << "[";
     for (auto & r : results) {
         cout << "[";
