@@ -13,8 +13,8 @@ Output: 18
 Input: nums = [4]
 Output: 0
 例3:
-Input: nums = [3,6,5,1,8]
-Output: 18
+Input: nums = [1,2,3,4,4]
+Output: 12
 */
 
 #include <iostream>
