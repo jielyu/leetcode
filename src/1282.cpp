@@ -24,6 +24,8 @@ using namespace std;
 
 class Solution {
 public:
+    // Runtime: 32 ms, faster than 30.08%
+    // Memory Usage: 12.1 MB, less than 100.00% 
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         int n = groupSizes.size();
         vector<vector<int>> ret;  // to record all groups
