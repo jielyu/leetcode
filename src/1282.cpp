@@ -40,6 +40,7 @@ public:
                 if (s == limit && limit > ret[j].size()) {
                     ret[j].push_back(i);
                     succ = true;
+                    break;
                 }
             }
             // create a new group
