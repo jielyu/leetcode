@@ -20,12 +20,38 @@ Output: [[1],[0,5],[2,3,4]]
 */
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 class Solution {
 public:
-    // Runtime: 32 ms, faster than 30.08%
-    // Memory Usage: 12.1 MB, less than 100.00% 
+// Runtime: 24 ms, faster than 85.14%
+    // Memory Usage: 11 MB, less than 100.00%
+    vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
+        // build a dict mapping size to idx
+        unordered_map<int, vector<int>> d;
+        int len = groupSizes.size();
+        for (int i = 0; i < len; ++i) {
+            d[groupSizes[i]].push_back(i);
+        }
+        // get results
+        vector<vector<int>> ret;
+        vector<int> m;
+        for (auto & p : d) {
+            int step = p.second.size() / p.first;
+            for (int j = 0; j < step; ++j) {
+                m.clear();
+                for (int k = j*p.first; k < (j+1)*p.first; ++k) {
+                    m.push_back(p.second[k]);
+                }
+                ret.push_back(m);
+            }
+        }
+        return ret;
+    }
+    
+    // Runtime: 28 ms, faster than 55.03% 
+    // Memory Usage: 11.2 MB, less than 100.00%
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         int n = groupSizes.size();
         vector<vector<int>> ret;  // to record all groups
