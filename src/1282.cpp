@@ -52,7 +52,7 @@ public:
     
     // Runtime: 28 ms, faster than 55.03% 
     // Memory Usage: 11.2 MB, less than 100.00%
-    vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
+    vector<vector<int>> groupThePeople_1(vector<int>& groupSizes) {
         int n = groupSizes.size();
         vector<vector<int>> ret;  // to record all groups
         vector<int> ret_limit;    // to record limitation of groups
