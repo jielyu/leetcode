@@ -25,7 +25,7 @@ using namespace std;
 
 class Solution {
 public:
-// Runtime: 24 ms, faster than 85.14%
+    // Runtime: 24 ms, faster than 85.14%
     // Memory Usage: 11 MB, less than 100.00%
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         // build a dict mapping size to idx
