@@ -63,5 +63,5 @@ to manage code solving leetcode-like problems
 |0005|Q1277|[1277.cpp](src/1277.cpp)|--|计数全1子矩阵|2020-02-01|中|--|
 |0004|Q1281|[1281.cpp](src/1281.cpp)|--|整数各位数字之积与之和的差|2020-01-31|低|--|
 |0003|Q1275|[1275.cpp](src/1275.cpp)|--|寻找井字游戏中的获胜者|2020-01-31|低|--|
-|0002|Q1282|[1282.cpp](src/1282.cpp)|[1282.py](python/1282.py)|将人们按给定组的大小归为同一组|2020-01-30|中|--|
+|0002|Q1282|[1282.cpp](src/1282.cpp)|[1282.py](python/1282.py)|将人们按给定组的大小归为同一组|2020-01-30|中|[第41期](https://mp.weixin.qq.com/s/nJCNa3InsT85ER2JQD6f9Q)|
 |0001|Q1276|[1276.cpp](src/1276.cpp)|[1276.py](python/1276.py)|不浪费原料的汉堡数量|2020-01-30|中|[第36期](https://mp.weixin.qq.com/s/NL2Fg_le_8uQiYM6NMDNKg)|
