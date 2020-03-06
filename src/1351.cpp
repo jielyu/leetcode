@@ -32,9 +32,44 @@ using namespace std;
 
 class Solution {
 public:
-    // Runtime: 16 ms, faster than 93.57%
+    // Runtime: 16 ms, faster than 93.46%
     // Memory Usage: 9.4 MB, less than 100.00%
     int countNegatives(vector<vector<int>>& grid) {
+        int n = grid[0].size();
+        int ret = 0, low = 0, high = n - 1, mid = 0;
+        for (auto & row : grid) {
+            low = 0;
+            high = n - 1;
+            // all elements are non-negative
+            if (row[high] >= 0) {
+                continue;
+            } 
+            // all elements are negative
+            if (row[low] < 0) {
+                ret += n;
+                continue;
+            }
+            // binary search
+            while (low < high) {
+                mid = (low + high) / 2;
+                if (row[mid] < 0) {
+                    high = mid;
+                } else {
+                    low = mid+1;
+                }
+            }
+            // cout << low << "," << high<< endl;
+            ret += n - low;
+        }
+        return ret;
+    }
+    
+    // Runtime: 16 ms, faster than 93.57%
+    // Memory Usage: 9.4 MB, less than 100.00%
+    // 2020-03-06
+    // Runtime: 20 ms, faster than 59.23%
+    // Memory Usage: 9.2 MB, less than 100.00%
+    int countNegatives_2(vector<vector<int>>& grid) {
         int m = grid.size() - 1, n = grid[0].size() - 1;
         int ret = 0, end = 0, c = 0;
         for (; m >= 0; --m) {
@@ -54,6 +89,9 @@ public:
     }
     // Runtime: 20 ms, faster than 60.28%
     // Memory Usage: 9.5 MB, less than 100.00%
+    // 2020-03-06
+    // Runtime: 20 ms, faster than 59.23%
+    // Memory Usage: 9.4 MB, less than 100.00%
     int countNegatives_1(vector<vector<int>>& grid) {
         int ret = 0;
         for (auto & r : grid) {
