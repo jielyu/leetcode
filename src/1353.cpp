@@ -42,7 +42,8 @@ using namespace std;
 
 class Solution {
 private:
-    static bool _comp_func(const vector<int> & a, const vector<int> & b) {
+    static bool _comp_func(const vector<int> & a, 
+                           const vector<int> & b) {
         return a[1] < b[1];
     }
     
