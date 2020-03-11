@@ -27,7 +27,7 @@ double getBill（int [] product，int [] amount）返回票据的价值，
 (j) amount.length == product.length
 (k) 1 <= amount[i] <= 1000
 (l) 最多调用1000次 getBill函数.
-(m) 精读在 10^-5以内的结果都正确
+(m) 精度在 10^-5以内的结果都正确
 
 例1:
 Input
