@@ -10,6 +10,30 @@
 (a) n == light.length
 (b) 1 <= n <= 5 * 10^4
 (c) 灯泡的排列顺序 [1, 2, ..., n]
+
+例1:
+Input: light = [2,1,3,5,4]
+Output: 3
+Explanation: All bulbs turned on, are blue at the moment 1, 2 and 4.
+
+例2:
+Input: light = [3,2,4,1,5]
+Output: 2
+Explanation: All bulbs turned on, are blue at the moment 3, and 4 (index-0).
+
+例3:
+Input: light = [4,1,2,3]
+Output: 1
+Explanation: All bulbs turned on, are blue at the moment 3 (index-0).
+Bulb 4th changes to blue at the moment 3.
+
+例4:
+Input: light = [2,1,4,3,6,5]
+Output: 3
+
+例5:
+Input: light = [1,2,3,4,5,6]
+Output: 6
 */
 
 class Solution {
