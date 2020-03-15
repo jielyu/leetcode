@@ -20,5 +20,20 @@ Explanation: "xy" is a valid string since the characters 'x' and 'y' occur once.
 例3:
 Input: n = 7
 Output: "holasss"
-
 */
+
+class Solution {
+public:
+    // Runtime: 0 ms, faster than 100.00% 
+    // Memory Usage: 7.7 MB, less than 100.00%
+    string generateTheString(int n) {
+        string ret(n-1, 'a');
+        
+        if (n % 2 == 1) {
+            ret.push_back('a');
+        } else {
+            ret.push_back('b');
+        }
+        return ret;
+    }
+};
