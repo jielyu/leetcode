@@ -26,6 +26,8 @@ Explanation: In this case, the given string "bcbcbc" is the longest because all 
 
 class Solution {
 public:
+
+    // 关键思路：异或操作可用于“偶数个”要求
     // Runtime: 76 ms, faster than 93.29%
     // Memory Usage: 16.2 MB, less than 100.00%
     int findTheLongestSubstring(string s) {
