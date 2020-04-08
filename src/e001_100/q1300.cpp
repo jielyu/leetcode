@@ -24,10 +24,18 @@ Output: 5
 Input: arr = [60864,25176,27249,21296,20204], target = 56803
 Output: 11361
 */
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1300{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -51,4 +59,6 @@ public:
         // return the last elements
         return arr[len-1];
     }
+};
+
 };

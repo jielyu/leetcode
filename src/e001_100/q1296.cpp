@@ -28,9 +28,18 @@ Input: nums = [1,2,3,4], k = 3
 Output: false
 Explanation: Each array should be divided in subarrays of size 3.
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1296{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -52,4 +61,6 @@ public:
         sum -= s*n;
         return sum % k == 0;
     }
+};
+
 };

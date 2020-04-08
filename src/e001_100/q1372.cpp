@@ -26,6 +26,18 @@ Explanation: Longest ZigZag path in blue nodes (left -> right -> left -> right).
 Input: root = [1]
 Output: 0
 */
+#include "leetcode.h"
+
+namespace q1373{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 /**
  * Definition for a binary tree node.
@@ -59,18 +71,9 @@ private:
         return 1;
     }
     
-    void traversal(TreeNode * root, bool is_left, int len, int & max_len) {
-        if (!root) {return;}
-        if (len > max_len) {
-            max_len = len;
-        }
-        traversal(root->left, true, is_left ? 1 : len+1, max_len);
-        traversal(root->right, false, is_left ? len+1 : 1, max_len);
-    }
-    
 public:
     // Time Limit Exceeded	
-    int longestZigZag_1(TreeNode* root) {
+    int longestZigZag(TreeNode* root) {
         // get all nodes which are not leaves
         vector<TreeNode*> non_leaf_nodes;
         _get_nodes(root, non_leaf_nodes);
@@ -87,7 +90,20 @@ public:
         }
         return ret - 1;
     }
+};
+
+class Solution02 {
+private:
+    void traversal(TreeNode * root, bool is_left, int len, int & max_len) {
+        if (!root) {return;}
+        if (len > max_len) {
+            max_len = len;
+        }
+        traversal(root->left, true, is_left ? 1 : len+1, max_len);
+        traversal(root->right, false, is_left ? len+1 : 1, max_len);
+    }
     
+public:
     // Runtime: 196 ms, faster than 56.51%
     // Memory Usage: 53.2 MB, less than 100.00%
     int longestZigZag(TreeNode* root) { 
@@ -95,4 +111,6 @@ public:
         traversal(root, true, 0, max_len);
         return max_len;
     }
+};
+
 };

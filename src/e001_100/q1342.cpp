@@ -31,10 +31,18 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 Input: num = 123
 Output: 12
 */
-#include <iostream>
-#include <cmath>
-#include <bitset>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1342{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -60,4 +68,6 @@ public:
         }
         return ret;
     }
+};
+
 };

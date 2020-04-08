@@ -4,6 +4,7 @@
 !.gitkeep
 *~
 .vscode/
+build/
 
 # Prerequisites
 *.d

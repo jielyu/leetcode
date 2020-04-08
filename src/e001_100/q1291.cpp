@@ -15,10 +15,18 @@ Output: [123,234]
 Input: low = 1000, high = 13000
 Output: [1234,2345,3456,4567,5678,6789,12345]
 */
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1291{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -44,4 +52,5 @@ public:
         sort(ret.begin(), ret.end());
         return ret;
     }
+};
 };

@@ -27,10 +27,62 @@ Output: 3
 Input: grid = [[-1]]
 Output: 1
 */
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1351{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // 2020-03-06
+    // Runtime: 20 ms, faster than 59.23%
+    // Memory Usage: 9.4 MB, less than 100.00%
+    int countNegatives(vector<vector<int>>& grid) {
+        int ret = 0;
+        for (auto & r : grid) {
+            for (auto & v : r) {
+                if (v < 0) {
+                    ++ret;
+                }
+            }
+        }
+        return ret;
+    }
+};
+
+class Solution02 {
+public:
+    // Runtime: 16 ms, faster than 93.57%
+    // Memory Usage: 9.4 MB, less than 100.00%
+    int countNegatives_2(vector<vector<int>>& grid) {
+        int m = grid.size() - 1, n = grid[0].size() - 1;
+        int ret = 0, end = 0, c = 0;
+        for (; m >= 0; --m) {
+            for (c = n; c >= end; --c) {
+                if (grid[m][c] < 0) {
+                    ++ret;
+                } else {
+                    end = c + 1;
+                    break;
+                }
+            }
+            if (end > n) {
+                break;
+            }
+        }
+        return ret;
+    }
+};
+
+class Solution03 {
 public:
     // Runtime: 16 ms, faster than 93.46%
     // Memory Usage: 9.4 MB, less than 100.00%
@@ -63,44 +115,6 @@ public:
         }
         return ret;
     }
-    
-    // Runtime: 16 ms, faster than 93.57%
-    // Memory Usage: 9.4 MB, less than 100.00%
-    // 2020-03-06
-    // Runtime: 20 ms, faster than 59.23%
-    // Memory Usage: 9.2 MB, less than 100.00%
-    int countNegatives_2(vector<vector<int>>& grid) {
-        int m = grid.size() - 1, n = grid[0].size() - 1;
-        int ret = 0, end = 0, c = 0;
-        for (; m >= 0; --m) {
-            for (c = n; c >= end; --c) {
-                if (grid[m][c] < 0) {
-                    ++ret;
-                } else {
-                    end = c + 1;
-                    break;
-                }
-            }
-            if (end > n) {
-                break;
-            }
-        }
-        return ret;
-    }
-    // Runtime: 20 ms, faster than 60.28%
-    // Memory Usage: 9.5 MB, less than 100.00%
-    // 2020-03-06
-    // Runtime: 20 ms, faster than 59.23%
-    // Memory Usage: 9.4 MB, less than 100.00%
-    int countNegatives_1(vector<vector<int>>& grid) {
-        int ret = 0;
-        for (auto & r : grid) {
-            for (auto & v : r) {
-                if (v < 0) {
-                    ++ret;
-                }
-            }
-        }
-        return ret;
-    }
+};
+
 };

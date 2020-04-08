@@ -24,31 +24,21 @@ Explanation: The subsequence [7,7] has the sum of its elements equal to 14 which
 Input: nums = [6]
 Output: [6]
 */
+#include "leetcode.h"
 
-// Runtime: 20 ms, faster than 33.33%
-// Memory Usage: 10.7 MB, less than 100.00%
-class Solution {
-public:
-    vector<int> minSubsequence(vector<int>& nums) {
-        int sum = accumulate(nums.begin(), nums.end(), 0);
-        // sort by descending order
-        sort(nums.rbegin(), nums.rend());
-        // accept the largest someones
-        vector<int> ret;
-        int c_sum = 0;
-        for (auto & n : nums) {
-            ret.push_back(n);
-            c_sum += n;
-            if (c_sum * 2 > sum) {
-                break;
-            }
-        }
-        return ret;
-    }
-};
+namespace q1403{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // 该方案适用于要求连续子序列的情况，因此在这里不适用。
-class Solution01 {
+class Solution_exp {
 public:
     vector<int> minSubsequence(vector<int>& nums) {
         int sum = accumulate(nums.begin(), nums.end(), 0);
@@ -88,4 +78,28 @@ public:
         sort(ret.rbegin(), ret.rend());
         return ret;
     }
+};
+
+// Runtime: 20 ms, faster than 33.33%
+// Memory Usage: 10.7 MB, less than 100.00%
+class Solution {
+public:
+    vector<int> minSubsequence(vector<int>& nums) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        // sort by descending order
+        sort(nums.rbegin(), nums.rend());
+        // accept the largest someones
+        vector<int> ret;
+        int c_sum = 0;
+        for (auto & n : nums) {
+            ret.push_back(n);
+            c_sum += n;
+            if (c_sum * 2 > sum) {
+                break;
+            }
+        }
+        return ret;
+    }
+};
+
 };

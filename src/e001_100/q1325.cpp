@@ -32,7 +32,7 @@ Output: []
 Input: root = [1,2,3], target = 1
 Output: [1,2,3]
 */
-
+#include "leetcode.h"
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -42,6 +42,17 @@ Output: [1,2,3]
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+namespace q1325{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 class Solution {
 public:
     // Runtime: 24 ms, faster than 60.16%
@@ -63,4 +74,6 @@ public:
         }
         return root;
     }
+};
+
 };

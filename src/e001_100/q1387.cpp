@@ -50,9 +50,19 @@ Output: 570
 /*
 提示：关键在于构建一个仿函数，然后使用STL中的sort函数排序
 */
+#include "leetcode.h"
 
-// Runtime: 40 ms, faster than 86.19%
-// Memory Usage: 7.3 MB, less than 100.00%
+namespace q1387{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 class Comp {
 private:
     vector<int> * _p_power;
@@ -69,6 +79,8 @@ public:
     }
 };
 
+// Runtime: 40 ms, faster than 86.19%
+// Memory Usage: 7.3 MB, less than 100.00%
 class Solution {
 private:
     int _get_power(int x) {
@@ -99,4 +111,6 @@ public:
         // get result
         return lo + idx[k-1];
     }
+};
+
 };

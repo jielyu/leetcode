@@ -24,6 +24,18 @@ Explanation: Same elements share the same rank.
 Input: arr = [37,12,28,9,100,56,80,5,12]
 Output: [5,3,4,2,8,6,7,1,3]
 */
+#include "leetcode.h"
+
+namespace q1331{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -49,4 +61,5 @@ public:
         }
         return ret;
     }
+};
 };

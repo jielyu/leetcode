@@ -16,6 +16,18 @@ Output: "aaccba"
 Input: palindrome = "a"
 Output: ""
 */
+#include "leetcode.h"
+
+namespace q1328{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -41,4 +53,5 @@ public:
         palindrome[len-1] = 'b';
         return palindrome;
     }
+};
 };

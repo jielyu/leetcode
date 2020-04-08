@@ -32,9 +32,18 @@ Output: 1
 Input: arr = [4,4,4,4], k = 4, threshold = 1
 Output: 1
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1343{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -57,4 +66,6 @@ public:
         }
         return count;
     }
+};
+
 };

@@ -45,7 +45,18 @@ undergroundSystem.getAverageTime("Leyton", "Waterloo");          // return 11.0
 undergroundSystem.checkOut(10, "Waterloo", 38);
 undergroundSystem.getAverageTime("Leyton", "Waterloo");          // return 12.0
 */
+#include "leetcode.h"
 
+namespace q1396{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 304 ms, faster than 96.01%
 // Memory Usage: 61.6 MB, less than 100.00%
@@ -93,3 +104,5 @@ public:
  * obj->checkOut(id,stationName,t);
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
+
+};

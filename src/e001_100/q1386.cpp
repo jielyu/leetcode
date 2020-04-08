@@ -36,69 +36,36 @@ Output: 4
 /*
 提示：本题最大的关键点是不能从正面考虑，否则容易超时；只能从已经被预定的位置着手。
 */
+#include "leetcode.h"
 
-// Runtime: 256 ms, faster than 81.73%
-// Memory Usage: 48.9 MB, less than 100.00%
+namespace q1386{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
+// out of memory
 class Solution {
-    
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        unordered_map<int, vector<int>> seats;
+        vector<vector<bool>> seats(n, vector<bool>(10, true));
         // fill reserved seats
         for (auto & s : reservedSeats) {
-            seats[s[0]-1].push_back(s[1]);
-        }
-        // find all possible results
-        int ret = n * 2;
-        bool left = false, right = false, mid = false;
-        for (auto & row : seats) {
-            left = false, right = false, mid = false;
-            // check all reserved labels
-            for (auto & label : row.second) {
-                if (label >= 2 && label <= 5) {left = true;}
-                if (label >= 4 && label <= 7) {mid = true;}
-                if (label >= 6 && label <= 9) {right = true;}
-            }
-            // update result
-            if (left) --ret;
-            if (right) --ret;
-            // left and right are occupied but mid is empty
-            if (left && right && !mid) ++ret;
-        }
-        return ret;
-    }
-};
-
-// Time Limit Exceeded
-class Solution03 {
-    
-public:
-    int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        unordered_map<int, vector<int>> seats;
-        // fill reserved seats
-        for (auto & s : reservedSeats) {
-            seats[s[0]-1].push_back(s[1]);
+            seats[s[0]-1][s[1]-1] = false;
         }
         // find all possible results
         int ret = 0;
-        bool left = false, right = false, mid = false;
-        for (int i = 0; i < n; ++i) {
-            left = false, right = false, mid = false;
-            // as to empty row
-            if (seats.find(i) == seats.end()) {
-                ret += 2;
-                continue;
-            }
-            // check all reserved labels
-            for (auto & label : seats[i]) {
-                if (label >= 2 && label <= 5) {left = true;}
-                if (label >= 4 && label <= 7) {mid = true;}
-                if (label >= 6 && label <= 9) {right = true;}
-            }
-            // update result
-            if (!left) ++ret;
-            if (!right) ++ret;
-            if (left && right && (!mid)) ++ret;
+        bool mark = true;
+        for (auto & r : seats) {
+            mark = true;
+            if (r[1]&&r[2]&&r[3]&&r[4]) {++ret; mark=false;}
+            if (r[5]&&r[6]&&r[7]&&r[8]) {++ret; mark=false;}
+            if (mark&&r[3]&&r[4]&&r[5]&&r[6]) {++ret;}
         }
         return ret;
     }
@@ -142,24 +109,72 @@ public:
     }
 };
 
-// out of memory
-class Solution01 {
+// Time Limit Exceeded
+class Solution03 {
+    
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        vector<vector<bool>> seats(n, vector<bool>(10, true));
+        unordered_map<int, vector<int>> seats;
         // fill reserved seats
         for (auto & s : reservedSeats) {
-            seats[s[0]-1][s[1]-1] = false;
+            seats[s[0]-1].push_back(s[1]);
         }
         // find all possible results
         int ret = 0;
-        bool mark = true;
-        for (auto & r : seats) {
-            mark = true;
-            if (r[1]&&r[2]&&r[3]&&r[4]) {++ret; mark=false;}
-            if (r[5]&&r[6]&&r[7]&&r[8]) {++ret; mark=false;}
-            if (mark&&r[3]&&r[4]&&r[5]&&r[6]) {++ret;}
+        bool left = false, right = false, mid = false;
+        for (int i = 0; i < n; ++i) {
+            left = false, right = false, mid = false;
+            // as to empty row
+            if (seats.find(i) == seats.end()) {
+                ret += 2;
+                continue;
+            }
+            // check all reserved labels
+            for (auto & label : seats[i]) {
+                if (label >= 2 && label <= 5) {left = true;}
+                if (label >= 4 && label <= 7) {mid = true;}
+                if (label >= 6 && label <= 9) {right = true;}
+            }
+            // update result
+            if (!left) ++ret;
+            if (!right) ++ret;
+            if (left && right && (!mid)) ++ret;
         }
         return ret;
     }
+};
+
+
+// Runtime: 256 ms, faster than 81.73%
+// Memory Usage: 48.9 MB, less than 100.00%
+class Solution04 {
+    
+public:
+    int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
+        unordered_map<int, vector<int>> seats;
+        // fill reserved seats
+        for (auto & s : reservedSeats) {
+            seats[s[0]-1].push_back(s[1]);
+        }
+        // find all possible results
+        int ret = n * 2;
+        bool left = false, right = false, mid = false;
+        for (auto & row : seats) {
+            left = false, right = false, mid = false;
+            // check all reserved labels
+            for (auto & label : row.second) {
+                if (label >= 2 && label <= 5) {left = true;}
+                if (label >= 4 && label <= 7) {mid = true;}
+                if (label >= 6 && label <= 9) {right = true;}
+            }
+            // update result
+            if (left) --ret;
+            if (right) --ret;
+            // left and right are occupied but mid is empty
+            if (left && right && !mid) ++ret;
+        }
+        return ret;
+    }
+};
+
 };

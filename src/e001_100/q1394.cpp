@@ -37,6 +37,19 @@ Output: 7
 提示：毫无技巧，直接上unordered_map统计即可
 */
 
+#include "leetcode.h"
+
+namespace q1394{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 // Runtime: 12 ms, faster than 84.83%
 // Memory Usage: 10.6 MB, less than 100.00% 
 class Solution {
@@ -56,4 +69,6 @@ public:
         }
         return ret;
     }
+};
+
 };

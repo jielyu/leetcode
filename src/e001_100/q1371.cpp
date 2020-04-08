@@ -23,6 +23,18 @@ Input: s = "bcbcbc"
 Output: 6
 Explanation: In this case, the given string "bcbcbc" is the longest because all vowels: a, e, i, o and u appear zero times.
 */
+#include "leetcode.h"
+
+namespace q1371{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -51,4 +63,6 @@ public:
         }
         return ret;
     }
+};
+
 };

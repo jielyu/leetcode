@@ -18,11 +18,17 @@ S consists of lowercase English letters.
 
 */
 
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
 
+namespace q1044{
 
+template<typename T>
+bool run_testcases() {
+    T slt;
+    if (slt.longestDupSubstring("banana") != "ana") return false;
+    if (slt.longestDupSubstring("abcd") != "") return false;
+    return true;
+}
 class Solution {
 public:
 
@@ -53,13 +59,6 @@ public:
         return S.substr(dup_idx, dup_len);
     }
 };
+TEST(Q1044, Solution) {EXPECT_EQ(q1044::run_testcases<q1044::Solution>(), true);}
 
-int main(int argc, char ** argv) {
-    std::vector<std::string> str_vec {"banana", "abcd"};
-    Solution slt;
-    for (auto & str : str_vec) {
-        std::cout << "Input:" << str << ", Output:" 
-                  << slt.longestDupSubstring(str) << std::endl; 
-    }
-    return 0;
-}
+};

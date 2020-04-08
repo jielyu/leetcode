@@ -21,6 +21,18 @@ Explanation: "xy" is a valid string since the characters 'x' and 'y' occur once.
 Input: n = 7
 Output: "holasss"
 */
+#include "leetcode.h"
+
+namespace q1374{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -36,4 +48,6 @@ public:
         }
         return ret;
     }
+};
+
 };

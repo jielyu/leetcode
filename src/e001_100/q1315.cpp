@@ -14,9 +14,7 @@ Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
 Output: 18
 Explanation: The red nodes are the nodes with even-value grandparent while the blue nodes are the even-value grandparents.
 */
-#include <iostream>
-#include <stddef.h>
-using namespace std;
+#include "leetcode.h"
 
 /**
  * Definition for a binary tree node.
@@ -28,12 +26,16 @@ using namespace std;
  * };
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
+namespace q1315{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -71,4 +73,6 @@ public:
         return sumEvenGrandparent(root->left) \
                 + sumEvenGrandparent(root->right);
     }
+};
+
 };

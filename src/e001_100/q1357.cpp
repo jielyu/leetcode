@@ -45,9 +45,18 @@ cashier.getBill([7,3],[10,10]);                      // return 4000.0
 cashier.getBill([7,5,3,1,6,4,2],[10,10,10,9,9,9,7]); // return 7350.0, Bill was 14700.0 but as the system counted three more customers, he will have a 50% discount and the bill becomes 7350.0
 cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0
 */
-#include <vector>
-#include <unordered_map>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1357{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Cashier {
 private:
@@ -57,7 +66,7 @@ private:
 public:
     // Runtime: 172 ms, faster than 87.14%
     // Memory Usage: 33.4 MB, less than 100.00%
-    Cashier(int n, int discount, vector<int>& products, vector<int>& prices): _n(n), _d(discount) {
+    Cashier(int n, int discount, vector<int>& products, vector<int>& prices): _d(discount), _n(n) {
         this->_counter = 0;
         // create mapping from product id to price
         int num = products.size();
@@ -88,3 +97,4 @@ public:
  * Cashier* obj = new Cashier(n, discount, products, prices);
  * double param_1 = obj->getBill(product,amount);
  */
+};

@@ -32,11 +32,42 @@ Output: 0
 Input: s = "friend", t = "family"
 Output: 4
 */
-#include <iostream>
-#include <unordered_map>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1347{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // Runtime: 120 ms, faster than 40.00%
+    // Memory Usage: 19.1 MB, less than 100.00%
+    int minSteps_2(string s, string t) {
+        unordered_map<char, int> dict;
+        for (auto & v : s) {
+            ++dict[v];
+        }
+        for (auto & v : t) {
+            --dict[v];
+        }
+        int sum = 0;
+        for (auto & kv : dict) {
+            if (kv.second < 0) {
+                sum += kv.second;
+            }
+        }
+        return abs(sum);
+    }
+};
+
+class Solution02 {
 public:
     // Runtime: 84 ms, faster than 94.93%
     // Memory Usage: 18.9 MB, less than 100.00%
@@ -56,23 +87,6 @@ public:
         }
         return abs(sum);
     }
-    
-    // Runtime: 120 ms, faster than 40.00%
-    // Memory Usage: 19.1 MB, less than 100.00%
-    int minSteps_2(string s, string t) {
-        unordered_map<char, int> dict;
-        for (auto & v : s) {
-            ++dict[v];
-        }
-        for (auto & v : t) {
-            --dict[v];
-        }
-        int sum = 0;
-        for (auto & kv : dict) {
-            if (kv.second < 0) {
-                sum += kv.second;
-            }
-        }
-        return abs(sum);
-    }
+};
+
 };

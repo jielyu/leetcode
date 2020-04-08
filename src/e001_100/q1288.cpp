@@ -16,10 +16,18 @@ Output: 2
 Explanation: Interval [3,6] is covered by [2,8], therefore it is removed.
 */
 
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1288{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 // build a functor
 class Comp {
     public:
@@ -49,9 +57,4 @@ public:
     }
 };
 
-int main() {
-    vector<vector<int>> intervals{{1,4}, {3,6}, {2,8}};
-    Solution slt;
-    cout << slt.removeCoveredIntervals(intervals) << endl;
-    return 0;
-}
+};

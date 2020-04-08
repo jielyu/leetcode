@@ -35,6 +35,18 @@ Output: 3
 Input: light = [1,2,3,4,5,6]
 Output: 6
 */
+#include "leetcode.h"
+
+namespace q1375{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -53,4 +65,6 @@ public:
         }
         return ret;
     }
+};
+
 };

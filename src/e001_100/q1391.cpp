@@ -48,6 +48,19 @@ Output: true
 提示：深度优先搜索每个方向。
 */
 
+#include "leetcode.h"
+
+namespace q1391{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 // Runtime: 192 ms, faster than 72.48%
 // Memory Usage: 53.5 MB, less than 100.00%
 class Solution {
@@ -99,4 +112,6 @@ public:
         vector<vector<bool>> used(grid.size(), vector<bool>(grid[0].size(), false));
         return _dfs(grid, 0, 0, used);
     }
+};
+
 };

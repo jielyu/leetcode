@@ -30,9 +30,18 @@ Explanation: Trailing spaces is not allowed.
 Input: s = "CONTEST IS COMING"
 Output: ["CIC","OSO","N M","T I","E N","S G","T"]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1324{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 private:
@@ -93,4 +102,6 @@ public:
         }
         return ret;
     }
+};
+
 };

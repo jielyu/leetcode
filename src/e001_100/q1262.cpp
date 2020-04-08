@@ -16,11 +16,21 @@ Output: 0
 Input: nums = [1,2,3,4,4]
 Output: 12
 */
+#include "leetcode.h"
 
-#include <iostream>
-#include <vector>
+namespace q1262{
 
-using namespace std;
+template<typename T>
+bool run_testcases() {
+    T slt;
+    vector<int> example01{3,6,5,1,8};
+    if (slt.maxSumDivThree(example01) != 18) {return false;}
+    vector<int> example02{4};
+    if (slt.maxSumDivThree(example02) != 0) {return false;}
+    vector<int> example03{1,2,3,4,4};
+    if (slt.maxSumDivThree(example03) != 12) {return false;}
+    return true;
+}
 
 class Solution {
 public:
@@ -51,10 +61,6 @@ public:
         return max(0, remainds[0]);
     }
 };
+TEST(Q1262, Solution) {EXPECT_EQ(q1262::run_testcases<Solution>(), true);}
 
-int main() {
-    vector<int> nums{1,2,3,4,4};
-    Solution slt;
-    cout << slt.maxSumDivThree(nums) << endl;
-    return 0;
-}
+};

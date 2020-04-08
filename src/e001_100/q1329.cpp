@@ -13,6 +13,18 @@
 Input: mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 Output: [[1,1,1,1],[1,2,2,2],[1,2,3,3]]
 */
+#include "leetcode.h"
+
+namespace q1329{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -55,4 +67,5 @@ public:
         }
         return mat;
     }
+};
 };

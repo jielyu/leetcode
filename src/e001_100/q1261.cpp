@@ -64,6 +64,10 @@ findElements.find(5); // return True
 
 // Runtime: 40 ms, faster than 76.66% 
 // Memory Usage: 21 MB, less than 100.00% 
+
+#include "leetcode.h"
+
+namespace q1261{
 class FindElements {
 private:
     TreeNode * _root;
@@ -119,3 +123,5 @@ public:
  * FindElements* obj = new FindElements(root);
  * bool param_1 = obj->find(target);
  */
+
+};

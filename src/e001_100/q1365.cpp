@@ -28,6 +28,18 @@ Output: [2,1,0,3]
 Input: nums = [7,7,7,7]
 Output: [0,0,0,0]
 */
+#include "leetcode.h"
+
+namespace q1365{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 12 ms, faster than 93.68% 
 // Runtime: 12 ms, faster than 93.68% 
@@ -55,4 +67,5 @@ public:
         }
         return ret;
     }
+};
 };

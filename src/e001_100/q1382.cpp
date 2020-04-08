@@ -24,6 +24,18 @@ Explanation: This is not the only correct answer, [3,1,4,null,2,null,null] is al
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include "leetcode.h"
+namespace q1382{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 class Solution {
 private:
     void _inorder(TreeNode * root, vector<int> & arr) {
@@ -50,4 +62,6 @@ public:
         _inorder(root, arr);
         return _create_balance(arr, 0, arr.size()-1);
     }
+};
+
 };

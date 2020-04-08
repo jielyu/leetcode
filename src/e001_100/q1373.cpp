@@ -34,7 +34,7 @@ Output: 6
 Input: root = [5,4,8,3,null,6,3]
 Output: 7
 */
-
+#include "leetcode.h"
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -44,6 +44,18 @@ Output: 7
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+namespace q1373{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 class Solution {
 private:
     bool _check_bst(TreeNode * root, int & max_sum) {
@@ -83,4 +95,6 @@ public:
         _check_bst(root, max_sum);
         return max_sum;
     }
+};
+
 };

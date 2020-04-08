@@ -18,11 +18,36 @@ Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we gener
 The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
 At the end the concatenation [2] + [4,4,4,4] is [2,4,4,4].
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1313{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // Runtime: 44 ms, faster than 90.58%
+    // Memory Usage: 10.6 MB, less than 100.00% 
+    vector<int> decompressRLElist(vector<int>& nums) {
+        int len = nums.size() / 2;
+        vector<int> ret;
+        for (int i = 0; i < len; ++i) {
+            for (int j = 0; j < nums[2*i]; ++j) {
+                ret.push_back(nums[2*i+1]);
+            }
+        }
+        return ret;
+    }
+};
+
+class Solution02 {
 public:
     // Runtime: 36 ms, faster than 99.93%
     // Memory Usage: 10.1 MB, less than 100.00%
@@ -42,17 +67,6 @@ public:
         }
         return ret;
     }
-    
-    // Runtime: 44 ms, faster than 90.58%
-    // Memory Usage: 10.6 MB, less than 100.00% 
-    vector<int> decompressRLElist_2(vector<int>& nums) {
-        int len = nums.size() / 2;
-        vector<int> ret;
-        for (int i = 0; i < len; ++i) {
-            for (int j = 0; j < nums[2*i]; ++j) {
-                ret.push_back(nums[2*i+1]);
-            }
-        }
-        return ret;
-    }
+};
+
 };

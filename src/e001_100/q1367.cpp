@@ -25,6 +25,7 @@ Input: head = [1,4,2,6,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null
 Output: false
 Explanation: There is no path in the binary tree that contains all the elements of the linked list from head.
 */
+#include "leetcode.h"
 
 /**
  * Definition for singly-linked list.
@@ -43,6 +44,17 @@ Explanation: There is no path in the binary tree that contains all the elements 
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+namespace q1367{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 40 ms, faster than 54.74% 
 // Memory Usage: 22.3 MB, less than 100.00%
@@ -70,4 +82,6 @@ public:
         }
         return false;
     }
+};
+
 };

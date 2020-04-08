@@ -32,6 +32,18 @@ Step 1) 2 is even, divide by 2 and obtain 1.
 Input: s = "1"
 Output: 0
 */
+#include "leetcode.h"
+
+namespace q1404{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 0 ms, faster than 100.00% 
 // Memory Usage: 6.3 MB, less than 100.00%
@@ -59,4 +71,6 @@ public:
         }
         return ret;
     }
+};
+
 };

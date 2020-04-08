@@ -20,16 +20,18 @@ Output: 15
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
 
-struct TreeNode {
-   int val;
-   TreeNode *left;
-   TreeNode *right;
-   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
+namespace q1302{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -88,4 +90,6 @@ public:
         }
         return sum;
     }
+};
+
 };

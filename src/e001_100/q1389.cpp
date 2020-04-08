@@ -44,7 +44,18 @@ Output: [1]
 /*
 提示：数组元素的插入操作就是插入点右侧元素后移
 */
+#include "leetcode.h"
 
+namespace q1389{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 4 ms, faster than 66.38%
 // Memory Usage: 8.6 MB, less than 100.00%
@@ -63,4 +74,6 @@ public:
         }
         return ret;
     }
+};
+
 };

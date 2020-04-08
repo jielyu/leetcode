@@ -36,16 +36,18 @@ Output: 0
  * };
  */
 
-#include <iostream>
-#include <vector>
-#include <stddef.h>
-using namespace std;
+#include "leetcode.h"
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
- };
+namespace q1290{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 ListNode * create_list(vector<int> & arr) {
     int len = arr.size();
@@ -84,11 +86,4 @@ public:
     }
 };
 
-int main() {
-    vector<int> arr{1,0,0,1,0,0,1,1,1,0,0,0,0,0,0};
-    ListNode * head = create_list(arr);
-    Solution slt;
-    cout << slt.getDecimalValue(head) << endl;
-    delete_list(head);
-    return 0;
-}
+};

@@ -30,6 +30,22 @@ row 2: 01
 row 3: 0110
 row 4: 01101001
 */
+#include "leetcode.h"
+
+namespace q0779{
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // example 01
+    if (slt.kthGrammar(1,1) != 0) return false;
+    // example 02
+    if (slt.kthGrammar(2,1) != 0) return false;
+    // example 03
+    if(slt.kthGrammar(2,2) != 1) return false;
+    // example 04
+    if(slt.kthGrammar(4,5) != 1) return false;
+    return true;
+}
 
 class Solution {
 public:
@@ -51,4 +67,7 @@ public:
     int kthGrammar(int N, int K) {
         return get_kth_bit(1, 1<<(N-1), 0, K);
     }
+};
+TEST(Q0779, Solution) {EXPECT_EQ(q0779::run_testcases<q0779::Solution>(), true);}
+
 };

@@ -11,9 +11,17 @@
 Input: arr = [1,2,2,6,6,6,6,7,10]
 Output: 6
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+namespace q1287{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -41,10 +49,4 @@ public:
         return 0;
     }
 };
-
-int main() {
-    vector<int> arr{1,2,2,6,6,6,6,7,10};
-    Solution slt;
-    cout << slt.findSpecialInteger(arr) << endl;
-    return 0;
-}
+};

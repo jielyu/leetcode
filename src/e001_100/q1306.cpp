@@ -31,9 +31,18 @@ Input: arr = [3,0,2,1,2], start = 2
 Output: false
 Explanation: There is no way to reach at index 1 with value 0.
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1306{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -63,4 +72,6 @@ public:
         vector<bool> used(arr.size(), false);
         return isReach(arr, start, used);
     }
+};
+
 };

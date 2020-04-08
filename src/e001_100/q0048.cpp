@@ -39,9 +39,31 @@
   [16, 7,10,11]
 ]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q0048{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // example 01
+    {
+        vector<vector<int>> matrix{{1,2,3},{4,5,6},{7,8,9}};
+        vector<vector<int>> ret{{7,4,1},{8,5,2},{9,6,3}};
+        slt.rotate(matrix);
+        if (!comp_matrix(matrix, ret)) {return false;}
+    }
+
+    // example 02
+    {
+        vector<vector<int>> matrix{{5, 1, 9,11},{2, 4, 8,10},{13, 3, 6, 7},{15,14,12,16}};
+        vector<vector<int>> ret{{15,13, 2, 5},{14, 3, 4, 1},{12, 6, 8, 9},{16, 7,10,11}};
+        slt.rotate(matrix);
+        if (!comp_matrix(matrix, ret)) {return false;}
+    }
+
+    return true;
+}
 
 class Solution {
 public:
@@ -66,4 +88,7 @@ public:
             size -= 2;
         }
     }
+};
+TEST(Q0048, Solution) {EXPECT_EQ(q0048::run_testcases<q0048::Solution>(), true);}
+
 };

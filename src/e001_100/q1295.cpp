@@ -24,12 +24,53 @@ Output: 1
 Explanation: 
 Only 1771 contains an even number of digits.
 */
-#include <iostream>
-#include <vector>
-#include <cmath>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1295{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // Runtime: 12 ms, faster than 22.93%
+    // Memory Usage: 9.1 MB, less than 100.00% 
+    int findNumbers(vector<int>& nums) {
+        int ret = 0;
+        string s;
+        for (auto n : nums) {
+            s = to_string(n);
+            if (s.size() % 2 == 0) {
+                ++ret;
+            }
+        }
+        return ret;
+    }
+};
+
+class Solution02 {
+public:
+    // Runtime: 8 ms, faster than 75.12%
+    // Memory Usage: 9.1 MB, less than 100.00%
+    int findNumbers(vector<int>& nums) {
+        int ret = 0, nd = 0;
+        for (auto & n : nums) {
+            nd = (int)log10(n) + 1;
+            if ((nd & 0x01) == 0) {
+                ++ret;
+            }
+        }
+        return ret;
+    }
+};
+
+class Solution03 {
 public:
     // Runtime: 0 ms, faster than 100.00%
     // Memory Usage: 9.2 MB, less than 100.00%
@@ -41,31 +82,6 @@ public:
         }
         return ret;
     }
-    
-    // Runtime: 8 ms, faster than 75.12%
-    // Memory Usage: 9.1 MB, less than 100.00%
-    int findNumbers_3(vector<int>& nums) {
-        int ret = 0, nd = 0;
-        for (auto & n : nums) {
-            nd = (int)log10(n) + 1;
-            if ((nd & 0x01) == 0) {
-                ++ret;
-            }
-        }
-        return ret;
-    }
-    
-    // Runtime: 12 ms, faster than 22.93%
-    // Memory Usage: 9.1 MB, less than 100.00% 
-    int findNumbers_2(vector<int>& nums) {
-        int ret = 0;
-        string s;
-        for (auto n : nums) {
-            s = to_string(n);
-            if (s.size() % 2 == 0) {
-                ++ret;
-            }
-        }
-        return ret;
-    }
+};
+
 };

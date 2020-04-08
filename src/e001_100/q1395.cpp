@@ -32,9 +32,42 @@ Output: 4
 提示：直接暴力枚举的复杂度是O(n^3)，稍微使用一点技巧的复杂度是O(n^2)
 */
 
-// Runtime: 4 ms, faster than 99.63%
+#include "leetcode.h"
+
+namespace q1395{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
+// Runtime: 108 ms, faster than 59.33%
 // Memory Usage: 7.7 MB, less than 100.00%
 class Solution {
+public:
+    int numTeams(vector<int>& rating) {
+        int ret = 0, n = rating.size();
+        for (int i=0; i<n; ++i) {
+            for (int j=i+1; j<n;  ++j) {
+                for (int k=j+1; k<n; ++k) {
+                    if ((rating[i] < rating[j] && rating[j] < rating[k]) 
+                            || (rating[i] > rating[j] && rating[j] > rating[k])) {
+                        ++ret;
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+};
+
+// Runtime: 4 ms, faster than 99.63%
+// Memory Usage: 7.7 MB, less than 100.00%
+class Solution02 {
 public:
     int numTeams(vector<int>& rating) {
         int ret = 0, n = rating.size(), lt[2], gt[2];
@@ -54,23 +87,4 @@ public:
     }
 };
 
-
-// Runtime: 108 ms, faster than 59.33%
-// Memory Usage: 7.7 MB, less than 100.00%
-class Solution01 {
-public:
-    int numTeams(vector<int>& rating) {
-        int ret = 0, n = rating.size();
-        for (int i=0; i<n; ++i) {
-            for (int j=i+1; j<n;  ++j) {
-                for (int k=j+1; k<n; ++k) {
-                    if ((rating[i] < rating[j] && rating[j] < rating[k]) 
-                            || (rating[i] > rating[j] && rating[j] > rating[k])) {
-                        ++ret;
-                    }
-                }
-            }
-        }
-        return ret;
-    }
 };

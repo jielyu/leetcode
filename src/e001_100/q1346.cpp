@@ -26,10 +26,18 @@ Input: arr = [3,1,7,11]
 Output: false
 Explanation: In this case does not exist N and M, such that N = 2 * M.
 */
-#include <iostream>
-#include <vector>
-#include <unordered_set>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1346{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -45,4 +53,6 @@ public:
         }
         return false;
     }
+};
+
 };

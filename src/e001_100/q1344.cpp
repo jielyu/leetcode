@@ -28,9 +28,18 @@ Output: 155
 Input: hour = 12, minutes = 0
 Output: 0
 */
-#include <iostream>
-#include <cmath>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1344{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -42,4 +51,6 @@ public:
         double diff = abs(ang_h - ang_m);
         return diff > 180 ? 360 - diff : diff;
     }
+};
+
 };

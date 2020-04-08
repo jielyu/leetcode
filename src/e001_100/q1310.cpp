@@ -31,11 +31,38 @@ The XOR values for queries are:
 Input: arr = [4,8,2,10], queries = [[2,3],[1,3],[0,0],[0,3]]
 Output: [8,0,4,4]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1310{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // Time Limit Exceeded
+    vector<int> xorQueries_2(vector<int>& arr, vector<vector<int>>& queries) {
+        vector<int> ret;
+        ret.reserve(queries.size());
+        int tmp = 0, i = 0;
+        for (auto & q : queries) {
+            tmp = arr[q[0]];
+            for (i = q[0] + 1; i <= q[1]; ++i) {
+                tmp ^= arr[i];
+            }
+            ret.push_back(tmp);
+        }
+        return ret;
+    }
+};
+
+class Solution02 {
 public:
     // Runtime: 136 ms, faster than 56.90%
     // Memory Usage: 25.8 MB, less than 100.00%
@@ -59,19 +86,6 @@ public:
         }
         return ret;
     }
-    
-    // Time Limit Exceeded
-    vector<int> xorQueries_2(vector<int>& arr, vector<vector<int>>& queries) {
-        vector<int> ret;
-        ret.reserve(queries.size());
-        int tmp = 0, i = 0;
-        for (auto & q : queries) {
-            tmp = arr[q[0]];
-            for (i = q[0] + 1; i <= q[1]; ++i) {
-                tmp ^= arr[i];
-            }
-            ret.push_back(tmp);
-        }
-        return ret;
-    }
+};
+
 };

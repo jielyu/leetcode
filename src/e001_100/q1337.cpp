@@ -45,12 +45,18 @@ row 2 -> 1
 row 3 -> 1 
 Rows ordered from the weakest to the strongest are [0,2,3,1]
 */
-#include <iostream>
-#include <vector>
-#include <set>
-#include <algorithm>
-#include <numeric>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1337{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Comp{
 private:
@@ -70,7 +76,27 @@ public:
 
 class Solution {
 public:
-    // solution 1:
+    // Runtime: 20 ms, faster than 16.74%
+    // Memory Usage: 10.4 MB, less than 100.00%
+    vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+        // cosntruct row and its index vector
+        set<pair<int, int>> buff;
+        auto row_size = mat.size();
+        for (int i=0; i < row_size; ++i) {
+            auto t = accumulate(mat[i].begin(), mat[i].end(), 0);
+            buff.insert({t, i});
+        }
+        // return the first k indexes
+        vector<int> ret;
+        for (auto iter = buff.begin(); k > 0; ++iter, --k) {
+            ret.push_back(iter->second);
+        }
+        return ret;
+    }
+};
+
+class Solution02 {
+public:
     // Runtime: 16 ms, faster than 33.32%
     // Memory Usage: 10.3 MB, less than 100.00% 
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
@@ -93,35 +119,7 @@ public:
         }
         return ret;
     }
-    
-    // solution 2:
-    // Runtime: 20 ms, faster than 16.74%
-    // Memory Usage: 10.4 MB, less than 100.00%
-    vector<int> kWeakestRows_2(vector<vector<int>>& mat, int k) {
-        // cosntruct row and its index vector
-        set<pair<int, int>> buff;
-        auto row_size = mat.size();
-        for (int i=0; i < row_size; ++i) {
-            auto t = accumulate(mat[i].begin(), mat[i].end(), 0);
-            buff.insert({t, i});
-        }
-        // return the first k indexes
-        vector<int> ret;
-        for (auto iter = buff.begin(); k > 0; ++iter, --k) {
-            ret.push_back(iter->second);
-        }
-        return ret;
-    }
 };
 
-int main() {
-    vector<vector<int>> mat{{1,0,0,0}, {1,1,1,1}, {1,0,0,0}, {1,0,0,0}};
-    int k = 2;
-    Solution slt;
-    auto ret = slt.kWeakestRows(mat, k);
-    for (auto & v : ret) {
-        cout << v << ",";
-    }
-    cout << endl;
-    return 0;
-}
+};
+

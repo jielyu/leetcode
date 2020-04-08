@@ -29,9 +29,18 @@ Output: 3
 Input: s = "abcde", maxLetters = 2, minSize = 3, maxSize = 3
 Output: 0
 */
-#include <iostream>
-#include <unordered_map>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1297{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -74,4 +83,6 @@ public:
         }
         return max_cnt;
     }
+};
+
 };

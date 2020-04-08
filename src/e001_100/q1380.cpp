@@ -25,6 +25,18 @@ Explanation: 12 is the only lucky number since it is the minimum in its row and 
 Input: matrix = [[7,8],[1,2]]
 Output: [7]
 */
+#include "leetcode.h"
+
+namespace q1380{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -67,4 +79,6 @@ public:
         }
         return ret;
     }
+};
+
 };

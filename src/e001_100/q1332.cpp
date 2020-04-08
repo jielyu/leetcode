@@ -30,6 +30,17 @@ Remove palindromic subsequence "baab" then "b".
 Input: s = ""
 Output: 0
 */
+#include "leetcode.h"
+namespace q1332{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -50,4 +61,6 @@ public:
         }
         return 1;
     }
+};
+
 };

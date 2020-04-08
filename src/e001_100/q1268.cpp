@@ -36,11 +36,48 @@ Output: [["baggage","bags","banner"],["baggage","bags","banner"],["baggage","bag
 Input: products = ["havana"], searchWord = "tatiana"
 Output: [[],[],[],[],[],[],[]]
 */
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "leetcode.h"
 
+namespace q1268{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+    // exmaple 01
+    {
+        vector<string> products{"mobile","mouse","moneypot","monitor","mousepad"};
+        vector<vector<string>> ret{{"mobile","moneypot","monitor"},
+                                   {"mobile","moneypot","monitor"},
+                                   {"mouse","mousepad"},
+                                   {"mouse","mousepad"},
+                                   {"mouse","mousepad"}};
+        if(!comp_string2d(slt.suggestedProducts(products, "mouse"), ret)) {return false;}
+    }
+    // exmaple 02
+    {
+        vector<string> products{"havana"};
+        vector<vector<string>> ret{{"havana"},{"havana"},{"havana"},{"havana"},{"havana"},{"havana"}};
+        if(!comp_string2d(slt.suggestedProducts(products, "havana"), ret)) {return false;}
+    }
+    // exmaple 03
+    {
+        vector<string> products{"bags","baggage","banner","box","cloths"};
+        vector<vector<string>> ret{{"baggage","bags","banner"},
+                                   {"baggage","bags","banner"},
+                                   {"baggage","bags"},{"bags"}};
+        if(!comp_string2d(slt.suggestedProducts(products, "bags"), ret)) {return false;}
+    }
+    // exmaple 04
+    {
+        vector<string> products{"havana"};
+        vector<vector<string>> ret{{},{},{},{},{},{},{}};
+        if(!comp_string2d(slt.suggestedProducts(products, "tatiana"), ret)) {return false;}
+    }
+
+    // succ
+    return true;
+}
 
 // build a functor
 class Comp {
@@ -112,6 +149,7 @@ public:
         return ret;
     }
 };
+TEST(Q1268, Solution) {EXPECT_EQ(q1268::run_testcases<q1268::Solution>(), true);}
 
 void print_vector(vector<vector<string>> & results) {
     cout << "[";
@@ -125,10 +163,4 @@ void print_vector(vector<vector<string>> & results) {
     cout << "]" << endl;
 }
 
-int main() {
-    vector<string> products{"bags","baggage","banner","box","cloths"};
-    string searchWord = "bags";
-    Solution slt;
-    print_vector(slt.suggestedProducts(products, searchWord));
-    return 0;
-}
+};

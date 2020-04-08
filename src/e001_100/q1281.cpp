@@ -11,8 +11,17 @@ Output: 15
 Input: n = 4421
 Output: 21
 */
-#include <iostream>
-using namespace std;
+#include "leetcode.h"
+namespace q1281{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -31,9 +40,4 @@ public:
     }
 };
 
-int main() {
-    int n = 234;
-    Solution slt;
-    cout << slt.subtractProductAndSum(n) << endl;
-    return 0;
-}
+};

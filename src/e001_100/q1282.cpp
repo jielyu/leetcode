@@ -18,10 +18,17 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 Input: groupSizes = [2,1,3,3,3,2]
 Output: [[1],[0,5],[2,3,4]]
 */
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-using namespace std;
+#include "leetcode.h"
+namespace q1282{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -95,10 +102,4 @@ void print_vector(vector<vector<int>> & results) {
     cout << "]" << endl;
 }
 
-int main() {
-    vector<int> groupSizes{3,3,3,3,3,1,3};
-    Solution slt;
-    auto ret = slt.groupThePeople(groupSizes);
-    print_vector(ret);
-    return 0;
-}
+};

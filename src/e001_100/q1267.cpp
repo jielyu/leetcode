@@ -25,9 +25,34 @@ Input: grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
 Output: 4
 Explanation: The two servers in the first row can communicate with each other. The two servers in the third column can communicate with each other. The server at right bottom corner can't communicate with any other server.
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+
+namespace q1267{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+    // example 01
+    {
+        vector<vector<int>> grid{{1,0},{0,1}};
+        if(slt.countServers(grid) != 0){return false;}
+    }
+    // example 02
+    {
+        vector<vector<int>> grid{{1,0},{1,1}};
+        if(slt.countServers(grid) != 3){return false;}
+    }
+    // example 03
+    {
+        vector<vector<int>> grid{{1,1,0,0},{0,0,1,0},{0,0,1,0},{0,0,0,1}};
+        if(slt.countServers(grid) != 4){return false;}
+    }
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -85,10 +110,6 @@ public:
         return sum;
     }
 };
+TEST(Q1267, Solution) {EXPECT_EQ(q1267::run_testcases<q1267::Solution>(),true);}
 
-int main() {
-    vector<vector<int>> grid{{1,1,0,0}, {0,0,1,0}, {0,0,1,0}, {0,0,0,1}};
-    Solution slt;
-    cout << slt.countServers(grid) << endl;
-    return 0;
-}
+};

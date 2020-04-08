@@ -30,6 +30,18 @@ Output: true
 Input: radius = 1, x_center = 1, y_center = 1, x1 = 1, y1 = -3, x2 = 2, y2 = -1
 Output: false
 */
+#include "leetcode.h"
+
+namespace q1401{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 0 ms, faster than 100.00%
 // Memory Usage: 6.1 MB, less than 100.00%
@@ -40,4 +52,6 @@ public:
         int dy = y_center - max(y1, min(y_center, y2));
         return dx*dx+dy*dy <= radius*radius;
     }
+};
+
 };

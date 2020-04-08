@@ -31,9 +31,43 @@ Output: [0,1]
 
 提示：1. 二元一次方程组；2. 非负整数解
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1276{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+    // example 01
+    {
+        vector<int> ret{1,6}, out = slt.numOfBurgers(16,7);
+        if (!comp_vector(out, ret)){return false;}
+    }
+    // example 02
+    {
+        vector<int> ret, out;
+        if (!comp_vector(slt.numOfBurgers(17,4), ret)){return false;}
+    }
+    // example 03
+    {
+        vector<int> ret, out = slt.numOfBurgers(4,17);
+        if (!comp_vector(out, ret)){return false;}
+    }
+    // example 04
+    {
+        vector<int> ret{0,0}, out = slt.numOfBurgers(0,0);
+        if (!comp_vector(out, ret)){return false;}
+    }
+    // example 05
+    {
+        vector<int> ret{0,1}, out = slt.numOfBurgers(2,1);
+        if (!comp_vector(out, ret)){return false;}
+    }
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -60,15 +94,6 @@ public:
         return ret;
     }
 };
+TEST(Q1276, Solution) {EXPECT_EQ(q1276::run_testcases<q1276::Solution>(), true);}
 
-int main() {
-    int tomatoSlices = 2;
-    int cheeseSlices = 1;
-    Solution slt;
-    auto ret = slt.numOfBurgers(tomatoSlices, cheeseSlices);
-    for (auto & v : ret) {
-        cout << v << ",";
-    }
-    cout << endl;
-    return 0;
-}
+};

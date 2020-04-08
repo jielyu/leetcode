@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "leetcode.h"
 
-using namespace std;
-
+namespace q1078{
 class Solution {
 public:
     vector<string> findOcurrences(string text, string first, string second) {
@@ -42,14 +39,4 @@ public:
     }
 };
 
-int main(int argc, char ** argv) {
-    //string text = "alice is a good girl she is a good student", first = "a", second = "good";
-    //string text = "we will we will rock you", first = "we", second = "will";
-    string text="jkypmsxd jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa kcyxdfnoa jkypmsxd kcyxdfnoa", first="kcyxdfnoa", second="jkypmsxd";
-    Solution sln;
-    vector<string> res = sln.findOcurrences(text, first, second);
-    for (auto & str : res) {
-        cout << str << endl;
-    }
-    return 0;
-}
+};

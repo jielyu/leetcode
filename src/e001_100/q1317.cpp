@@ -31,9 +31,18 @@ Output: [1,68]
 Input: n = 1010
 Output: [11,999]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1317{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -55,4 +64,6 @@ public:
         }
         return vector<int>();
     }
+};
+
 };

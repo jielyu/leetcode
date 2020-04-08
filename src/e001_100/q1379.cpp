@@ -33,7 +33,7 @@ Output: 5
 Input: tree = [1,2,null,3], target = 2
 Output: 2
 */
-
+#include "leetcode.h"
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -43,6 +43,17 @@ Output: 2
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+namespace q1379{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -71,4 +82,6 @@ public:
         // cannot find target
         return nullptr;
     }
+};
+
 };

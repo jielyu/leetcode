@@ -20,9 +20,17 @@ iterator.hasNext(); // returns true
 iterator.next(); // returns "bc"
 iterator.hasNext(); // returns false
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+namespace q1286{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // 16ms
 class CombinationIterator {
@@ -78,15 +86,4 @@ public:
  * bool param_2 = obj->hasNext();
  */
 
-int main() {
-    string characters = "abc";
-    int combinationLength = 2;
-    CombinationIterator iter(characters, combinationLength);
-    cout << iter.next() << endl;
-    cout << iter.hasNext() << endl;
-    cout << iter.next() << endl;
-    cout << iter.hasNext() << endl;
-    cout << iter.next() << endl;
-    cout << iter.hasNext() << endl;
-    return 0;
-}
+};

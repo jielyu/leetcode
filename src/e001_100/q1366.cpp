@@ -48,9 +48,18 @@ Input: votes = ["M","M","M","M"]
 Output: "M"
 Explanation: Only team M in the competition so it has the first rank.
 */
+#include "leetcode.h"
 
+namespace q1366{
 
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
 
+    // succ
+    return true;
+}
 
 // Runtime: 20 ms, faster than 76.42%
 // Memory Usage: 9.1 MB, less than 100.00%
@@ -108,7 +117,7 @@ public:
 
 // Runtime: 36 ms, faster than 12.15%
 // Memory Usage: 9 MB, less than 100.00%
-class Solution01 {
+class Solution02 {
 public:
     string rankTeams(vector<string>& votes) {
         unordered_map<char, vector<int>> vote_dict;
@@ -118,7 +127,7 @@ public:
             for (int i = 0; i < n; ++i) {
                 auto iter = vote_dict.find(v[i]);
                 if (iter == vote_dict.end()) {
-                    vote_dict[v[i]] = vector(n, 0);
+                    vote_dict[v[i]] = vector<int>(n, 0);
                     vote_dict[v[i]][i] = 1;
                 } else {
                     ++vote_dict[v[i]][i];
@@ -143,4 +152,6 @@ public:
         }
         return ret;
     }
+};
+
 };

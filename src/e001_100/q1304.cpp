@@ -19,9 +19,18 @@ Output: [-1,0,1]
 Input: n = 1
 Output: [0]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1304{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -40,4 +49,6 @@ public:
         }
         return ret;
     }
+};
+
 };

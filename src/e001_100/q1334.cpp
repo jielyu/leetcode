@@ -36,7 +36,18 @@ City 3 -> [City 2, City 4]
 City 4 -> [City 1, City 2, City 3] 
 The city 0 has 1 neighboring city at a distanceThreshold = 2.
 */
+#include "leetcode.h"
 
+namespace q1334{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 class Solution {
 private:
     const static int _max_node = 100;
@@ -96,4 +107,5 @@ public:
         }
         return min_id;
     }
+};
 };

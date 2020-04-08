@@ -35,10 +35,18 @@ Output: [2,3,5,17,7,11,13,19]
 Input: arr = [10,100,1000,10000]
 Output: [10,100,10000,1000]
 */
-#include <vector>
-#include <algorithm>
-#include <numeric>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1356{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Comp{
 private:
@@ -86,4 +94,5 @@ public:
         }
         return idx;
     }
+};
 };

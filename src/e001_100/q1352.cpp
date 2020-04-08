@@ -34,8 +34,18 @@ productOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers i
 productOfNumbers.add(8);        // [3,0,2,5,4,8]
 productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 
 */
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1352{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 192 ms, faster than 85.28% 
 // Memory Usage: 61.3 MB, less than 100.00%
@@ -71,3 +81,4 @@ public:
  * obj->add(num);
  * int param_2 = obj->getProduct(k);
  */
+};

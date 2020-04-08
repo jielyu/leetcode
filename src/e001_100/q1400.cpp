@@ -35,26 +35,22 @@ Input: s = "cr", k = 7
 Output: false
 Explanation: We don't have enough characters in s to construct 7 palindromes.
 */
+#include "leetcode.h"
 
+namespace q1400{
 
-// Runtime: 56 ms, faster than 42.86%
-// Memory Usage: 11.8 MB, less than 100.00%
-class Solution {
-public:
-    bool canConstruct(string s, int k) {
-        if (k > s.size()) {return false;}
-        const int MAX_NUM = 26;
-        bitset<26> tab;
-        for (auto & c : s) {
-            tab[(int)(c-'a')].flip();
-        };
-        return tab.count() <= k;
-    }
-};
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 52 ms, faster than 42.86%
 // Memory Usage: 11.9 MB, less than 100.00%
-class Solution01 {
+class Solution {
 public:
     bool canConstruct(string s, int k) {
         if (k > s.size()) {return false;}
@@ -70,4 +66,20 @@ public:
         }
         return k >= 0;
     }
+};
+
+// Runtime: 56 ms, faster than 42.86%
+// Memory Usage: 11.8 MB, less than 100.00%
+class Solution02 {
+public:
+    bool canConstruct(string s, int k) {
+        if (k > s.size()) {return false;}
+        bitset<26> tab;
+        for (auto & c : s) {
+            tab[(int)(c-'a')].flip();
+        };
+        return tab.count() <= k;
+    }
+};
+
 };

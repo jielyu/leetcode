@@ -35,9 +35,18 @@ Explanation: There are not enough cables.
 Input: n = 5, connections = [[0,1],[0,2],[3,4],[2,3]]
 Output: 0
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1319{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 private:
@@ -77,4 +86,6 @@ public:
         // only possible if dup >= island - 1
         return dup >= island-1 ? island-1 : -1;
     }
+};
+
 };

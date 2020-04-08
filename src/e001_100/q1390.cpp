@@ -21,43 +21,22 @@ The answer is the sum of divisors of 21 only.
 /*
 提示：找到除1和本身之外的另一个除数，并且这个除数不是该数的平方根
 */
+#include "leetcode.h"
 
-// Runtime: 28 ms, faster than 97.70%
-// Memory Usage: 7.2 MB, less than 100.00%
+namespace q1390{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
+// Runtime: 128 ms, faster than 45.11%
+// Runtime: 128 ms, faster than 45.11%
 class Solution {    
-public:
-    int sumFourDivisors(vector<int>& nums) {
-        int ret = 0, mid_div = 0, mid_div_2 = 0;
-        for (auto & n : nums) {
-            // find divisors
-            int d = (int)sqrt(n);
-            mid_div = 0;
-            for (int i = 2; i <= d; ++i) {
-                if (n % i == 0) {
-                    if (mid_div == 0) {
-                        mid_div = i;
-                    } else {  // more than 4 divisors
-                        mid_div = 0;
-                        break;
-                    }
-                }
-            }
-            //cout << mid_div << endl;
-            // check divisor and accumulate result
-            if (mid_div > 0) {
-                mid_div_2 = n / mid_div;
-                if (mid_div_2 != mid_div) {
-                    ret += 1 + n + mid_div + mid_div_2;
-                }
-            }
-        }
-        return ret;
-    }
-};
-
-// Runtime: 128 ms, faster than 45.11%
-// Runtime: 128 ms, faster than 45.11%
-class Solution01 {    
 public:
     int sumFourDivisors(vector<int>& nums) {
         unordered_map<int, vector<int>> dict; 
@@ -90,4 +69,39 @@ public:
         }
         return ret;
     }
+};
+
+// Runtime: 28 ms, faster than 97.70%
+// Memory Usage: 7.2 MB, less than 100.00%
+class Solution02 {    
+public:
+    int sumFourDivisors(vector<int>& nums) {
+        int ret = 0, mid_div = 0, mid_div_2 = 0;
+        for (auto & n : nums) {
+            // find divisors
+            int d = (int)sqrt(n);
+            mid_div = 0;
+            for (int i = 2; i <= d; ++i) {
+                if (n % i == 0) {
+                    if (mid_div == 0) {
+                        mid_div = i;
+                    } else {  // more than 4 divisors
+                        mid_div = 0;
+                        break;
+                    }
+                }
+            }
+            //cout << mid_div << endl;
+            // check divisor and accumulate result
+            if (mid_div > 0) {
+                mid_div_2 = n / mid_div;
+                if (mid_div_2 != mid_div) {
+                    ret += 1 + n + mid_div + mid_div_2;
+                }
+            }
+        }
+        return ret;
+    }
+};
+
 };

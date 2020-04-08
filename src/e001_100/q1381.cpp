@@ -38,6 +38,19 @@ customStack.pop();                            // return 202 --> Return top of th
 customStack.pop();                            // return 201 --> Return top of the stack 101, stack becomes []
 customStack.pop();                            // return -1 --> Stack is empty return -1.
 */
+#include "leetcode.h"
+
+
+namespace q1381{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 48 ms, faster than 23.73%
 // Memory Usage: 19.4 MB, less than 100.00%
@@ -79,6 +92,8 @@ public:
     }
 };
 
+
+
 /**
  * Your CustomStack object will be instantiated and called as such:
  * CustomStack* obj = new CustomStack(maxSize);
@@ -86,3 +101,5 @@ public:
  * int param_2 = obj->pop();
  * obj->increment(k,val);
  */
+
+};

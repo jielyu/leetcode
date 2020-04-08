@@ -22,6 +22,18 @@ Output: 1
 Input: a = 1, b = 2, c = 3
 Output: 0
 */
+#include "leetcode.h"
+
+namespace q1318{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -44,4 +56,6 @@ public:
         }
         return ret;
     }
+};
+
 };

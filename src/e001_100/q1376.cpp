@@ -57,9 +57,18 @@ The third minute they will inform the rest of employees.
 Input: n = 4, headID = 2, manager = [3,3,-1,2], informTime = [0,0,162,914]
 Output: 1076
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1376{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 private:
@@ -96,16 +105,4 @@ public:
     }
 };
 
-int main() {
-    // int n = 15, headID = 0;
-    // vector<int> manager{-1,0,0,1,1,2,2,3,3,4,4,5,5,6,6}, 
-    //             informTime{1,1,1,1,1,1,1,0,0,0,0,0,0,0,0};
-
-    int n = 7, headID = 6;
-    vector<int> manager{1,2,3,4,5,6,-1}, 
-                informTime{0,6,5,4,3,2,1};
-
-    Solution slt;
-    std::cout << slt.numOfMinutes(n, headID, manager, informTime) << std::endl;
-    return 0;
-}
+};

@@ -12,11 +12,58 @@
 Input: arr = [17,18,5,4,6,1]
 Output: [18,6,6,6,1,-1]
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1299{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
+public:
+    // Runtime: 460 ms, faster than 12.11%
+    // Memory Usage: 10.6 MB, less than 100.00%
+    vector<int> replaceElements(vector<int>& arr) {
+        int len = arr.size(), r_max = 0;
+        for (int i = 0; i < len; ++i) {
+            r_max = 0;
+            for (int j = i+1; j < len; ++j) {
+                if (arr[j] > r_max) {
+                    r_max = arr[j];
+                }
+            }
+            arr[i] = r_max;
+        }
+        arr[len-1] = -1;
+        return arr;
+    }
+};
+
+class Solution02 {
+public:
+    // Runtime: 52 ms, faster than 78.82% 
+    // Memory Usage: 10.6 MB, less than 100.00%
+    vector<int> replaceElements(vector<int>& arr) {
+        int len = arr.size();
+        vector<int> max_vec(len, 0);
+        int r_max = -1;
+        for (int i = len-1; i >= 0; --i) {
+            max_vec[i] = r_max;
+            if (arr[i] > r_max) {
+                r_max = arr[i];
+            }
+        }
+        return max_vec;
+    }
+};
+
+class Solution03 {
 public:
     // Runtime: 48 ms, faster than 94.53%
     // Memory Usage: 10.7 MB, less than 100.00%
@@ -32,36 +79,6 @@ public:
         }
         return arr;
     }
-    
-    // Runtime: 52 ms, faster than 78.82% 
-    // Memory Usage: 10.6 MB, less than 100.00%
-    vector<int> replaceElements_3(vector<int>& arr) {
-        int len = arr.size();
-        vector<int> max_vec(len, 0);
-        int r_max = -1;
-        for (int i = len-1; i >= 0; --i) {
-            max_vec[i] = r_max;
-            if (arr[i] > r_max) {
-                r_max = arr[i];
-            }
-        }
-        return max_vec;
-    }
-    
-    // Runtime: 460 ms, faster than 12.11%
-    // Memory Usage: 10.6 MB, less than 100.00%
-    vector<int> replaceElements_2(vector<int>& arr) {
-        int len = arr.size(), r_max = 0;
-        for (int i = 0; i < len; ++i) {
-            r_max = 0;
-            for (int j = i+1; j < len; ++j) {
-                if (arr[j] > r_max) {
-                    r_max = arr[j];
-                }
-            }
-            arr[i] = r_max;
-        }
-        arr[len-1] = -1;
-        return arr;
-    }
+};
+
 };

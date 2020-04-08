@@ -35,12 +35,18 @@ Output: ["D"]
 Explanation: 
 You have id = 0 (green color in the figure) and the only friend of your friends is the person with id = 3 (yellow color in the figure).
 */
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_set>
-#include <unordered_map>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1311{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Comp {
 private:
@@ -108,4 +114,6 @@ public:
         sort(ret.begin(), ret.end(), comp);
         return ret;
     }
+};
+
 };

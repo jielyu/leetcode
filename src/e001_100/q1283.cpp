@@ -26,9 +26,17 @@ Output: 3
 Input: nums = [19], threshold = 5
 Output: 4
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+namespace q1283{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -61,4 +69,5 @@ public:
         }
         return low;
     }
+};
 };

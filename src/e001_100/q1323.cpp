@@ -28,9 +28,18 @@ Input: num = 9999
 Output: 9999
 Explanation: It is better not to apply any change.
 */
-#include <iostream>
+#include "leetcode.h"
 
-using namespace std;
+namespace q1323{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -46,4 +55,6 @@ public:
         }
         return stoi(s);
     }
+};
+
 };

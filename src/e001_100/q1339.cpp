@@ -23,7 +23,7 @@ Output: 1025
 Input: root = [1,1]
 Output: 1
 */
-
+#include "leetcode.h"
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -33,6 +33,18 @@ Output: 1
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+namespace q1339{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 class Solution {
 private:
     int _total_sum(TreeNode * root) {
@@ -69,4 +81,6 @@ public:
         return ret % (1000000000 + 7);
         
     }
+};
+
 };

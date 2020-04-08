@@ -42,6 +42,18 @@ Output: "ggggggg"
 Input: s = "spo"
 Output: "ops"
 */
+#include "leetcode.h"
+
+namespace q1370{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -50,7 +62,7 @@ public:
     string sortString(string s) {
         vector<int> hist(26, 0);
         // create histogram
-        int n = s.size(), max_cnt = 0;
+        int max_cnt = 0;
         for (auto c : s) {
             c -= 'a';
             ++hist[c];
@@ -79,4 +91,5 @@ public:
         }
         return ret;
     }
+};
 };

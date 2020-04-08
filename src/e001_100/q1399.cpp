@@ -26,29 +26,41 @@ Output: 6
 Input: n = 24
 Output: 5
 */
+#include "leetcode.h"
 
-// Runtime: 0 ms, faster than 100.00%
-// Memory Usage: 6 MB, less than 100.00% 
+namespace q1399{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
+// Runtime: 48 ms, faster than 12.50%
+// Memory Usage: 8.6 MB, less than 100.00%
 class Solution {
 public:
     int countLargestGroup(int n) {
-        const int MAX_SUM = 36 + 1;
-        int groups[MAX_SUM] = {0}, max_len = 0, sum = 0;
-        for (int i=1, x=1; i<=n; ++i) {
-            sum = 0, x = i;
-            while(x) {
-                sum += x % 10;
-                x /= 10;
+        unordered_map<int, vector<int>> groups;
+        int sum = 0, max_len = 0;
+        for (int i=1; i<=n; ++i) {
+            auto s = to_string(i);
+            sum = 0;
+            for (auto & c : s) {
+                sum += (int)(c - '0');
             }
-            ++groups[sum];
-            if (groups[sum] > max_len) {
-                max_len = groups[sum];
+            groups[sum].push_back(i);
+            if (groups[sum].size() > max_len) {
+                max_len = groups[sum].size();
             }
         }
         // accumulate result
         int ret = 0;
-        for (int i = 0; i < MAX_SUM; ++i) {
-            if (groups[i] == max_len) {
+        for (auto & g : groups) {
+            if (g.second.size() == max_len) {
                 ++ret;
             }
         }
@@ -85,31 +97,34 @@ public:
     }
 };
 
-// Runtime: 48 ms, faster than 12.50%
-// Memory Usage: 8.6 MB, less than 100.00%
-class Solution01 {
+
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6 MB, less than 100.00% 
+class Solution03 {
 public:
     int countLargestGroup(int n) {
-        unordered_map<int, vector<int>> groups;
-        int sum = 0, max_len = 0;
-        for (int i=1; i<=n; ++i) {
-            auto s = to_string(i);
-            sum = 0;
-            for (auto & c : s) {
-                sum += (int)(c - '0');
+        const int MAX_SUM = 36 + 1;
+        int groups[MAX_SUM] = {0}, max_len = 0, sum = 0;
+        for (int i=1, x=1; i<=n; ++i) {
+            sum = 0, x = i;
+            while(x) {
+                sum += x % 10;
+                x /= 10;
             }
-            groups[sum].push_back(i);
-            if (groups[sum].size() > max_len) {
-                max_len = groups[sum].size();
+            ++groups[sum];
+            if (groups[sum] > max_len) {
+                max_len = groups[sum];
             }
         }
         // accumulate result
         int ret = 0;
-        for (auto & g : groups) {
-            if (g.second.size() == max_len) {
+        for (int i = 0; i < MAX_SUM; ++i) {
+            if (groups[i] == max_len) {
                 ++ret;
             }
         }
         return ret;
     }
+};
+
 };

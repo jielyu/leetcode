@@ -40,41 +40,27 @@ Output: 1
 */
 
 /*
-原理说明：利用有序数组的特点，可以避免一些比较
-时间复杂度：
-    假设arr1的长度为m，arr2的长度为n，则时间复杂度为：O(mlog(m)+nlog(n))
-*/
-class Solution {
-public:
-    // Runtime: 12 ms, faster than 70.00%
-    // Memory Usage: 6.9 MB, less than 100.00%
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        // sort array by increasing order
-        sort(arr1.begin(), arr1.end());
-        sort(arr2.begin(), arr2.end());
-        // check all elements in arr1
-        int ret = 0, idx2 = 0, len1 = arr1.size(), len2 = arr2.size();
-        for (int i = 0; i < len1; ++i) {
-            if ((idx2 >= len2) || (arr1[i] < arr2[idx2] - d)) {
-                ++ret;
-            } else if (arr1[i] > arr2[idx2] + d) {
-                ++idx2;
-                --i; // combinate with ++i to keep i invariable
-            }
-        }
-        return ret;
-    }
-};
-
-/*
 原理说明：先计算出所有的区间上下界，然后在比较
 时间复杂度：假设arr1的长度为m，arr2的长度为n，则时间复杂度为：O(mn)
 */
-class Solution01 {
+#include "leetcode.h"
+
+namespace q1385{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
+class Solution {
 public:
     // Runtime: 16 ms, faster than 20.00%
     // Memory Usage: 8 MB, less than 100.00%
-    int findTheDistanceValue_1(vector<int>& arr1, vector<int>& arr2, int d) {
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
         int len_arr2 = arr2.size();
         vector<vector<int>> limits_bnd(len_arr2, {0, 0});
         // arr2 - d <= arr1 <= arr2 + d
@@ -101,4 +87,33 @@ public:
         }
         return ret;
     }
+};
+
+/*
+原理说明：利用有序数组的特点，可以避免一些比较
+时间复杂度：
+    假设arr1的长度为m，arr2的长度为n，则时间复杂度为：O(mlog(m)+nlog(n))
+*/
+class Solution02 {
+public:
+    // Runtime: 12 ms, faster than 70.00%
+    // Memory Usage: 6.9 MB, less than 100.00%
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        // sort array by increasing order
+        sort(arr1.begin(), arr1.end());
+        sort(arr2.begin(), arr2.end());
+        // check all elements in arr1
+        int ret = 0, idx2 = 0, len1 = arr1.size(), len2 = arr2.size();
+        for (int i = 0; i < len1; ++i) {
+            if ((idx2 >= len2) || (arr1[i] < arr2[idx2] - d)) {
+                ++ret;
+            } else if (arr1[i] > arr2[idx2] + d) {
+                ++idx2;
+                --i; // combinate with ++i to keep i invariable
+            }
+        }
+        return ret;
+    }
+};
+
 };

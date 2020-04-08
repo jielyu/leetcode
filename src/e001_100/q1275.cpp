@@ -51,9 +51,42 @@ Explanation: The game has not finished yet.
 " O "
 "   "
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1275{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+    // example 01
+    {
+        vector<vector<int>> moves{{0,0},{2,0},{1,1},{2,1},{2,2}};
+        string ret = "A";
+        if (slt.tictactoe(moves) != ret) {return false;}
+    }
+    // example 02
+    {
+        vector<vector<int>> moves{{0,0},{1,1},{0,1},{0,2},{1,0},{2,0}};
+        string ret = "B";
+        if (slt.tictactoe(moves) != ret) {return false;}
+    }
+    // example 03
+    {
+        vector<vector<int>> moves{{0,0},{1,1},{2,0},{1,0},{1,2},{2,1},{0,1},{0,2},{2,2}};
+        string ret = "Draw";
+        if (slt.tictactoe(moves) != ret) {return false;}
+    }
+    // example 04
+    {
+        vector<vector<int>> moves{{0,0},{1,1}};
+        string ret = "Pending";
+        if (slt.tictactoe(moves) != ret) {return false;}
+    }
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -114,10 +147,6 @@ public:
         return string("Draw");
     }
 };
+TEST(Q1275, Solution) {EXPECT_EQ(q1275::run_testcases<q1275::Solution>(), true);}
 
-int main() {
-    vector<vector<int>> moves{{0,0}, {1,1}, {0,1}, {0,2}, {1,0}, {2,0}};
-    Solution slt;
-    cout << slt.tictactoe(moves) << endl;
-    return 0;
-}
+};

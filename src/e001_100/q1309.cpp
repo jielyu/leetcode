@@ -29,8 +29,18 @@ Output: "y"
 Input: s = "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#"
 Output: "abcdefghijklmnopqrstuvwxyz"
 */
-#include <iostream>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1309{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -50,4 +60,6 @@ public:
         }
         return ret;
     }
+};
+
 };

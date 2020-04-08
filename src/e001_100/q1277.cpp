@@ -23,9 +23,18 @@ Input: matrix =
 ]
 Output: 7
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+namespace q1277{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
+
 
 class Solution {
 public:
@@ -77,9 +86,4 @@ public:
     }
 };
 
-int main() {
-    vector<vector<int>> matrix{{0,1,1,1}, {1,1,1,1}, {0,1,1,1}};
-    Solution slt;
-    cout << slt.countSquares(matrix) << endl;
-    return 0;
-}
+};

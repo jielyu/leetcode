@@ -23,9 +23,28 @@ Total time = 7 seconds
 Input: points = [[3,2],[-2,2]]
 Output: 5
 */
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1266{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+    // example 01
+    {
+        vector<vector<int>> pts{{1,1},{3,4},{-1,0}};
+        if (slt.minTimeToVisitAllPoints(pts) != 7) {return false;}
+    }
+    // example 02
+    {
+        vector<vector<int>> pts{{3,2},{-2,2}};
+        if (slt.minTimeToVisitAllPoints(pts) != 5) {return false;}
+    }
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -45,10 +64,6 @@ public:
         return sum;
     }
 };
+TEST(Q1266, Solution) {EXPECT_EQ(q1266::run_testcases<q1266::Solution>(), true);}
 
-int main() {
-    vector<vector<int>> points{{1,1}, {3,4}, {-1,0}};
-    Solution slt;
-    cout << slt.minTimeToVisitAllPoints(points) << endl;
-    return 0;
-}
+};

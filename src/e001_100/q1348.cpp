@@ -36,11 +36,18 @@ tweetCounts.getTweetCountsPerFrequency("minute", "tweet3", 0, 60); // return [2,
 tweetCounts.recordTweet("tweet3", 120);                            // All tweets correspond to "tweet3" with recorded times at 0, 10, 60 and 120.
 tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  // return [4]. The frequency is per hour (3600 seconds), so there is one interval of time: 1) [0, 211> - > 4 tweets.
 */
-#include <iostream>
-#include <unordered_map>
-#include <vector>
-#include <set>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1348{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 // Runtime: 212 ms, faster than 61.82%
 // Memory Usage: 33.4 MB, less than 100.00%
@@ -83,3 +90,5 @@ public:
  * obj->recordTweet(tweetName,time);
  * vector<int> param_2 = obj->getTweetCountsPerFrequency(freq,tweetName,startTime,endTime);
  */
+
+};

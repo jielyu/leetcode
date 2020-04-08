@@ -36,9 +36,18 @@ Output: 1
 Input: events = [[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7]]
 Output: 7
 */
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "leetcode.h"
+
+namespace q1353{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 private:
@@ -69,4 +78,5 @@ public:
         }
         return ret;
     }
+};
 };

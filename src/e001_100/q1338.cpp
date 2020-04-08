@@ -29,6 +29,18 @@ Output: 1
 Input: arr = [1,2,3,4,5,6,7,8,9,10]
 Output: 5
 */
+#include "leetcode.h"
+
+namespace q1338{
+
+template<typename T>
+bool run_testcases() {
+    T slt;
+    // place testcases below
+
+    // succ
+    return true;
+}
 
 class Solution {
 public:
@@ -63,4 +75,6 @@ public:
         }
         return ret;
     }
+};
+
 };
