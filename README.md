@@ -18,6 +18,8 @@ to manage code solving leetcode-like problems
 
 ### [Q1276 不浪费原料的汉堡数量](https://mp.weixin.qq.com/s/NL2Fg_le_8uQiYM6NMDNKg)
 
+[更多文章>>>](https://cnbluegeek.github.io/archive/?tag=%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98)
+
 ## Communicate 交流
 
 关于“Leetcode面试刷题”或者“计算机编程”相关的讨论可以加入 ***电报群*** ：
@@ -25,3 +27,7 @@ to manage code solving leetcode-like problems
 [面试刷题Leetcode频道](https://t.me/interview_leetcode_channel)
 
 [面试刷题Leetcode群组](https://t.me/interview_leetcode)
+
+国内私聊可以添加本人微信：cnbluegeek
+
+<div style="text-align:center;width:100%;"><img width="150" height="150" src="images/cnbluegeek-qr.jpeg" /></div>
