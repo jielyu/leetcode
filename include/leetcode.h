@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <numeric>
 #include <bitset>
+#include <queue>
 
 #include <stddef.h>
 #include <cmath>
