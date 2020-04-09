@@ -17,11 +17,21 @@ include_directories(${GTEST_INCLUDE_DIR})
 set(LIBS ${LIBS} ${GTEST_BOTH_LIBRARIES})
 
 #depend glog
-find_package(Glog REQUIRED)
+IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
+  MESSAGE(STATUS "current platform: Linux ")
+  include(./FindGlog.cmake)
+ELSEIF (APPLE)
+  find_package(Glog REQUIRED)
+  set(GLOG_LIBRARIES glog::glog)
+ELSE ()
+  message(STATUS "error:not support os")
+
+ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")
+#find_package(Glog REQUIRED)
 message(STATUS "depend glog include: ${GLOG_INCLUDE_DIRS}")
 message(STATUS "depend glog lib: ${GLOG_LIBRARIES}")
 set(GLOG_INCLUDE_DIRS ${GTEST_INCLUDE_DIR})
-set(GLOG_LIBRARIES glog::glog)
+#set(GLOG_LIBRARIES glog::glog)
 include_directories(${GLOG_INCLUDE_DIRS}) 
 set(LIBS ${LIBS} ${GLOG_LIBRARIES})
 
