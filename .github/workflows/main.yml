@@ -1,8 +1,5 @@
 name: gplus-CI
-on:
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 jobs:
   build:
     runs-on: macos-latest

@@ -22,6 +22,7 @@ to manage code solving leetcode-like problems
 
 ## Dependencies 依赖
 
+* cmake
 * gflags
 * glog
 * gtest
