@@ -52,13 +52,13 @@ bool run_testcases() {
                                    {"mouse","mousepad"},
                                    {"mouse","mousepad"},
                                    {"mouse","mousepad"}};
-        if(!comp_string2d(slt.suggestedProducts(products, "mouse"), ret)) {return false;}
+        if(!comp_matrix(slt.suggestedProducts(products, "mouse"), ret)) {return false;}
     }
     // exmaple 02
     {
         vector<string> products{"havana"};
         vector<vector<string>> ret{{"havana"},{"havana"},{"havana"},{"havana"},{"havana"},{"havana"}};
-        if(!comp_string2d(slt.suggestedProducts(products, "havana"), ret)) {return false;}
+        if(!comp_matrix(slt.suggestedProducts(products, "havana"), ret)) {return false;}
     }
     // exmaple 03
     {
@@ -66,13 +66,13 @@ bool run_testcases() {
         vector<vector<string>> ret{{"baggage","bags","banner"},
                                    {"baggage","bags","banner"},
                                    {"baggage","bags"},{"bags"}};
-        if(!comp_string2d(slt.suggestedProducts(products, "bags"), ret)) {return false;}
+        if(!comp_matrix(slt.suggestedProducts(products, "bags"), ret)) {return false;}
     }
     // exmaple 04
     {
         vector<string> products{"havana"};
         vector<vector<string>> ret{{},{},{},{},{},{},{}};
-        if(!comp_string2d(slt.suggestedProducts(products, "tatiana"), ret)) {return false;}
+        if(!comp_matrix(slt.suggestedProducts(products, "tatiana"), ret)) {return false;}
     }
 
     // succ
