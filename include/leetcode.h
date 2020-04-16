@@ -12,6 +12,7 @@
 #include <numeric>
 #include <bitset>
 #include <queue>
+#include <regex>
 
 #include <stddef.h>
 #include <cmath>
