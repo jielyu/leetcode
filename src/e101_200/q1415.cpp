@@ -44,6 +44,36 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
+    {
+        int n = 1, k = 3;
+        string ret = "c";
+        if (slt.getHappyString(n, k) != ret) {return false;}
+    }
+
+    {
+        int n = 1, k = 4;
+        string ret = "";
+        if (slt.getHappyString(n, k) != ret) {return false;}
+    }
+
+    {
+        int n = 3, k = 9;
+        string ret = "cab";
+        if (slt.getHappyString(n, k) != ret) {return false;}
+    }
+
+    {
+        int n = 2, k = 7;
+        string ret = "";
+        if (slt.getHappyString(n, k) != ret) {return false;}
+    }
+
+    {
+        int n = 10, k = 100;
+        string ret = "abacbabacb";
+        if (slt.getHappyString(n, k) != ret) {return false;}
+    }
+
     return true;
 }
 
@@ -77,4 +107,5 @@ public:
         return ret;
     }
 };
+TEST(Q1415, Solution) {EXPECT_EQ(q1415::run_testcases<q1415::Solution>(), true);}
 } // namespace q1415

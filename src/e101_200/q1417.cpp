@@ -37,9 +37,25 @@ Output: "1a2b3"
 
 namespace q1417 {
 
+bool is_valid(const string & s) {
+    int n = s.size();
+    for (int i=1; i < n; ++i) {
+        auto is_digit1 = s[i] >= '0' && s[i] <= '9';
+        auto is_digit2 = s[i-1] >= '0' && s[i-1] <= '9'; 
+        if (!(is_digit1 ^ is_digit2)) {return false;}
+    }
+    return true;
+}
+
 template<typename T>
 bool run_testcases() {
     T slt;
+
+    if (!is_valid(slt.reformat("a0b1c2"))) {return false;}
+    if (!is_valid(slt.reformat("leetcode"))) {return false;}
+    if (!is_valid(slt.reformat("1229857369"))) {return false;}
+    if (!is_valid(slt.reformat("covid2019"))) {return false;}
+    if (!is_valid(slt.reformat("ab123"))) {return false;}
 
     return true;
 }
@@ -76,4 +92,5 @@ public:
         return ret;
     }
 };
+TEST(Q1417, Solution) {EXPECT_EQ(q1417::run_testcases<q1417::Solution>(), true);}
 } // namespace q1417

@@ -38,6 +38,24 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
+    {
+        vector<int> nums{-3,2,-3,4,2};
+        int ret = 5;
+        if (slt.minStartValue(nums) != ret) {return false;}
+    }
+
+    {
+        vector<int> nums{1,2};
+        int ret = 1;
+        if (slt.minStartValue(nums) != ret) {return false;}
+    }
+
+    {
+        vector<int> nums{1,-2,-3};
+        int ret = 5;
+        if (slt.minStartValue(nums) != ret) {return false;}
+    }
+
     return true;
 }
 
@@ -58,5 +76,6 @@ public:
         return ret;
     }
 };
+TEST(Q1413, Solution) {EXPECT_EQ(q1413::run_testcases<q1413::Solution>(), true);}
 }; // namespace q1413
 

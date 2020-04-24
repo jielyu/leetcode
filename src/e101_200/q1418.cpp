@@ -47,6 +47,40 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
+    {
+        vector<vector<string>> orders{{"David","3","Ceviche"},
+                                      {"Corina","10","Beef Burrito"},
+                                      {"David","3","Fried Chicken"},
+                                      {"Carla","5","Water"},
+                                      {"Carla","5","Ceviche"},{"Rous","3","Ceviche"}};
+        vector<vector<string>> ret{{"Table","Beef Burrito","Ceviche","Fried Chicken","Water"},
+                                   {"3","0","2","1","0"},
+                                   {"5","0","1","0","1"},
+                                   {"10","1","0","0","0"}};
+        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+    }
+
+    {
+        vector<vector<string>> orders{{"James","12","Fried Chicken"},
+                                      {"Ratesh","12","Fried Chicken"},
+                                      {"Amadeus","12","Fried Chicken"},
+                                      {"Adam","1","Canadian Waffles"},
+                                      {"Brianna","1","Canadian Waffles"}};
+        vector<vector<string>> ret{{"Table","Canadian Waffles","Fried Chicken"},
+                                   {"1","2","0"},
+                                   {"12","0","3"}};
+        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+    }
+
+    {
+        vector<vector<string>> orders{{"Laura","2","Bean Burrito"},
+                                      {"Jhon","2","Beef Burrito"},
+                                      {"Melissa","2","Soda"}};
+        vector<vector<string>> ret{{"Table","Bean Burrito","Beef Burrito","Soda"},
+                                   {"2","1","1","1"}};
+        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+    }
+
     return true;
 }
 
@@ -91,4 +125,5 @@ public:
         return ret;
     }
 };
+TEST(Q1418, Solution) {EXPECT_EQ(q1418::run_testcases<q1418::Solution>(), true);}
 } // namespace q1418
