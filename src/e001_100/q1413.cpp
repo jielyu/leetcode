@@ -77,5 +77,23 @@ public:
     }
 };
 TEST(Q1413, Solution) {EXPECT_EQ(q1413::run_testcases<q1413::Solution>(), true);}
+
+// @Tiabeanie2
+// Runtime: 4 ms, faster than 46.14%
+// Memory Usage: 7.5 MB, less than 100.00%
+class Solution02 {
+public:
+    int minStartValue(vector<int>& nums) {
+        int min_v = nums[0], ps = nums[0], len = nums.size();
+        for (int i = 1; i < len; ++i) {
+            ps += nums[i];
+            if (ps < min_v) {
+                min_v = ps;
+            }
+        }
+        return min_v >= 1 ? 1 : 1 - min_v;
+    }
+};
+TEST(Q1413, Solution02) {EXPECT_EQ(q1413::run_testcases<q1413::Solution02>(), true);}
 }; // namespace q1413
 
