@@ -133,6 +133,97 @@ public:
 };
 TEST(Q1410, Solution02) {EXPECT_EQ(q1410::run_testcases<q1410::Solution02>(), true);}
 
-} // namespace q141 
+// @Tiabeanie2
+class Solution03 {
+public:
+    string entityParser(string text) {
+        string symbols = "\"'&></";
+        vector<string> entities = {"&quot;", "&apos;", "&amp;", "&gt;", "&lt;", "&frasl;"};        
+        int i = 0;
+        int j = 0;
+        while (i < text.size())
+        {      
+            int index;
+            if (text[i] != '&' || (index = findEntity(text, i, entities)) == -1)
+            {
+                text[j ++] = text[i ++];
+            }
+            else
+            {
+                text[j ++] = symbols[index];
+                i += entities[index].size();
+            }
+        }
+       
+        text.resize(j);
+        return text;
+    }
+   
+    bool startWith(const string& text, int start, const string& entity)
+    {
+        if (text.size() - start < entity.size()) return false;
+        for (int i = start; i < start + entity.size(); i ++)
+        {
+            if (text[i] != entity[i - start]) return false;
+        }
+        return true;
+    }
+   
+    int findEntity(const string& text, int start, vector<string>& entities)
+    {
+        for (int i = 0; i < entities.size(); i++)
+        {
+            if (startWith(text, start, entities[i])) return i;
+        }
+ 
+        return -1;
+    }
+};
+TEST(Q1410, Solution03) {EXPECT_EQ(q1410::run_testcases<q1410::Solution03>(), true);}
+
+// @Tiabeanie2
+class Solution04 {
+public:
+    string entityParser(string text) {
+        vector<pair<int, int>> locations;
+        string symbols = "\"'&></";
+        string entities[] = {"&quot;", "&apos;", "&amp;", "&gt;", "&lt;", "&frasl;"};
+        for (int i = 0; i < symbols.size(); i ++)
+        {
+            int start = 0;
+            while (start < text.size())
+            {
+                auto pos = text.find(entities[i], start);
+                if (pos != string::npos)
+                {
+                    locations.push_back({pos, i});
+                    start = pos + entities[i].size();
+                }
+                else break;
+            }
+        }
+       
+        sort(locations.begin(), locations.end());
+       
+        string result;
+        int start = 0;
+        for (auto& loc : locations)
+        {
+            copy(start, loc.first, text, result);
+            result += symbols[loc.second];
+            start = loc.first + entities[loc.second].size();
+        }
+       
+        copy(start, text.size(), text, result);
+        return result;
+    }
+   
+    void copy(int start, int end, const string& src, string& dst)
+    {
+        for (int i = start; i < end; i ++) dst += src[i];
+    }
+};
+TEST(Q1410, Solution04) {EXPECT_EQ(q1410::run_testcases<q1410::Solution04>(), true);}
+}; // namespace q1410 
 
 
