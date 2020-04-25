@@ -65,4 +65,34 @@ public:
 };
 TEST(Q1414, Solution) {EXPECT_EQ(q1414::run_testcases<q1414::Solution>(), true);}
 
+// @Tiabeanie2
+class Solution02 {
+public:
+    int findMinFibonacciNumbers(int k) {
+        vector<int> fibos = {1, 1};
+        while (fibos.back() < 1e9)
+        {
+            fibos.push_back(fibos.back() + fibos[fibos.size() - 2]);
+        }
+       
+        int ans = 0;
+        while (k > 1)
+        {
+            auto it = std::lower_bound(fibos.begin(), fibos.end(), k);
+            if (*it == k)
+            {
+                ans ++;
+                break;
+            }
+           
+            --it;
+            ans ++;
+            k -= *it;
+        }
+       
+        if (k == 1) ans ++;        
+        return ans;
+    }
+};
+TEST(Q1414, Solution02) {EXPECT_EQ(q1414::run_testcases<q1414::Solution02>(), true);}
 }; // nam;espace q1414
