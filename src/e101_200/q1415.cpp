@@ -108,4 +108,95 @@ public:
     }
 };
 TEST(Q1415, Solution) {EXPECT_EQ(q1415::run_testcases<q1415::Solution>(), true);}
+
+// @@Tiabeanie2
+class Solution02 {
+public:
+    string sol;
+    int count;
+    int k;
+    string kSol;
+    string getHappyString(int n, int _k) {
+        k = _k;
+        count = 0;
+        sol.resize(n);
+        go(0);
+        if (count == k) return kSol;
+        return "";
+    }
+   
+    void go(int pos)
+    {
+        if (count == k) return;
+        if (pos == sol.size())
+        {
+            count ++;
+            if (count == k) kSol = sol;
+            return;
+        }
+       
+        for (char ch = 'a'; ch <= 'c'; ch ++)
+        {
+            if (pos == 0 || sol[pos - 1] != ch)
+            {
+                sol[pos] = ch;
+                go(pos + 1);
+            }
+        }        
+    }
+};
+TEST(Q1415, Solution02) {EXPECT_EQ(q1415::run_testcases<q1415::Solution02>(), true);}
+
+// @@Tiabeanie2
+class Solution03 {
+public:
+    string getHappyString(int n, int k) {
+        int total = 3;
+        int p = 1;
+        for (int i = 0; i < n - 1; i ++)
+        {
+            total <<= 1;
+            p <<= 1;
+        }
+        if (k > total) return "";
+        string sol(n, 'a');
+        if (k > p && k <= 2 * p)
+        {
+            sol[0] = 'b'; k -= p;
+        }
+        else if (k > 2 * p)
+        {
+            sol[0] = 'c'; k -= 2 * p;
+        }
+       
+        int i = 1;
+        while (i < n)
+        {
+            p >>= 1;
+            if (k <= p) sol[i] = getChar(sol[i - 1], true);
+            else
+            {
+                sol[i] = getChar(sol[i - 1], false);
+                k -= p;        
+            }
+            i ++;
+        }
+           
+        return sol;
+    }
+   
+    char getChar(char prev, bool first)
+    {
+        char ch;
+        char last;
+        for (ch = 'a'; ch <= 'c'; ch ++)
+        {
+            if (prev == ch) continue;
+            if (first) return ch;
+            last = ch;
+        }
+        return last;
+    }
+};
+TEST(Q1415, Solution03) {EXPECT_EQ(q1415::run_testcases<q1415::Solution03>(), true);}
 } // namespace q1415
