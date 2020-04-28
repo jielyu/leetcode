@@ -27,6 +27,20 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> mat{{1,2,3},{4,5,6},{7,8,9}};
+        int K = 1;
+        vector<vector<int>> ret{{12,21,16},{27,45,33},{24,39,28}};
+        if (!comp_matrix(ret, slt.matrixBlockSum(mat, K))) {return false;}
+    }
+
+    {
+        vector<vector<int>> mat{{1,2,3},{4,5,6},{7,8,9}};
+        int K = 2;
+        vector<vector<int>> ret{{45,45,45},{45,45,45},{45,45,45}};
+        if (!comp_matrix(ret, slt.matrixBlockSum(mat, K))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -57,6 +71,7 @@ public:
         return ret;
     }
 };
+TEST(Q1314, Solution) {EXPECT_EQ(q1314::run_testcases<q1314::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -105,5 +120,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1314, Solution02) {EXPECT_EQ(q1314::run_testcases<q1314::Solution02>(), true);}
 };

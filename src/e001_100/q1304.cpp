@@ -23,10 +23,37 @@ Output: [0]
 
 namespace q1304{
 
+bool check_ret(const vector<int> & ret) {
+    int sum = 0;
+    for (auto & i : ret) {
+        sum += i;
+    }
+    if (0 != sum) {return false;}
+    return true;
+}
+
 template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+
+    {
+        int n = 5;
+        vector<int> ret {-7,-1,1,3,4};
+        if (!check_ret(slt.sumZero(n))) {return false;}
+    }
+
+    {
+        int n = 3;
+        vector<int> ret {-1,0,1};
+        if (!check_ret(slt.sumZero(n))) {return false;}
+    }
+
+    {
+        int n = 1;
+        vector<int> ret {0};
+        if (!check_ret(slt.sumZero(n))) {return false;}
+    }
 
     // succ
     return true;
@@ -50,5 +77,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1304, Solution) {EXPECT_EQ(q1304::run_testcases<q1304::Solution>(), true);}
 };

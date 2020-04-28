@@ -40,6 +40,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {4,2,3,0,3,1,2};
+        int start = 5;
+        if (true != slt.canReach(arr, start)) {return false;}
+    }
+
+    {
+        vector<int> arr {4,2,3,0,3,1,2};
+        int start = 0;
+        if (true != slt.canReach(arr, start)) {return false;}
+    }
+
+    {
+        vector<int> arr {3,0,2,1,2};
+        int start = 2;
+        if (false != slt.canReach(arr, start)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -73,5 +91,5 @@ public:
         return isReach(arr, start, used);
     }
 };
-
+TEST(Q1306, Solution) {EXPECT_EQ(q1306::run_testcases<q1306::Solution>(), true);}
 };

@@ -44,6 +44,22 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<string>> watchedVideos = {{"A","B"},{"C"},{"B","C"},{"D"}};
+        vector<vector<int>> friends{{1,2},{0,3},{0,3},{1,2}};
+        int id = 0, level = 1;
+        vector<string> ret {"B","C"};
+        if (!comp_vector(ret, slt.watchedVideosByFriends(watchedVideos, friends, id, level))) {return false;}
+    }
+
+    {
+        vector<vector<string>> watchedVideos = {{"A","B"},{"C"},{"B","C"},{"D"}};
+        vector<vector<int>> friends{{1,2},{0,3},{0,3},{1,2}};
+        int id = 0, level = 2;
+        vector<string> ret {"D"};
+        if (!comp_vector(ret, slt.watchedVideosByFriends(watchedVideos, friends, id, level))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -115,5 +131,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1311, Solution) {EXPECT_EQ(q1311::run_testcases<q1311::Solution>(), true);}
 };

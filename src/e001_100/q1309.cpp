@@ -37,7 +37,26 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    {
+        string s = "10#11#12", ret = "jkab";
+        if (ret != slt.freqAlphabets(s)) {return false;}
+    }
 
+    {
+        string s = "1326#", ret = "acz";
+        if (ret != slt.freqAlphabets(s)) {return false;}
+    }
+
+    {
+        string s = "25#", ret = "y";
+        if (ret != slt.freqAlphabets(s)) {return false;}
+    }
+
+    {
+        string s = "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#", 
+               ret = "abcdefghijklmnopqrstuvwxyz";
+        if (ret != slt.freqAlphabets(s)) {return false;}
+    }
     // succ
     return true;
 }
@@ -61,5 +80,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1309, Solution) {EXPECT_EQ(q1309::run_testcases<q1309::Solution>(), true);}
 };

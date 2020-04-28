@@ -27,6 +27,11 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums{1,2,3,4}, ret{2,4,4,4};
+        if (!comp_vector(ret, slt.decompressRLElist(nums))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -46,6 +51,7 @@ public:
         return ret;
     }
 };
+TEST(Q1313, Solution) {EXPECT_EQ(q1313::run_testcases<q1313::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -68,5 +74,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1313, Solution02) {EXPECT_EQ(q1313::run_testcases<q1313::Solution02>(), true);}
 };

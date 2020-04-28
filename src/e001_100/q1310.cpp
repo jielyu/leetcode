@@ -40,6 +40,18 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {1,3,4,8}, ret {2,7,14,8};
+        vector<vector<int>> queries{{0,1},{1,2},{0,3},{3,3}};
+        if (!comp_vector(ret, slt.xorQueries(arr, queries))) {return false;}
+    }
+
+    {
+        vector<int> arr {4,8,2,10}, ret {8,0,4,4};
+        vector<vector<int>> queries{{2,3},{1,3},{0,0},{0,3}};
+        if (!comp_vector(ret, slt.xorQueries(arr, queries))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -47,7 +59,7 @@ bool run_testcases() {
 class Solution {
 public:
     // Time Limit Exceeded
-    vector<int> xorQueries_2(vector<int>& arr, vector<vector<int>>& queries) {
+    vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
         vector<int> ret;
         ret.reserve(queries.size());
         int tmp = 0, i = 0;
@@ -61,6 +73,7 @@ public:
         return ret;
     }
 };
+TEST(Q1310, Solution) {EXPECT_EQ(q1310::run_testcases<q1310::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -87,5 +100,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1310, Solution02) {EXPECT_EQ(q1310::run_testcases<q1310::Solution02>(), true);}
 };
