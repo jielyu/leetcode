@@ -41,6 +41,36 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {2,2,2,2,5,5,5,8};
+        int k = 3, threshold = 4;
+        if (3 != slt.numOfSubarrays(arr, k, threshold)) {return false;}
+    }
+
+    {
+        vector<int> arr {1,1,1,1,1};
+        int k = 1, threshold = 0;
+        if (5 != slt.numOfSubarrays(arr, k, threshold)) {return false;}
+    }
+
+    {
+        vector<int> arr {11,13,17,23,29,31,7,5,2,3};
+        int k = 3, threshold = 5;
+        if (6 != slt.numOfSubarrays(arr, k, threshold)) {return false;}
+    }
+
+    {
+        vector<int> arr {7,7,7,7,7,7,7};
+        int k = 7, threshold = 7;
+        if (1 != slt.numOfSubarrays(arr, k, threshold)) {return false;}
+    }
+
+    {
+        vector<int> arr {4,4,4,4};
+        int k = 4, threshold = 1;
+        if (1 != slt.numOfSubarrays(arr, k, threshold)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -67,5 +97,5 @@ public:
         return count;
     }
 };
-
+TEST(Q1343, Solution) {EXPECT_EQ(q1343::run_testcases<q1343::Solution>(), true);}
 };

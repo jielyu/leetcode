@@ -45,6 +45,20 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        int n = 4;
+        vector<vector<int>> edges {{0,1,3},{1,2,1},{1,3,4},{2,3,1}};
+        int distanceThreshold = 4;
+        if (3 != slt.findTheCity(n, edges, distanceThreshold)) {return false;}
+    }
+
+    {
+        int n = 5;
+        vector<vector<int>> edges {{0,1,2},{0,4,8},{1,2,3},{1,4,2},{2,3,1},{3,4,1}};
+        int distanceThreshold = 2;
+        if (0 != slt.findTheCity(n, edges, distanceThreshold)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -108,4 +122,5 @@ public:
         return min_id;
     }
 };
+TEST(Q1334, Solution) {EXPECT_EQ(q1334::run_testcases<q1334::Solution>(), true);}
 };

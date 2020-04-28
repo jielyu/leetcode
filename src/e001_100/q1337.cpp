@@ -54,6 +54,27 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> mat = {{1,1,0,0,0},
+                                   {1,1,1,1,0},
+                                   {1,0,0,0,0},
+                                   {1,1,0,0,0},
+                                   {1,1,1,1,1}}; 
+        int k = 3;
+        vector<int> ret {2,0,3};
+        if (!comp_vector(ret, slt.kWeakestRows(mat, k))) {return false;}
+    }
+
+    {
+        vector<vector<int>> mat = {{1,0,0,0},
+                                   {1,1,1,1},
+                                   {1,0,0,0},
+                                   {1,0,0,0}}; 
+        int k = 2;
+        vector<int> ret {0, 2};
+        if (!comp_vector(ret, slt.kWeakestRows(mat, k))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -94,6 +115,7 @@ public:
         return ret;
     }
 };
+TEST(Q1337, Solution) {EXPECT_EQ(q1337::run_testcases<q1337::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -120,6 +142,6 @@ public:
         return ret;
     }
 };
-
+TEST(Q1337, Solution02) {EXPECT_EQ(q1337::run_testcases<q1337::Solution02>(), true);}
 };
 

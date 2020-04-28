@@ -38,6 +38,26 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        string s = "ababa";
+        if (1 != slt.removePalindromeSub(s)) {return false;}
+    }
+
+    {
+        string s = "abb";
+        if (2 != slt.removePalindromeSub(s)) {return false;}
+    }
+
+    {
+        string s = "baabb";
+        if (2 != slt.removePalindromeSub(s)) {return false;}
+    }
+
+    {
+        string s = "";
+        if (0 != slt.removePalindromeSub(s)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -62,5 +82,5 @@ public:
         return 1;
     }
 };
-
+TEST(Q1332, Solution) {EXPECT_EQ(q1332::run_testcases<q1332::Solution>(), true);}
 };

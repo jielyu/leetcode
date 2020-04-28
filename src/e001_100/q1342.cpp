@@ -40,23 +40,17 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    if (6 != slt.numberOfSteps(14)) {return false;}
+    if (4 != slt.numberOfSteps(8)) {return false;}
+    if (12 != slt.numberOfSteps(123)) {return false;}
+
     // succ
     return true;
 }
 
 class Solution {
 public:
-    // Runtime: 0 ms, faster than 100.00%
-    // Memory Usage: 8.4 MB, less than 100.00%
-    int numberOfSteps (int num) {
-        if (!num) {
-            return 0;
-        }
-        // number of bits + number of ones in binary
-        return log2(num) + bitset<32>(num).count();
-    }
-    
-    int numberOfSteps_2 (int num) {
+    int numberOfSteps(int num) {
         int ret = 0;
         while (num > 0) {
             ++ret;
@@ -69,5 +63,19 @@ public:
         return ret;
     }
 };
+TEST(Q1342, Solution) {EXPECT_EQ(q1342::run_testcases<q1342::Solution>(), true);}
 
+class Solution02 {
+public:
+    // Runtime: 0 ms, faster than 100.00%
+    // Memory Usage: 8.4 MB, less than 100.00%
+    int numberOfSteps(int num) {
+        if (!num) {
+            return 0;
+        }
+        // number of bits + number of ones in binary
+        return log2(num) + bitset<32>(num).count();
+    }
+};
+TEST(Q1342, Solution02) {EXPECT_EQ(q1342::run_testcases<q1342::Solution02>(), true);}
 };

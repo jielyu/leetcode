@@ -38,6 +38,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr{3,3,3,3,5,5,5,2,2,7};
+        if (2 != slt.minSetSize(arr)) {return false;}
+    }
+
+    {
+        vector<int> arr{7,7,7,7,7,7};
+        if (1 != slt.minSetSize(arr)) {return false;}
+    }
+
+    {
+        vector<int> arr{1,9};
+        if (1 != slt.minSetSize(arr)) {return false;}
+    }
+
+    {
+        vector<int> arr{1000,1000,3,7};
+        if (1 != slt.minSetSize(arr)) {return false;}
+    }
+
+    {
+        vector<int> arr{1,2,3,4,5,6,7,8,9,10};
+        if (5 != slt.minSetSize(arr)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -76,5 +101,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1338, Solution) {EXPECT_EQ(q1338::run_testcases<q1338::Solution>(), true);}
 };
