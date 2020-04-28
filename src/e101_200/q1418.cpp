@@ -2,7 +2,7 @@
 #面试刷题# 第0104期
 #Leetcode# Q1418 餐厅内的食品订单展示表格
 难度：中
-给出数组订单，表示顾客在餐馆中完成的订单。更具体地说，订单[i]=[customerNamei,tableNumberi,foodItemi]，
+给出数组orders，表示顾客在餐馆中完成的订单。更具体地说，orders[i]=[customerNamei,tableNumberi,foodItemi]，
 其中customerNamei是顾客的名字，tableNumberi是顾客所坐的餐桌，foodItemi是顾客所点的菜品。
 
 返回餐厅的 "展示桌"。"显示表 "是一个表，其行项表示每桌客人点了多少个菜品。第一列是表号，
@@ -10,7 +10,7 @@
 注意，顾客的名字不属于表格的一部分。此外，各行应按数字递增的顺序排列。
 约束条件：
 1 <= orders.length <= 5 * 10^4
-订单[i].length ==3
+orders[i].length ==3
 1 <= customerNamei.length, foodItemi.length <= 20
 customerNamei和foodItemi由小写和大写英文字母和空格字符组成。
 tableNumberi是1到500之间的有效整数。
