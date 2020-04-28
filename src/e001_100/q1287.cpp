@@ -18,7 +18,10 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
-
+    {
+        vector<int> arr{1,2,2,6,6,6,6,7,10};
+        if (6 != slt.findSpecialInteger(arr)) {return false;}
+    }
     // succ
     return true;
 }
@@ -49,4 +52,5 @@ public:
         return 0;
     }
 };
+TEST(Q1287, Solution) {EXPECT_EQ(q1287::run_testcases<q1287::Solution>(), true);}
 };

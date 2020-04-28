@@ -37,6 +37,30 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> mat{{1,1,3,2,4,3,2},{1,1,3,2,4,3,2},{1,1,3,2,4,3,2}};
+        int threshold = 4;
+        if (2 != slt.maxSideLength(mat, threshold)) {return false;}
+    }
+
+    {
+        vector<vector<int>> mat{{2,2,2,2,2},{2,2,2,2,2},{2,2,2,2,2},{2,2,2,2,2},{2,2,2,2,2}};
+        int threshold = 1;
+        if (0 != slt.maxSideLength(mat, threshold)) {return false;}
+    }
+
+    {
+        vector<vector<int>> mat{{1,1,1,1},{1,0,0,0},{1,0,0,0},{1,0,0,0}};
+        int threshold = 6;
+        if (3 != slt.maxSideLength(mat, threshold)) {return false;}
+    }
+
+    {
+        vector<vector<int>> mat{{18,70},{61,1},{25,85},{14,40},{11,96},{97,96},{63,45}};
+        int threshold = 40184;
+        if (2 != slt.maxSideLength(mat, threshold)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -128,5 +152,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1292, Solution) {EXPECT_EQ(q1292::run_testcases<q1292::Solution>(), true);}
 };

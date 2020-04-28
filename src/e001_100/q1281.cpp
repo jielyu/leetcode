@@ -18,7 +18,8 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
-
+    if (15 != slt.subtractProductAndSum(234)) {return false;}
+    if (21 != slt.subtractProductAndSum(4421)) {return false;}
     // succ
     return true;
 }
@@ -39,5 +40,5 @@ public:
         return prod - sum;
     }
 };
-
+TEST(Q1281, Solution) {EXPECT_EQ(q1281::run_testcases<q1281::Solution>(), true);}
 };

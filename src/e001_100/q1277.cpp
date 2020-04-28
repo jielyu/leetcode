@@ -31,6 +31,20 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> matrix {{0,1,1,1},
+                                    {1,1,1,1},
+                                    {0,1,1,1}};
+        if (15 != slt.countSquares(matrix)) {return false;}
+    }
+
+    {
+        vector<vector<int>> matrix {{1,0,1},
+                                    {1,1,0},
+                                    {1,1,0}};
+        if (7 != slt.countSquares(matrix)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -85,5 +99,5 @@ public:
         return sum;
     }
 };
-
+TEST(Q1277, Solution) {EXPECT_EQ(q1277::run_testcases<q1277::Solution>(), true);}
 };

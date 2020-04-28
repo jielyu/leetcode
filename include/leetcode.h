@@ -35,6 +35,8 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
+ListNode * create_list(vector<int> & arr);
+void delete_list(ListNode * head);
 
 /*Utils*/
 void print(const string & info, bool enter=true);

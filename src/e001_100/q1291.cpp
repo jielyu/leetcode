@@ -24,6 +24,18 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        int low = 100, high = 300;
+        vector<int> ret{123, 234};
+        if(!comp_vector(ret, slt.sequentialDigits(low, high))) {return false;}
+    }
+
+    {
+        int low = 1000, high = 13000;
+        vector<int> ret{1234,2345,3456,4567,5678,6789,12345};
+        if(!comp_vector(ret, slt.sequentialDigits(low, high))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -53,4 +65,5 @@ public:
         return ret;
     }
 };
+TEST(Q1291, Solution) {EXPECT_EQ(q1291::run_testcases<q1291::Solution>(), true);}
 };

@@ -25,6 +25,11 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> intervals {{1,4},{3,6},{2,8}};
+        if (2 != slt.removeCoveredIntervals(intervals)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -56,5 +61,5 @@ public:
         return cnt;
     }
 };
-
+TEST(Q1288, Solution) {EXPECT_EQ(q1288::run_testcases<q1288::Solution>(), true);}
 };

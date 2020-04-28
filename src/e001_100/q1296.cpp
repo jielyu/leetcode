@@ -37,6 +37,30 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums {1,2,3,3,4,4,5,6};
+        int k = 4;
+        if (true != slt.isPossibleDivide(nums, k)) {return false;}
+    }
+
+    {
+        vector<int> nums {3,2,1,2,3,4,3,4,5,9,10,11};
+        int k = 3;
+        if (true != slt.isPossibleDivide(nums, k)) {return false;}
+    }
+
+    {
+        vector<int> nums {3,3,2,2,1,1};
+        int k = 3;
+        if (true != slt.isPossibleDivide(nums, k)) {return false;}
+    }
+
+    {
+        vector<int> nums {1,2,3,4};
+        int k = 3;
+        if (false != slt.isPossibleDivide(nums, k)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -62,5 +86,5 @@ public:
         return sum % k == 0;
     }
 };
-
+TEST(Q1296, Solution) {EXPECT_EQ(q1296::run_testcases<q1296::Solution>(), true);}
 };

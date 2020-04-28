@@ -26,6 +26,7 @@ Explanation: Substring "aaa" occur 2 times in the string. It can overlap.
 Input: s = "aabcabcab", maxLetters = 2, minSize = 2, maxSize = 3
 Output: 3
 
+例4:
 Input: s = "abcde", maxLetters = 2, minSize = 3, maxSize = 3
 Output: 0
 */
@@ -37,6 +38,30 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+
+    {
+        string s = "aababcaab";
+        int maxLetters = 2, minSize = 3, maxSize = 4;
+        if (2 != slt.maxFreq(s, maxLetters, minSize, maxSize)) {return false;}
+    }
+
+    {
+        string s = "aaaa";
+        int maxLetters = 1, minSize = 3, maxSize = 3;
+        if (2 != slt.maxFreq(s, maxLetters, minSize, maxSize)) {return false;}
+    }
+
+    {
+        string s = "aabcabcab";
+        int maxLetters = 2, minSize = 2, maxSize = 3;
+        if (3 != slt.maxFreq(s, maxLetters, minSize, maxSize)) {return false;}
+    }
+
+    {
+        string s = "abcde";
+        int maxLetters = 2, minSize = 3, maxSize = 3;
+        if (0 != slt.maxFreq(s, maxLetters, minSize, maxSize)) {return false;}
+    }
 
     // succ
     return true;
@@ -84,5 +109,5 @@ public:
         return max_cnt;
     }
 };
-
+TEST(Q1297, Solution) {EXPECT_EQ(q1297::run_testcases<q1297::Solution>(), true);}
 };

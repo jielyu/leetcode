@@ -21,6 +21,12 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {17,18,5,4,6,1};
+        vector<int> ret {18,6,6,6,1,-1};
+        if (!comp_vector(ret, slt.replaceElements(arr))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -44,6 +50,7 @@ public:
         return arr;
     }
 };
+TEST(Q1299, Solution) {EXPECT_EQ(q1299::run_testcases<q1299::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -62,6 +69,7 @@ public:
         return max_vec;
     }
 };
+TEST(Q1299, Solution02) {EXPECT_EQ(q1299::run_testcases<q1299::Solution02>(), true);}
 
 class Solution03 {
 public:
@@ -80,5 +88,5 @@ public:
         return arr;
     }
 };
-
+TEST(Q1299, Solution03) {EXPECT_EQ(q1299::run_testcases<q1299::Solution03>(), true);}
 };

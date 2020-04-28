@@ -33,6 +33,16 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums{12,345,2,6,7896};
+        if (2 != slt.findNumbers(nums)) {return false;}
+    }
+
+    {
+        vector<int> nums{555,901,482,1771};
+        if (1 != slt.findNumbers(nums)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -53,6 +63,7 @@ public:
         return ret;
     }
 };
+TEST(Q1295, Solution) {EXPECT_EQ(q1295::run_testcases<q1295::Solution>(), true);}
 
 class Solution02 {
 public:
@@ -69,6 +80,7 @@ public:
         return ret;
     }
 };
+TEST(Q1295, Solution02) {EXPECT_EQ(q1295::run_testcases<q1295::Solution02>(), true);}
 
 class Solution03 {
 public:
@@ -83,5 +95,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1295, Solution03) {EXPECT_EQ(q1295::run_testcases<q1295::Solution03>(), true);}
 };

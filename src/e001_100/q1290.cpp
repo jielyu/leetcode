@@ -45,31 +45,48 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {1,0,1};
+        ListNode * head = create_list(arr);
+        int ret = slt.getDecimalValue(head);
+        delete_list(head);
+        if (5 != ret) {return false;}
+    }
+
+    {
+        vector<int> arr {0};
+        ListNode * head = create_list(arr);
+        int ret = slt.getDecimalValue(head);
+        delete_list(head);
+        if (0 != ret) {return false;}
+    }
+
+    {
+        vector<int> arr {1};
+        ListNode * head = create_list(arr);
+        int ret = slt.getDecimalValue(head);
+        delete_list(head);
+        if (1 != ret) {return false;}
+    }
+
+    {
+        vector<int> arr {1,0,0,1,0,0,1,1,1,0,0,0,0,0,0};
+        ListNode * head = create_list(arr);
+        int ret = slt.getDecimalValue(head);
+        delete_list(head);
+        if (18880 != ret) {return false;}
+    }
+
+    {
+        vector<int> arr {0, 0};
+        ListNode * head = create_list(arr);
+        int ret = slt.getDecimalValue(head);
+        delete_list(head);
+        if (0 != ret) {return false;}
+    }
+
     // succ
     return true;
-}
-
-ListNode * create_list(vector<int> & arr) {
-    int len = arr.size();
-    if (len == 0) {
-        return NULL;
-    } 
-    ListNode * head = new ListNode(arr[0]);
-    ListNode * next = head;
-    for (int i=1; i<len; ++i) {
-        next->next = new ListNode(arr[i]);
-        next = next->next;
-    }
-    return head;
-}
-
-void delete_list(ListNode * head) {
-    ListNode * next = NULL;
-    while(head) {
-        next = head->next;
-        delete head;
-        head = next;
-    }
 }
  
 class Solution {
@@ -85,5 +102,5 @@ public:
         return sum;
     }
 };
-
+TEST(Q1290, Solution) {EXPECT_EQ(q1290::run_testcases<q1290::Solution>(), true);}
 };

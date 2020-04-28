@@ -34,6 +34,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums{1,2,5,9};
+        int threshold = 6, ret = 5;
+        if (ret != slt.smallestDivisor(nums, threshold)) {return false;}
+    }
+
+    {
+        vector<int> nums{2,3,5,7,11};
+        int threshold = 11, ret = 3;
+        if (ret != slt.smallestDivisor(nums, threshold)) {return false;}
+    }
+
+    {
+        vector<int> nums{19};
+        int threshold = 5, ret = 4;
+        if (ret != slt.smallestDivisor(nums, threshold)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -70,4 +88,5 @@ public:
         return low;
     }
 };
+TEST(Q1283, Solution){EXPECT_EQ(q1283::run_testcases<q1283::Solution>(), true);}
 };

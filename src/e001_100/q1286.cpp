@@ -25,9 +25,14 @@ namespace q1286{
 
 template<typename T>
 bool run_testcases() {
-    T slt;
+    T slt("abc", 2);
     // place testcases below
-
+    if ("ab" != slt.next()) {return false;}
+    if (true != slt.hasNext()) {return false;}
+    if ("ac" != slt.next()) {return false;}
+    if (true != slt.hasNext()) {return false;}
+    if ("bc" != slt.next()) {return false;}
+    if (false != slt.hasNext()) {return false;}
     // succ
     return true;
 }
@@ -78,7 +83,7 @@ public:
         return this->_has_next;
     }
 };
-
+TEST(Q1286, Solution) {EXPECT_EQ(q1286::run_testcases<q1286::CombinationIterator>(), true);}
 /**
  * Your CombinationIterator object will be instantiated and called as such:
  * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);

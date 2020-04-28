@@ -33,6 +33,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {4,9,3};
+        int target = 10, ret = 3;
+        if (ret != slt.findBestValue(arr, target)) {return false;}
+    }
+
+    {
+        vector<int> arr {2,3,5};
+        int target = 10, ret = 5;
+        if (ret != slt.findBestValue(arr, target)) {return false;}
+    }
+
+    {
+        vector<int> arr {60864,25176,27249,21296,20204};
+        int target = 56803, ret = 11361;
+        if (ret != slt.findBestValue(arr, target)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -60,5 +78,5 @@ public:
         return arr[len-1];
     }
 };
-
+TEST(Q1300, Solution) {EXPECT_EQ(q1300::run_testcases<q1300::Solution>(), true);}
 };
