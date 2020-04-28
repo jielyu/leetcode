@@ -25,6 +25,16 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        string palindrome = "abccba", ret = "aaccba";
+        if (ret != slt.breakPalindrome(palindrome)) {return false;}
+    }
+
+    {
+        string palindrome = "a", ret = "";
+        if (ret != slt.breakPalindrome(palindrome)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -54,4 +64,5 @@ public:
         return palindrome;
     }
 };
+TEST(Q1328, Solution) {EXPECT_EQ(q1328::run_testcases<q1328::Solution>(), true);}
 };

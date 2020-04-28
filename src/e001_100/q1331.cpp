@@ -33,6 +33,21 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {40,10,20,30}, ret{4,1,2,3};
+        if (!comp_vector(ret, slt.arrayRankTransform(arr))) {return false;}
+    }
+
+    {
+        vector<int> arr {100,100,100}, ret{1,1,1};
+        if (!comp_vector(ret, slt.arrayRankTransform(arr))) {return false;}
+    }
+
+    {
+        vector<int> arr {37,12,28,9,100,56,80,5,12}, ret{5,3,4,2,8,6,7,1,3};
+        if (!comp_vector(ret, slt.arrayRankTransform(arr))) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -62,4 +77,5 @@ public:
         return ret;
     }
 };
+TEST(Q1331, Solution) {EXPECT_EQ(q1331::run_testcases<q1331::Solution>(), true);}
 };

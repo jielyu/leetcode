@@ -31,6 +31,10 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    if (3 != slt.minFlips(2,6,5)) {return false;}
+    if (1 != slt.minFlips(4,2,7)) {return false;}
+    if (0 != slt.minFlips(1,2,3)) {return false;}
+
     // succ
     return true;
 }
@@ -57,5 +61,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1318, Solution) {EXPECT_EQ(q1318::run_testcases<q1318::Solution>(), true);}
 };

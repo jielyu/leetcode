@@ -38,6 +38,24 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    
+    {
+        string s = "HOW ARE YOU";
+        vector<string> ret {"HAY","ORO","WEU"};
+        if (!comp_vector(ret, slt.printVertically(s))) {return false;}
+    }
+
+    {
+        string s = "TO BE OR NOT TO BE";
+        vector<string> ret {"TBONTB","OEROOE","   T"};
+        if (!comp_vector(ret, slt.printVertically(s))) {return false;}
+    }
+
+    {
+        string s = "CONTEST IS COMING";
+        vector<string> ret {"CIC","OSO","N M","T I","E N","S G","T"};
+        if (!comp_vector(ret, slt.printVertically(s))) {return false;}
+    }
 
     // succ
     return true;
@@ -103,5 +121,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1324, Solution) {EXPECT_EQ(q1324::run_testcases<q1324::Solution>(), true);}
 };

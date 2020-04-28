@@ -37,6 +37,10 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    if (9969 != slt.maximum69Number(9669)) {return false;}
+    if (9999 != slt.maximum69Number(9996)) {return false;}
+    if (9999 != slt.maximum69Number(9999)) {return false;}
+
     // succ
     return true;
 }
@@ -56,5 +60,5 @@ public:
         return stoi(s);
     }
 };
-
+TEST(Q1323, Solution) {EXPECT_EQ(q1323::run_testcases<q1323::Solution>(), true);}
 };

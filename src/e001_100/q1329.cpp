@@ -22,6 +22,13 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> mat{{3,3,1,1},{2,2,1,2},{1,1,1,2}},
+                            ret{{1,1,1,1},{1,2,2,2},{1,2,3,3}};
+        if (!comp_matrix(ret, slt.diagonalSort(mat))) {return false;}
+
+    }
+
     // succ
     return true;
 }
@@ -68,4 +75,5 @@ public:
         return mat;
     }
 };
+TEST(Q1329, Solution) {EXPECT_EQ(q1329::run_testcases<q1329::Solution>(), true);}
 };

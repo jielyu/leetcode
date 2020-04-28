@@ -44,6 +44,30 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        int n = 4;
+        vector<vector<int>> connections {{0,1},{0,2},{1,2}};
+        if (1 != slt.makeConnected(n, connections)) {return false;}
+    }
+
+    {
+        int n = 6;
+        vector<vector<int>> connections {{0,1},{0,2},{0,3},{1,2},{1,3}};
+        if (2 != slt.makeConnected(n, connections)) {return false;}
+    }
+
+    {
+        int n = 6;
+        vector<vector<int>> connections {{0,1},{0,2},{0,3},{1,2}};
+        if (-1 != slt.makeConnected(n, connections)) {return false;}
+    }
+
+    {
+        int n = 5;
+        vector<vector<int>> connections {{0,1},{0,2},{3,4},{2,3}};
+        if (0 != slt.makeConnected(n, connections)) {return false;}
+    }
+
     // succ
     return true;
 }
@@ -87,5 +111,5 @@ public:
         return dup >= island-1 ? island-1 : -1;
     }
 };
-
+TEST(Q1319, Solution) {EXPECT_EQ(q1319::run_testcases<q1319::Solution>(), true);}
 };

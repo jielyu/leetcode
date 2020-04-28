@@ -35,11 +35,27 @@ Output: [11,999]
 
 namespace q1317{
 
+bool check_ret(const vector<int> & ret, int n) {
+    if (ret.size() != 2) {return false;}
+    if (ret[0] + ret[1] != n) {return false;}
+    for (int i : ret) {
+        while (i) {
+            if (i % 10 == 0) {return false;}
+            i /= 10;
+        }
+    }
+    return true;
+}
+
 template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
-
+    if (!check_ret(slt.getNoZeroIntegers(2), 2)) {return false;}
+    if (!check_ret(slt.getNoZeroIntegers(11), 11)) {return false;}
+    if (!check_ret(slt.getNoZeroIntegers(10000), 10000)) {return false;}
+    if (!check_ret(slt.getNoZeroIntegers(69), 69)) {return false;}
+    if (!check_ret(slt.getNoZeroIntegers(1010), 1010)) {return false;}
     // succ
     return true;
 }
@@ -65,5 +81,5 @@ public:
         return vector<int>();
     }
 };
-
+TEST(Q1317, Solution) {EXPECT_EQ(q1317::run_testcases<q1317::Solution>(), true);}
 };
