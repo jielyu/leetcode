@@ -36,6 +36,26 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> grid {{4,3,2,-1},{3,2,1,-1},{1,1,-1,-2},{-1,-1,-2,-3}};
+        CHECK_RET(8 == slt.countNegatives(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{3,2},{1,0}};
+        CHECK_RET(0 == slt.countNegatives(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{1,-1},{-1,-1}};
+        CHECK_RET(3 == slt.countNegatives(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{-1}};
+        CHECK_RET(1 == slt.countNegatives(grid));
+    }
+
     // succ
     return true;
 }
@@ -57,12 +77,13 @@ public:
         return ret;
     }
 };
+TEST(Q1351, Solution) {EXPECT_TRUE(q1351::run_testcases<q1351::Solution>());}
 
 class Solution02 {
 public:
     // Runtime: 16 ms, faster than 93.57%
     // Memory Usage: 9.4 MB, less than 100.00%
-    int countNegatives_2(vector<vector<int>>& grid) {
+    int countNegatives(vector<vector<int>>& grid) {
         int m = grid.size() - 1, n = grid[0].size() - 1;
         int ret = 0, end = 0, c = 0;
         for (; m >= 0; --m) {
@@ -81,6 +102,7 @@ public:
         return ret;
     }
 };
+TEST(Q1351, Solution02) {EXPECT_TRUE(q1351::run_testcases<q1351::Solution02>());}
 
 class Solution03 {
 public:
@@ -116,5 +138,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1351, Solution03) {EXPECT_TRUE(q1351::run_testcases<q1351::Solution03>());}
 };

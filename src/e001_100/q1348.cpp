@@ -45,6 +45,16 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    slt.recordTweet("tweet3", 0);
+    slt.recordTweet("tweet3", 60);
+    slt.recordTweet("tweet3", 10);
+    vector<int> ret1 {2};
+    CHECK_RET(comp_vector(ret1, slt.getTweetCountsPerFrequency("minute", "tweet3", 0, 59)));
+    vector<int> ret2 {2, 1};
+    CHECK_RET(comp_vector(ret2, slt.getTweetCountsPerFrequency("minute", "tweet3", 0, 60)));
+    slt.recordTweet("tweet3", 120);
+    vector<int> ret3 {4};
+    CHECK_RET(comp_vector(ret3, slt.getTweetCountsPerFrequency("hour", "tweet3", 0, 210)));
     // succ
     return true;
 }
@@ -83,7 +93,7 @@ public:
         return ret;
     }
 };
-
+TEST(Q1348, Solution) {EXPECT_TRUE(q1348::run_testcases<q1348::TweetCounts>());}
 /**
  * Your TweetCounts object will be instantiated and called as such:
  * TweetCounts* obj = new TweetCounts();

@@ -23,6 +23,8 @@ using namespace std;
 #include <gtest/gtest.h>
 #include <glog/logging.h>
 
+#define CHECK_RET(cond) if (!(cond)) {return false;}
+
 struct TreeNode {
     int val;
     TreeNode *left;

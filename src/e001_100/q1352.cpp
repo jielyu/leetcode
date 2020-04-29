@@ -42,6 +42,16 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    slt.add(3);
+    slt.add(0);
+    slt.add(2);
+    slt.add(5);
+    slt.add(4);
+    CHECK_RET(20 == slt.getProduct(2));
+    CHECK_RET(40 == slt.getProduct(3));
+    CHECK_RET(0 == slt.getProduct(4));
+    slt.add(8);
+    CHECK_RET(32 == slt.getProduct(2));
 
     // succ
     return true;
@@ -74,7 +84,7 @@ public:
         return _buff.back() / _buff[len - (k + 1)];
     }
 };
-
+TEST(Q1352, Solution) {EXPECT_TRUE(q1352::run_testcases<q1352::ProductOfNumbers>());}
 /**
  * Your ProductOfNumbers object will be instantiated and called as such:
  * ProductOfNumbers* obj = new ProductOfNumbers();

@@ -45,6 +45,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> events{{1,2},{2,3},{3,4}};
+        CHECK_RET(3 == slt.maxEvents(events));
+    }
+
+    {
+        vector<vector<int>> events{{1,2},{2,3},{3,4},{1,2}};
+        CHECK_RET(4 == slt.maxEvents(events));
+    }
+
+    {
+        vector<vector<int>> events{{1,4},{4,4},{2,2},{3,4},{1,1}};
+        CHECK_RET(4 == slt.maxEvents(events));
+    }
+
+    {
+        vector<vector<int>> events{{1,100000}};
+        CHECK_RET(1 == slt.maxEvents(events));
+    }
+
+    {
+        vector<vector<int>> events{{1,1},{1,2},{1,3},{1,4},{1,5},{1,6},{1,7}};
+        CHECK_RET(7 == slt.maxEvents(events));
+    }
+
     // succ
     return true;
 }
@@ -79,4 +104,5 @@ public:
         return ret;
     }
 };
+TEST(Q1353, Solution) {EXPECT_TRUE(q1353::run_testcases<q1353::Solution>());}
 };

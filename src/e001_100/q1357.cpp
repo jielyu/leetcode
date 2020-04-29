@@ -51,8 +51,44 @@ namespace q1357{
 
 template<typename T>
 bool run_testcases() {
-    T slt;
+    int n = 3, discount = 50;
+    vector<int> products{1,2,3,4,5,6,7}, prices{100,200,300,400,300,200,100};
+    T slt(n, discount, products, prices);
     // place testcases below
+    {
+        vector<int> prod{1,2}, pri{1,2};
+        CHECK_RET(std::abs(500 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{3,7}, pri{10,10};
+        CHECK_RET(std::abs(4000 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{1,2,3,4,5,6,7}, pri{1,1,1,1,1,1,1};
+        CHECK_RET(std::abs(800 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{4}, pri{10};
+        CHECK_RET(std::abs(4000 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{7,3}, pri{10,10};
+        CHECK_RET(std::abs(4000 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{7,5,3,1,6,4,2}, pri{10,10,10,9,9,9,7};
+        CHECK_RET(std::abs(7350 - slt.getBill(prod, pri)) < 1e-5);
+    }
+
+    {
+        vector<int> prod{2,3,5}, pri{5,3,2};
+        CHECK_RET(std::abs(2500 - slt.getBill(prod, pri)) < 1e-5);
+    }
 
     // succ
     return true;
@@ -91,7 +127,7 @@ public:
         return total;
     }
 };
-
+TEST(Q1357, Solution) {EXPECT_TRUE(q1357::run_testcases<q1357::Cashier>());}
 /**
  * Your Cashier object will be instantiated and called as such:
  * Cashier* obj = new Cashier(n, discount, products, prices);

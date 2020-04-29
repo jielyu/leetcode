@@ -37,6 +37,12 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    CHECK_RET(std::abs(165 - slt.angleClock(12, 30)) < 1e-5);
+    CHECK_RET(std::abs(75 - slt.angleClock(3, 30)) < 1e-5);
+    CHECK_RET(std::abs(7.5 - slt.angleClock(3, 15)) < 1e-5);
+    CHECK_RET(std::abs(155 - slt.angleClock(4, 50)) < 1e-5);
+    CHECK_RET(std::abs(0 - slt.angleClock(12, 0)) < 1e-5);
+
     // succ
     return true;
 }
@@ -52,5 +58,5 @@ public:
         return diff > 180 ? 360 - diff : diff;
     }
 };
-
+TEST(Q1344, Solution) {EXPECT_EQ(q1344::run_testcases<q1344::Solution>(), true);}
 };

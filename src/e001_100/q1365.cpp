@@ -37,6 +37,21 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums{8,1,2,2,3}, ret{4,0,1,1,3};
+        CHECK_RET(comp_vector(ret, slt.smallerNumbersThanCurrent(nums)));
+    }
+
+    {
+        vector<int> nums{6,5,4,8}, ret{2,1,0,3};
+        CHECK_RET(comp_vector(ret, slt.smallerNumbersThanCurrent(nums)));
+    }
+
+    {
+        vector<int> nums{7,7,7,7}, ret{0,0,0,0};
+        CHECK_RET(comp_vector(ret, slt.smallerNumbersThanCurrent(nums)));
+    }
+
     // succ
     return true;
 }
@@ -68,4 +83,5 @@ public:
         return ret;
     }
 };
+TEST(Q1365, Solution) {EXPECT_TRUE(q1365::run_testcases<q1365::Solution>());}
 };

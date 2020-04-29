@@ -35,6 +35,21 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr{10,2,5,3};
+        CHECK_RET(true == slt.checkIfExist(arr));
+    }
+
+    {
+        vector<int> arr{7,1,14,11};
+        CHECK_RET(true == slt.checkIfExist(arr));
+    }
+
+    {
+        vector<int> arr{3,1,7,11};
+        CHECK_RET(false == slt.checkIfExist(arr));
+    }
+
     // succ
     return true;
 }
@@ -54,5 +69,5 @@ public:
         return false;
     }
 };
-
+TEST(Q1346, Solution) {EXPECT_EQ(q1346::run_testcases<q1346::Solution>(), true);}
 };

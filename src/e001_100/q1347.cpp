@@ -29,6 +29,7 @@ Explanation: "anagram" and "mangaar" are anagrams.
 Input: s = "xxyyzz", t = "xxyyzz"
 Output: 0
 
+例5:
 Input: s = "friend", t = "family"
 Output: 4
 */
@@ -41,6 +42,12 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    CHECK_RET(1 == slt.minSteps("bab", "aba"));
+    CHECK_RET(5 == slt.minSteps("leetcode", "practice"));
+    CHECK_RET(0 == slt.minSteps("anagram", "mangaar"));
+    CHECK_RET(0 == slt.minSteps("xxyyzz", "xxyyzz"));
+    CHECK_RET(4 == slt.minSteps("friend", "family"));
+
     // succ
     return true;
 }
@@ -49,7 +56,7 @@ class Solution {
 public:
     // Runtime: 120 ms, faster than 40.00%
     // Memory Usage: 19.1 MB, less than 100.00%
-    int minSteps_2(string s, string t) {
+    int minSteps(string s, string t) {
         unordered_map<char, int> dict;
         for (auto & v : s) {
             ++dict[v];
@@ -66,6 +73,7 @@ public:
         return abs(sum);
     }
 };
+TEST(Q1347, Solution) {EXPECT_TRUE(q1347::run_testcases<q1347::Solution>());}
 
 class Solution02 {
 public:
@@ -88,5 +96,5 @@ public:
         return abs(sum);
     }
 };
-
+TEST(Q1347, Solution02) {EXPECT_TRUE(q1347::run_testcases<q1347::Solution02>());}
 };

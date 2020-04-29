@@ -44,6 +44,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr{0,1,2,3,4,5,6,7,8}, ret{0,1,2,4,8,3,5,6,7};
+        CHECK_RET(comp_vector(ret, slt.sortByBits(arr)));
+    }
+
+    {
+        vector<int> arr{1024,512,256,128,64,32,16,8,4,2,1}, ret{1,2,4,8,16,32,64,128,256,512,1024};
+        CHECK_RET(comp_vector(ret, slt.sortByBits(arr)));
+    }
+
+    {
+        vector<int> arr{10000,10000}, ret{10000,10000};
+        CHECK_RET(comp_vector(ret, slt.sortByBits(arr)));
+    }
+
+    {
+        vector<int> arr{2,3,5,7,11,13,17,19}, ret{2,3,5,17,7,11,13,19};
+        CHECK_RET(comp_vector(ret, slt.sortByBits(arr)));
+    }
+
+    {
+        vector<int> arr{10,100,1000,10000}, ret{10,100,10000,1000};
+        CHECK_RET(comp_vector(ret, slt.sortByBits(arr)));
+    }
+
     // succ
     return true;
 }
@@ -95,4 +120,5 @@ public:
         return idx;
     }
 };
+TEST(Q1356, Solution) {EXPECT_TRUE(q1356::run_testcases<q1356::Solution>());}
 };
