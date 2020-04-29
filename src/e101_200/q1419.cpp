@@ -84,4 +84,35 @@ public:
     }
 };
 TEST(Q1419, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
+
+class Solution2 {
+public:
+    int minNumberOfFrogs(string croakOfFrogs) {
+        int n = croakOfFrogs.size();
+        if (n % 5 != 0) return -1;
+        // count[i] => the number of frogs waiting to print (i + 1)-th letter
+        // waiting : the numebr of frogs waiting to complete croaking
+        // once count[i] < 0 we can have an early exit, meaning the rule must has been broken
+        int count[4] = {0};
+        int waiting = 0;
+        int ans = 0;
+        for (auto ch : croakOfFrogs)
+        {
+            if (ch != 'c' && ch != 'r' && ch != 'o' && ch != 'a' && ch != 'k') return -1;
+            if (ch == 'c') { count[0] ++; waiting ++; ans = max(ans, waiting);}
+            if (ch == 'r') { count[0] --; count[1] ++; if (count[0] < 0) return -1; }
+            if (ch == 'o') { count[1] --; count[2] ++; if (count[1] < 0) return -1; }
+            if (ch == 'a') { count[2] --; count[3] ++; if (count[2] < 0) return -1; }
+            
+            if (ch == 'k') 
+            { 
+                count[3] --; 
+                if (count[3] < 0) return -1;
+                waiting --;
+            }
+        }
+        return ans;
+    }
+};
+TEST(Q1419, Solution2) {EXPECT_TRUE(run_testcases<Solution2>());}
 } // namespace q1419
