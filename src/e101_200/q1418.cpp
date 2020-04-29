@@ -126,4 +126,43 @@ public:
     }
 };
 TEST(Q1418, Solution) {EXPECT_EQ(q1418::run_testcases<q1418::Solution>(), true);}
+
+// Runtime: 256 ms, faster than 93.43%
+// Memory Usage: 52.9 MB, less than 100.00%
+class Solution2 {
+public:
+    vector<vector<string>> displayTable(vector<vector<string>>& orders) {        
+        // Generate the table header while set up food indexes mapping
+        map<string, int> foods;
+        for (auto& order : orders) foods.insert({order[2], 0});        
+
+        vector<vector<string>> results = {{"Table"}};
+        int index = 0;
+        for (auto it = foods.begin(); it != foods.end(); it ++)
+        {
+            results.back().push_back(it->first);
+            it->second = index ++;
+        }
+
+        // table id => ordered foods
+        map<int, vector<int>> tables;
+        for (auto& order : orders)
+        {
+            int table = std::stoi(order[1]);
+            if (tables.find(table) == tables.end())
+                tables[table] = vector<int>(foods.size(), 0);
+            tables[table][foods[order[2]]] ++;
+        }
+
+        // Generate the remaining rows
+        for (auto it = tables.begin(); it != tables.end(); it ++)
+        {
+            results.push_back({to_string(it->first)});
+            for (int i = 0; i < foods.size(); i ++)
+                results.back().push_back(to_string(it->second[i]));
+        }
+        return results;
+    }
+};
+TEST(Q1418, Solution2) {EXPECT_EQ(q1418::run_testcases<q1418::Solution2>(), true);}
 } // namespace q1418
