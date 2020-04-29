@@ -45,8 +45,20 @@ namespace q1381{
 
 template<typename T>
 bool run_testcases() {
-    T slt;
+    T slt(3);
     // place testcases below
+    slt.push(1);
+    slt.push(2);
+    CHECK_RET(2 == slt.pop());
+    slt.push(2);
+    slt.push(3);
+    slt.push(4);
+    slt.increment(5, 100);
+    slt.increment(2, 100);
+    CHECK_RET(103 == slt.pop());
+    CHECK_RET(202 == slt.pop());
+    CHECK_RET(201 == slt.pop());
+    CHECK_RET(-1 == slt.pop());
 
     // succ
     return true;
@@ -91,7 +103,7 @@ public:
         }
     }
 };
-
+TEST(Q1381, Solution) {EXPECT_TRUE(run_testcases<CustomStack>());}
 
 
 /**

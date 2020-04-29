@@ -57,6 +57,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<string> votes {"ABC","ACB","ABC","ACB","ACB"};
+        CHECK_RET("ACB" == slt.rankTeams(votes));
+    }
+
+    {
+        vector<string> votes {"WXYZ","XYZW"};
+        CHECK_RET("XWYZ" == slt.rankTeams(votes));
+    }
+
+    {
+        vector<string> votes {"ZMNAGUEDSJYLBOPHRQICWFXTVK"};
+        CHECK_RET("ZMNAGUEDSJYLBOPHRQICWFXTVK" == slt.rankTeams(votes));
+    }
+
+    {
+        vector<string> votes {"BCA","CAB","CBA","ABC","ACB","BAC"};
+        CHECK_RET("ABC" == slt.rankTeams(votes));
+    }
+
+    {
+        vector<string> votes {"M","M","M","M"};
+        CHECK_RET("M" == slt.rankTeams(votes));
+    }
+
     // succ
     return true;
 }
@@ -89,7 +114,7 @@ public:
         return ret;
     }
 };
-
+TEST(Q1366, Solution) {EXPECT_TRUE(q1366::run_testcases<q1366::Solution>());}
 
 class Comp {
 private:
@@ -153,5 +178,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1366, Solution02) {EXPECT_TRUE(q1366::run_testcases<q1366::Solution02>());}
 };

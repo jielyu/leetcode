@@ -52,6 +52,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr1 {4,5,8}, arr2{10,9,1,8};
+        int d = 2, ret = 2;
+        CHECK_RET(ret == slt.findTheDistanceValue(arr1, arr2, d));
+    }
+
+    {
+        vector<int> arr1 {1,4,2,3}, arr2{-4,-3,6,10,20,30};
+        int d = 3, ret = 2;
+        CHECK_RET(ret == slt.findTheDistanceValue(arr1, arr2, d));
+    }
+
+    {
+        vector<int> arr1 {2,1,100,3}, arr2{-5,-2,10,-3,7};
+        int d = 6, ret = 1;
+        CHECK_RET(ret == slt.findTheDistanceValue(arr1, arr2, d));
+    }
+
     // succ
     return true;
 }
@@ -88,6 +106,7 @@ public:
         return ret;
     }
 };
+TEST(Q1385, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 /*
 原理说明：利用有序数组的特点，可以避免一些比较
@@ -115,5 +134,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1385, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 };

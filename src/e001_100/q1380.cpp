@@ -34,6 +34,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> matrix {{3,7,8},{9,11,13},{15,16,17}};
+        vector<int> ret{15};
+        CHECK_RET(comp_vector(ret, slt.luckyNumbers(matrix)));
+    }
+
+    {
+        vector<vector<int>> matrix {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
+        vector<int> ret{12};
+        CHECK_RET(comp_vector(ret, slt.luckyNumbers(matrix)));
+    }
+
+    {
+        vector<vector<int>> matrix {{7,8},{1,2}};
+        vector<int> ret{7};
+        CHECK_RET(comp_vector(ret, slt.luckyNumbers(matrix)));
+    }
+
     // succ
     return true;
 }
@@ -80,5 +98,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1380, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

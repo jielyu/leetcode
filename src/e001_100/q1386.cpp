@@ -45,6 +45,24 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        int n = 3, ret = 4; 
+        vector<vector<int>> reservedSeats {{1,2},{1,3},{1,8},{2,6},{3,1},{3,10}};
+        CHECK_RET(ret == slt.maxNumberOfFamilies(n, reservedSeats));
+    }
+
+    {
+        int n = 2, ret = 2; 
+        vector<vector<int>> reservedSeats {{2,1},{1,8},{2,6}};
+        CHECK_RET(ret == slt.maxNumberOfFamilies(n, reservedSeats));
+    }
+
+    {
+        int n = 4, ret = 4; 
+        vector<vector<int>> reservedSeats {{4,3},{1,4},{4,6},{1,7}};
+        CHECK_RET(ret == slt.maxNumberOfFamilies(n, reservedSeats));
+    }
+
     // succ
     return true;
 }
@@ -70,6 +88,7 @@ public:
         return ret;
     }
 };
+TEST(Q1386, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Time Limit Exceeded
 class Solution02 {
@@ -108,6 +127,7 @@ public:
         return ret;
     }
 };
+TEST(Q1386, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 
 // Time Limit Exceeded
 class Solution03 {
@@ -143,7 +163,7 @@ public:
         return ret;
     }
 };
-
+TEST(Q1386, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 
 // Runtime: 256 ms, faster than 81.73%
 // Memory Usage: 48.9 MB, less than 100.00%
@@ -176,5 +196,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1386, Solution04) {EXPECT_TRUE(run_testcases<Solution04>());}
 };

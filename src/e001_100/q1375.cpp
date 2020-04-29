@@ -44,6 +44,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> light {2,1,3,5,4};
+        CHECK_RET(3 == slt.numTimesAllBlue(light));
+    }
+
+    {
+        vector<int> light {3,2,4,1,5};
+        CHECK_RET(2 == slt.numTimesAllBlue(light));
+    }
+
+    {
+        vector<int> light {4,1,2,3};
+        CHECK_RET(1 == slt.numTimesAllBlue(light));
+    }
+
+    {
+        vector<int> light {2,1,4,3,6,5};
+        CHECK_RET(3 == slt.numTimesAllBlue(light));
+    }
+
+    {
+        vector<int> light {1,2,3,4,5,6};
+        CHECK_RET(6 == slt.numTimesAllBlue(light));
+    }
+
     // succ
     return true;
 }
@@ -66,5 +91,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1375, Solution) {EXPECT_TRUE(q1375::run_testcases<q1375::Solution>());}
 };

@@ -51,6 +51,12 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    CHECK_RET("abccbaabccba" == slt.sortString("abccbaabccba"));
+    CHECK_RET("art" == slt.sortString("rat"));
+    CHECK_RET("cdelotee" == slt.sortString("leetcode"));
+    CHECK_RET("ggggggg" == slt.sortString("ggggggg"));
+    CHECK_RET("ops" == slt.sortString("spo"));
+
     // succ
     return true;
 }
@@ -92,4 +98,5 @@ public:
         return ret;
     }
 };
+TEST(Q1370, Solution) {EXPECT_TRUE(q1370::run_testcases<q1370::Solution>());}
 };

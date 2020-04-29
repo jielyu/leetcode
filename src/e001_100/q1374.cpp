@@ -25,10 +25,27 @@ Output: "holasss"
 
 namespace q1374{
 
+bool check_ret(const string & s) {
+    unordered_map<char, int> dict;
+    for (const auto & c : s) {
+        ++dict[c];
+    }
+    for (auto & p : dict) {
+        if (p.second > 0 && p.second % 2 == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+
+    CHECK_RET(check_ret(slt.generateTheString(4)));
+    CHECK_RET(check_ret(slt.generateTheString(2)));
+    CHECK_RET(check_ret(slt.generateTheString(7)));
 
     // succ
     return true;
@@ -49,5 +66,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1374, Solution) {EXPECT_TRUE(q1374::run_testcases<q1374::Solution>());}
 };

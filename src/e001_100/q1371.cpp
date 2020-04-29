@@ -32,6 +32,10 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    CHECK_RET(13 == slt.findTheLongestSubstring("eleetminicoworoep"));
+    CHECK_RET(5 == slt.findTheLongestSubstring("leetcodeisgreat"));
+    CHECK_RET(6 == slt.findTheLongestSubstring("bcbcbc"));
+
     // succ
     return true;
 }
@@ -64,5 +68,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1371, Solution) {EXPECT_TRUE(q1371::run_testcases<q1371::Solution>());}
 };
