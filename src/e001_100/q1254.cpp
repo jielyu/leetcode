@@ -44,7 +44,7 @@ bool run_testcases() {
                                  {1,0,0,0,0,1,0,1},
                                  {1,1,1,1,1,1,1,0}};
         int ret = 2;
-        if (slt.closedIsland(grid) != ret) {return false;}
+        CHECK_RET(slt.closedIsland(grid) == ret);
     }
 
     // example 02
@@ -53,10 +53,10 @@ bool run_testcases() {
                                  {0,1,0,1,0},
                                  {0,1,1,1,0}};
         int ret = 1;
-        if (slt.closedIsland(grid) != ret) {return false;}
+        CHECK_RET(slt.closedIsland(grid) == ret);
     }
 
-    // example 01
+    // example 03
     {
         vector<vector<int>> grid{{1,1,1,1,1,1,1},
                                  {1,0,0,0,0,0,1},
@@ -66,7 +66,7 @@ bool run_testcases() {
                                  {1,0,0,0,0,0,1},
                                  {1,1,1,1,1,1,1}};
         int ret = 2;
-        if (slt.closedIsland(grid) != ret) {return false;}
+        CHECK_RET(slt.closedIsland(grid) == ret);
     }
 
     return true;
@@ -116,6 +116,6 @@ public:
         return ret;
     }
 };
-TEST(Q1254, Solution) {EXPECT_EQ(q1254::run_testcases<q1254::Solution>(), true);}
+TEST(Q1254, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

@@ -37,13 +37,13 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // example 01
-    if (slt.kthGrammar(1,1) != 0) return false;
+    CHECK_RET(slt.kthGrammar(1,1) == 0);
     // example 02
-    if (slt.kthGrammar(2,1) != 0) return false;
+    CHECK_RET(slt.kthGrammar(2,1) == 0);
     // example 03
-    if(slt.kthGrammar(2,2) != 1) return false;
+    CHECK_RET(slt.kthGrammar(2,2) == 1);
     // example 04
-    if(slt.kthGrammar(4,5) != 1) return false;
+    CHECK_RET(slt.kthGrammar(4,5) == 1);
     return true;
 }
 
@@ -68,6 +68,6 @@ public:
         return get_kth_bit(1, 1<<(N-1), 0, K);
     }
 };
-TEST(Q0779, Solution) {EXPECT_EQ(q0779::run_testcases<q0779::Solution>(), true);}
+TEST(Q0779, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

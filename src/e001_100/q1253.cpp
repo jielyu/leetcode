@@ -55,21 +55,21 @@ bool run_testcases() {
         int upper = 2, lower = 1;
         vector<int> colsum{1,1,1};
         vector<vector<int>> ret{{1,1,0},{0,0,1}};
-        if (!q1253::comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret)) {return false;}
+        CHECK_RET(comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret));
     }
     // example 02
     {
         int upper = 2, lower = 3;
         vector<int> colsum{2,2,1,1};
         vector<vector<int>> ret;
-        if (!q1253::comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret)) {return false;}
+        CHECK_RET(comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret));
     }
     // example 03
     {
         int upper = 5, lower = 5;
         vector<int> colsum{2,1,2,0,1,0,1,2,0,1};
         vector<vector<int>> ret{{1,1,1,0,1,0,0,1,0,0},{1,0,1,0,0,0,1,1,0,1}};
-        if (!q1253::comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret)) {return false;}
+        CHECK_RET(comp_mat(slt.reconstructMatrix(upper, lower, colsum), ret));
     }
 
     return true;
@@ -111,7 +111,7 @@ public:
         return {};
     }
 };
-TEST(Q1253, Solution) {EXPECT_EQ(q1253::run_testcases<q1253::Solution>(), true);}
+TEST(Q1253, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 316 ms, faster than 39.29%
 // Memory Usage: 22.4 MB, less than 100.00%
@@ -149,7 +149,7 @@ public:
         return {};
     }
 };
-TEST(Q1253, Solution02) {EXPECT_EQ(q1253::run_testcases<q1253::Solution02>(), true);}
+TEST(Q1253, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 
 // Runtime: 432 ms, faster than 5.36%
 // Memory Usage: 22.4 MB, less than 100.00%
@@ -185,5 +185,5 @@ public:
         return {};
     }
 };
-TEST(Q1253, Solution03) {EXPECT_EQ(q1253::run_testcases<q1253::Solution03>(), true);}
+TEST(Q1253, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 };

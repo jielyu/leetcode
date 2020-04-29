@@ -24,11 +24,11 @@ template<typename T>
 bool run_testcases() {
     T slt;
     vector<int> example01{3,6,5,1,8};
-    if (slt.maxSumDivThree(example01) != 18) {return false;}
+    CHECK_RET(slt.maxSumDivThree(example01) == 18);
     vector<int> example02{4};
-    if (slt.maxSumDivThree(example02) != 0) {return false;}
+    CHECK_RET(slt.maxSumDivThree(example02) == 0);
     vector<int> example03{1,2,3,4,4};
-    if (slt.maxSumDivThree(example03) != 12) {return false;}
+    CHECK_RET(slt.maxSumDivThree(example03) == 12);
     return true;
 }
 
@@ -61,6 +61,6 @@ public:
         return max(0, remainds[0]);
     }
 };
-TEST(Q1262, Solution) {EXPECT_EQ(q1262::run_testcases<Solution>(), true);}
+TEST(Q1262, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

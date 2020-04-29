@@ -51,7 +51,7 @@ bool run_testcases() {
         vector<vector<int>> matrix{{1,2,3},{4,5,6},{7,8,9}};
         vector<vector<int>> ret{{7,4,1},{8,5,2},{9,6,3}};
         slt.rotate(matrix);
-        if (!comp_matrix(matrix, ret)) {return false;}
+        CHECK_RET(comp_matrix(matrix, ret));
     }
 
     // example 02
@@ -59,7 +59,7 @@ bool run_testcases() {
         vector<vector<int>> matrix{{5, 1, 9,11},{2, 4, 8,10},{13, 3, 6, 7},{15,14,12,16}};
         vector<vector<int>> ret{{15,13, 2, 5},{14, 3, 4, 1},{12, 6, 8, 9},{16, 7,10,11}};
         slt.rotate(matrix);
-        if (!comp_matrix(matrix, ret)) {return false;}
+        CHECK_RET(comp_matrix(matrix, ret));
     }
 
     return true;
@@ -89,6 +89,6 @@ public:
         }
     }
 };
-TEST(Q0048, Solution) {EXPECT_EQ(q0048::run_testcases<q0048::Solution>(), true);}
+TEST(Q0048, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

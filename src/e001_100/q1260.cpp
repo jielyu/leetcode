@@ -40,7 +40,7 @@ bool run_testcases() {
         vector<vector<int>> grid{{1,2,3},{4,5,6},{7,8,9}};
         int k = 1;
         vector<vector<int>> ret{{9,1,2},{3,4,5},{6,7,8}};
-        if (!comp_matrix(slt.shiftGrid(grid,k), ret)) {return false;}
+        CHECK_RET(comp_matrix(slt.shiftGrid(grid,k), ret));
     }
 
     // example 02
@@ -48,7 +48,7 @@ bool run_testcases() {
         vector<vector<int>> grid{{3,8,1,9},{19,7,2,5},{4,6,11,10},{12,0,21,13}};
         int k = 4;
         vector<vector<int>> ret{{12,0,21,13},{3,8,1,9},{19,7,2,5},{4,6,11,10}};
-        if (!comp_matrix(slt.shiftGrid(grid,k), ret)) {return false;}
+        CHECK_RET(comp_matrix(slt.shiftGrid(grid,k), ret));
     }
 
     // example 03
@@ -56,7 +56,7 @@ bool run_testcases() {
         vector<vector<int>> grid{{1,2,3},{4,5,6},{7,8,9}};
         int k = 9;
         vector<vector<int>> ret{{1,2,3},{4,5,6},{7,8,9}};
-        if (!comp_matrix(slt.shiftGrid(grid,k), ret)) {return false;}
+        CHECK_RET(comp_matrix(slt.shiftGrid(grid,k), ret));
     }
 
     return true;
@@ -82,6 +82,6 @@ public:
         return ret;
     }
 };
-TEST(Q1260, Solution) {EXPECT_EQ(q1260::run_testcases<Solution>(), true);}
+TEST(Q1260, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

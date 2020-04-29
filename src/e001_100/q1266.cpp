@@ -34,12 +34,12 @@ bool run_testcases() {
     // example 01
     {
         vector<vector<int>> pts{{1,1},{3,4},{-1,0}};
-        if (slt.minTimeToVisitAllPoints(pts) != 7) {return false;}
+        CHECK_RET(slt.minTimeToVisitAllPoints(pts) == 7);
     }
     // example 02
     {
         vector<vector<int>> pts{{3,2},{-2,2}};
-        if (slt.minTimeToVisitAllPoints(pts) != 5) {return false;}
+        CHECK_RET(slt.minTimeToVisitAllPoints(pts) == 5);
     }
 
     // succ
@@ -64,6 +64,6 @@ public:
         return sum;
     }
 };
-TEST(Q1266, Solution) {EXPECT_EQ(q1266::run_testcases<q1266::Solution>(), true);}
+TEST(Q1266, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

@@ -34,12 +34,12 @@ bool run_testcases() {
     T slt;
     // example 01
     {
-        if (true != slt.isAdditiveNumber("112358")) {return false;}
+        CHECK_RET(true == slt.isAdditiveNumber("112358"));
     }
 
     // example 02
     {
-        if (true != slt.isAdditiveNumber("199100199")) {return false;}
+        CHECK_RET(true == slt.isAdditiveNumber("199100199"));
     }
 
     return true;
@@ -98,6 +98,6 @@ public:
         return false;
     }
 };
-TEST(Q0306, Solution) {EXPECT_EQ(q0306::run_testcases<q0306::Solution>(), true);}
+TEST(Q0306, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 }; // namespace q0306

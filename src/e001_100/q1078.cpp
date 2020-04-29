@@ -30,14 +30,14 @@ bool run_testcases() {
         string text = "alice is a good girl she is a good student";
         string first = "a", second = "good";
         vector<string> ret {"girl","student"};
-        if (!comp_vector(slt.findOcurrences(text, first, second), ret)) return false;
+        CHECK_RET(comp_vector(slt.findOcurrences(text, first, second), ret));
     }
     // example 02
     {
         string text = "we will we will rock you";
         string first = "we", second = "will";
         vector<string> ret {"we","rock"};
-        if (!comp_vector(slt.findOcurrences(text, first, second), ret)) return false;
+        CHECK_RET(comp_vector(slt.findOcurrences(text, first, second), ret));
     }
     return true;
 }
@@ -78,6 +78,6 @@ public:
         return res;
     }
 };
-TEST(Q1078, Solution) {EXPECT_EQ(q1078::run_testcases<q1078::Solution>(), true);}
+TEST(Q1078, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };

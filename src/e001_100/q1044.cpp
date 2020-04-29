@@ -25,8 +25,8 @@ namespace q1044{
 template<typename T>
 bool run_testcases() {
     T slt;
-    if (slt.longestDupSubstring("banana") != "ana") return false;
-    if (slt.longestDupSubstring("abcd") != "") return false;
+    CHECK_RET(slt.longestDupSubstring("banana") == "ana");
+    CHECK_RET(slt.longestDupSubstring("abcd") == "");
     return true;
 }
 class Solution {
@@ -59,6 +59,6 @@ public:
         return S.substr(dup_idx, dup_len);
     }
 };
-TEST(Q1044, Solution) {EXPECT_EQ(q1044::run_testcases<q1044::Solution>(), true);}
+TEST(Q1044, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 };
