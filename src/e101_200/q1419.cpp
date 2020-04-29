@@ -85,6 +85,8 @@ public:
 };
 TEST(Q1419, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
+// Runtime: 48 ms, faster than 94.11%
+// Memory Usage: 9.2 MB, less than 100.00%
 class Solution2 {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
