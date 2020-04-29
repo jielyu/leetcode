@@ -58,6 +58,11 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    CHECK_RET(13 == slt.getKth(12, 15, 2));
+    CHECK_RET(1 == slt.getKth(1, 1, 1));
+    CHECK_RET(7 == slt.getKth(7, 11, 4));
+    CHECK_RET(13 == slt.getKth(10, 20, 5));
+    CHECK_RET(570 == slt.getKth(1, 1000, 777));
 
     // succ
     return true;
@@ -112,5 +117,5 @@ public:
         return lo + idx[k-1];
     }
 };
-
+TEST(Q1387, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

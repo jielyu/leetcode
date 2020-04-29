@@ -43,6 +43,11 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    CHECK_RET(true == slt.canConstruct("annabelle", 2));
+    CHECK_RET(false == slt.canConstruct("leetcode", 3));
+    CHECK_RET(true == slt.canConstruct("true", 4));
+    CHECK_RET(true == slt.canConstruct("yzyzyzyzyzyzyzy", 2));
+    CHECK_RET(false== slt.canConstruct("cr", 7));
 
     // succ
     return true;
@@ -67,6 +72,7 @@ public:
         return k >= 0;
     }
 };
+TEST(Q1400, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 56 ms, faster than 42.86%
 // Memory Usage: 11.8 MB, less than 100.00%
@@ -81,5 +87,5 @@ public:
         return tab.count() <= k;
     }
 };
-
+TEST(Q1400, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 };

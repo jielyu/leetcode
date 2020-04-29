@@ -41,6 +41,21 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> rating {2,5,3,4,1};
+        CHECK_RET(3 == slt.numTeams(rating));
+    }
+
+    {
+        vector<int> rating {2,1,3};
+        CHECK_RET(0 == slt.numTeams(rating));
+    }
+
+    {
+        vector<int> rating {1,2,3,4};
+        CHECK_RET(4 == slt.numTeams(rating));
+    }
+
     // succ
     return true;
 }
@@ -64,6 +79,7 @@ public:
         return ret;
     }
 };
+TEST(Q1395, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 4 ms, faster than 99.63%
 // Memory Usage: 7.7 MB, less than 100.00%
@@ -86,5 +102,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1395, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 };

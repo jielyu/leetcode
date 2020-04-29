@@ -32,6 +32,20 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    {
+        vector<int> nums {4,3,10,9,8}, ret{10,9};
+        CHECK_RET(comp_vector(ret, slt.minSubsequence(nums)));
+    }
+
+    {
+        vector<int> nums {4,4,7,6,7}, ret{7,7,6};
+        CHECK_RET(comp_vector(ret, slt.minSubsequence(nums)));
+    }
+
+    {
+        vector<int> nums {6}, ret{6};
+        CHECK_RET(comp_vector(ret, slt.minSubsequence(nums)));
+    }
 
     // succ
     return true;
@@ -101,5 +115,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1403, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

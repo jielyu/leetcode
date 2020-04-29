@@ -34,6 +34,10 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    CHECK_RET(4 == slt.countLargestGroup(13));
+    CHECK_RET(2 == slt.countLargestGroup(2));
+    CHECK_RET(6 == slt.countLargestGroup(15));
+    CHECK_RET(5 == slt.countLargestGroup(24));
 
     // succ
     return true;
@@ -67,6 +71,7 @@ public:
         return ret;
     }
 };
+TEST(Q1399, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 28 ms, faster than 12.50%
 // Memory Usage: 5.9 MB, less than 100.00%
@@ -96,7 +101,7 @@ public:
         return ret;
     }
 };
-
+TEST(Q1399, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 
 // Runtime: 0 ms, faster than 100.00%
 // Memory Usage: 6 MB, less than 100.00% 
@@ -126,5 +131,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1399, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 };

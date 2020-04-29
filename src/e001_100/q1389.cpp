@@ -53,6 +53,21 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums {0,1,2,3,4}, index{0,1,2,2,1}, ret{0,4,1,3,2};
+        CHECK_RET(comp_vector(ret, slt.createTargetArray(nums, index)));
+    }
+
+    {
+        vector<int> nums {1,2,3,4,0}, index{0,1,2,3,0}, ret{0,1,2,3,4};
+        CHECK_RET(comp_vector(ret, slt.createTargetArray(nums, index)));
+    }
+
+    {
+        vector<int> nums {1}, index{0}, ret{1};
+        CHECK_RET(comp_vector(ret, slt.createTargetArray(nums, index)));
+    }
+
     // succ
     return true;
 }
@@ -75,5 +90,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1389, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

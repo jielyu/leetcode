@@ -53,7 +53,18 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
-
+    slt.checkIn(45, "Leyton", 3);
+    slt.checkIn(32, "Paradise", 8);
+    slt.checkIn(27, "Leyton", 10);
+    slt.checkOut(45, "Waterloo", 15);
+    slt.checkOut(27, "Waterloo", 20);
+    slt.checkOut(32, "Cambridge", 22);
+    CHECK_RET(std::abs(14 - slt.getAverageTime("Paradise", "Cambridge")) < 1e-5);
+    CHECK_RET(std::abs(11 - slt.getAverageTime("Leyton", "Waterloo")) < 1e-5);
+    slt.checkIn(10, "Leyton", 24);
+    CHECK_RET(std::abs(11 - slt.getAverageTime("Leyton", "Waterloo")) < 1e-5);
+    slt.checkOut(10, "Waterloo", 38);
+    CHECK_RET(std::abs(12 - slt.getAverageTime("Leyton", "Waterloo")) < 1e-5);
     // succ
     return true;
 }
@@ -96,7 +107,7 @@ public:
         return (double)sum / (double)count;
     }
 };
-
+TEST(Q1396, Solution) {EXPECT_TRUE(run_testcases<UndergroundSystem>());}
 /**
  * Your UndergroundSystem object will be instantiated and called as such:
  * UndergroundSystem* obj = new UndergroundSystem();

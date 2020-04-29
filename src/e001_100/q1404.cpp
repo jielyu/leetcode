@@ -40,6 +40,9 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    CHECK_RET(6 == slt.numSteps("1101"));
+    CHECK_RET(1 == slt.numSteps("10"));
+    CHECK_RET(0 == slt.numSteps("1"));
 
     // succ
     return true;
@@ -72,5 +75,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1404, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

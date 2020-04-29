@@ -30,6 +30,11 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> nums {21,4,7};
+        CHECK_RET(32 == slt.sumFourDivisors(nums));
+    }
+
     // succ
     return true;
 }
@@ -70,6 +75,7 @@ public:
         return ret;
     }
 };
+TEST(Q1390, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 28 ms, faster than 97.70%
 // Memory Usage: 7.2 MB, less than 100.00%
@@ -103,5 +109,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1390, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 };

@@ -57,6 +57,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<vector<int>> grid {{2,4,3},{6,5,2}};
+        CHECK_RET(true == slt.hasValidPath(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{1,2,1},{1,2,1}};
+        CHECK_RET(false == slt.hasValidPath(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{1,1,2}};
+        CHECK_RET(false == slt.hasValidPath(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{1,1,1,1,1,1,3}};
+        CHECK_RET(true == slt.hasValidPath(grid));
+    }
+
+    {
+        vector<vector<int>> grid {{2},{2},{2},{2},{2},{2},{6}};
+        CHECK_RET(true == slt.hasValidPath(grid));
+    }
+
     // succ
     return true;
 }
@@ -113,5 +138,5 @@ public:
         return _dfs(grid, 0, 0, used);
     }
 };
-
+TEST(Q1391, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

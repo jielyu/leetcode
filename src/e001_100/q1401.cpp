@@ -38,6 +38,10 @@ template<typename T>
 bool run_testcases() {
     T slt;
     // place testcases below
+    CHECK_RET(true == slt.checkOverlap(1,0,0,1,-1,3,1));
+    CHECK_RET(true == slt.checkOverlap(1,0,0,-1,0,0,1));
+    CHECK_RET(true == slt.checkOverlap(1,1,1,-3,-3,3,3));
+    CHECK_RET(false == slt.checkOverlap(1,1,1,1,-3,2,-1));
 
     // succ
     return true;
@@ -53,5 +57,5 @@ public:
         return dx*dx+dy*dy <= radius*radius;
     }
 };
-
+TEST(Q1401, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };

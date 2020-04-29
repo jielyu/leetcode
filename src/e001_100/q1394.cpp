@@ -46,6 +46,31 @@ bool run_testcases() {
     T slt;
     // place testcases below
 
+    {
+        vector<int> arr {2,2,3,4};
+        CHECK_RET(2 == slt.findLucky(arr));
+    }
+
+    {
+        vector<int> arr {1,2,2,3,3,3};
+        CHECK_RET(3 == slt.findLucky(arr));
+    }
+
+    {
+        vector<int> arr {2,2,2,3,3};
+        CHECK_RET(-1 == slt.findLucky(arr));
+    }
+
+    {
+        vector<int> arr {5};
+        CHECK_RET(-1 == slt.findLucky(arr));
+    }
+
+    {
+        vector<int> arr {7,7,7,7,7,7,7};
+        CHECK_RET(7 == slt.findLucky(arr));
+    }
+
     // succ
     return true;
 }
@@ -70,5 +95,5 @@ public:
         return ret;
     }
 };
-
+TEST(Q1394, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 };
