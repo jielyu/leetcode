@@ -42,10 +42,10 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
-    if (1 != slt.minNumberOfFrogs("croakcroak")) {return false;}
-    if (2 != slt.minNumberOfFrogs("crcoakroak")) {return false;}
-    if (-1 != slt.minNumberOfFrogs("croakcrook")) {return false;}
-    if (-1 != slt.minNumberOfFrogs("croakcroa")) {return false;}
+    CHECK_RET(1 == slt.minNumberOfFrogs("croakcroak"));
+    CHECK_RET(2 == slt.minNumberOfFrogs("crcoakroak"));
+    CHECK_RET(-1 == slt.minNumberOfFrogs("croakcrook"));
+    CHECK_RET(-1 == slt.minNumberOfFrogs("croakcroa"));
 
     return true;
 }
@@ -83,5 +83,5 @@ public:
         return ret;
     }
 };
-TEST(Q1419, Solution) {EXPECT_EQ(q1419::run_testcases<q1419::Solution>(), true);}
+TEST(Q1419, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 } // namespace q1419

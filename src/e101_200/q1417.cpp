@@ -51,11 +51,11 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
-    if (!is_valid(slt.reformat("a0b1c2"))) {return false;}
-    if (!is_valid(slt.reformat("leetcode"))) {return false;}
-    if (!is_valid(slt.reformat("1229857369"))) {return false;}
-    if (!is_valid(slt.reformat("covid2019"))) {return false;}
-    if (!is_valid(slt.reformat("ab123"))) {return false;}
+    CHECK_RET(is_valid(slt.reformat("a0b1c2")));
+    CHECK_RET(is_valid(slt.reformat("leetcode")));
+    CHECK_RET(is_valid(slt.reformat("1229857369")));
+    CHECK_RET(is_valid(slt.reformat("covid2019")));
+    CHECK_RET(is_valid(slt.reformat("ab123")));
 
     return true;
 }
@@ -92,5 +92,5 @@ public:
         return ret;
     }
 };
-TEST(Q1417, Solution) {EXPECT_EQ(q1417::run_testcases<q1417::Solution>(), true);}
+TEST(Q1417, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 } // namespace q1417

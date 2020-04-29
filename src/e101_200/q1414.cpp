@@ -35,9 +35,9 @@ template<typename T>
 bool run_testcases() {
     T slt;
 
-    if (2 != slt.findMinFibonacciNumbers(7)) { return false;}
-    if (2 != slt.findMinFibonacciNumbers(10)) { return false;}
-    if (3 != slt.findMinFibonacciNumbers(19)) { return false;}
+    CHECK_RET(2 == slt.findMinFibonacciNumbers(7));
+    CHECK_RET(2 == slt.findMinFibonacciNumbers(10));
+    CHECK_RET(3 == slt.findMinFibonacciNumbers(19));
 
     return true;
 }
@@ -63,7 +63,7 @@ public:
         return ret;
     }
 };
-TEST(Q1414, Solution) {EXPECT_EQ(q1414::run_testcases<q1414::Solution>(), true);}
+TEST(Q1414, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // @Tiabeanie2
 class Solution02 {
@@ -94,5 +94,5 @@ public:
         return ans;
     }
 };
-TEST(Q1414, Solution02) {EXPECT_EQ(q1414::run_testcases<q1414::Solution02>(), true);}
+TEST(Q1414, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 }; // nam;espace q1414

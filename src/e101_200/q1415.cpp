@@ -47,31 +47,31 @@ bool run_testcases() {
     {
         int n = 1, k = 3;
         string ret = "c";
-        if (slt.getHappyString(n, k) != ret) {return false;}
+        CHECK_RET(slt.getHappyString(n, k) == ret);
     }
 
     {
         int n = 1, k = 4;
         string ret = "";
-        if (slt.getHappyString(n, k) != ret) {return false;}
+        CHECK_RET(slt.getHappyString(n, k) == ret);
     }
 
     {
         int n = 3, k = 9;
         string ret = "cab";
-        if (slt.getHappyString(n, k) != ret) {return false;}
+        CHECK_RET(slt.getHappyString(n, k) == ret);
     }
 
     {
         int n = 2, k = 7;
         string ret = "";
-        if (slt.getHappyString(n, k) != ret) {return false;}
+        CHECK_RET(slt.getHappyString(n, k) == ret)
     }
 
     {
         int n = 10, k = 100;
         string ret = "abacbabacb";
-        if (slt.getHappyString(n, k) != ret) {return false;}
+        CHECK_RET(slt.getHappyString(n, k) == ret);
     }
 
     return true;
@@ -107,7 +107,7 @@ public:
         return ret;
     }
 };
-TEST(Q1415, Solution) {EXPECT_EQ(q1415::run_testcases<q1415::Solution>(), true);}
+TEST(Q1415, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // @@Tiabeanie2
 class Solution02 {
@@ -145,7 +145,7 @@ public:
         }        
     }
 };
-TEST(Q1415, Solution02) {EXPECT_EQ(q1415::run_testcases<q1415::Solution02>(), true);}
+TEST(Q1415, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 
 // @@Tiabeanie2
 class Solution03 {
@@ -198,5 +198,5 @@ public:
         return last;
     }
 };
-TEST(Q1415, Solution03) {EXPECT_EQ(q1415::run_testcases<q1415::Solution03>(), true);}
+TEST(Q1415, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 } // namespace q1415

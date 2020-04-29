@@ -57,7 +57,7 @@ bool run_testcases() {
                                    {"3","0","2","1","0"},
                                    {"5","0","1","0","1"},
                                    {"10","1","0","0","0"}};
-        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+        CHECK_RET(comp_matrix(slt.displayTable(orders), ret));
     }
 
     {
@@ -69,7 +69,7 @@ bool run_testcases() {
         vector<vector<string>> ret{{"Table","Canadian Waffles","Fried Chicken"},
                                    {"1","2","0"},
                                    {"12","0","3"}};
-        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+        CHECK_RET(comp_matrix(slt.displayTable(orders), ret));
     }
 
     {
@@ -78,7 +78,7 @@ bool run_testcases() {
                                       {"Melissa","2","Soda"}};
         vector<vector<string>> ret{{"Table","Bean Burrito","Beef Burrito","Soda"},
                                    {"2","1","1","1"}};
-        if (!comp_matrix(slt.displayTable(orders), ret)) {return false;} 
+        CHECK_RET(comp_matrix(slt.displayTable(orders), ret));
     }
 
     return true;
@@ -125,7 +125,7 @@ public:
         return ret;
     }
 };
-TEST(Q1418, Solution) {EXPECT_EQ(q1418::run_testcases<q1418::Solution>(), true);}
+TEST(Q1418, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 
 // Runtime: 256 ms, faster than 93.43%
 // Memory Usage: 52.9 MB, less than 100.00%
@@ -164,5 +164,5 @@ public:
         return results;
     }
 };
-TEST(Q1418, Solution2) {EXPECT_EQ(q1418::run_testcases<q1418::Solution2>(), true);}
+TEST(Q1418, Solution2) {EXPECT_TRUE(run_testcases<Solution2>());}
 } // namespace q1418
