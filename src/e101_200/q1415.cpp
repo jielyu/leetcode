@@ -199,4 +199,95 @@ public:
     }
 };
 TEST(Q1415, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
+
+/* 回溯法 -- 递归模版
+与Solution02的解法一致，只是避免了对象成员的使用，改为传递引用参数
+*/
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 5.9 MB, less than 100.00%
+class Solution04 {
+private:
+    void _dfs(string & slt, string & k_slt, int & k, int pos) {
+        // 最优解终止条件
+        if (0 == k) {return;}
+        // 找到一个解的终止条件
+        if (slt.size() == pos) {
+            if (0 == (--k)) {k_slt = slt;}
+            return;
+        }
+        // 遍历当前节点的所有可能解
+        for (char ch = 'a'; ch <= 'c'; ++ch) {
+            // 判断约束条件
+            if (0 == pos || slt[pos-1] != ch) {
+                // 设置当前位置
+                slt[pos] = ch;
+                // 搜索下一个位置
+                _dfs(slt, k_slt, k, pos+1);
+            }
+        }
+    }
+public:
+    string getHappyString(int n, int k) {
+        string slt(n, 0), k_slt;
+        _dfs(slt, k_slt, k, 0);
+        //cout << slt << "," << k_slt << "," << k << endl;
+        if (0 == k) {return k_slt;}
+        return "";
+    }
+};
+TEST(Q1415, Solution04) {EXPECT_TRUE(run_testcases<Solution04>());}
+
+/* 回溯法 -- while模版 */
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6.1 MB, less than 100.00%
+class Solution05 {
+    public:
+    string getHappyString(int n, int k) {
+        // 初始化字符串
+        string slt(n, 0); // 状态存储器
+        string k_slt;     // 最优解记录器
+        int pos = 0;      // 搜索索引位置
+        // 设置索引位置的条件限制
+        while (pos >= 0 && pos <= n) {
+            //cout << pos << "," << slt << "," << k << endl;
+            if (pos == n) { // 搜索到一个解
+                // 搜索到符合条件的最优解，结束搜索
+                if (0 == (--k)) {
+                    k_slt = slt;
+                    break;
+                } else { // 不是最优解，则开始回溯
+                    // 回退索引
+                    --pos;
+                }
+            } else {
+                // 设置slt[pos]的第一个可能字符
+                if (slt[pos] == 0) {
+                    slt[pos] = 'a';
+                } else {
+                    ++slt[pos];
+                }
+                // 搜索slt[pos] 
+                while (pos > 0 && slt[pos-1] == slt[pos]) {
+                    ++slt[pos];
+                }
+                // 判断当前解符合要求则尝试下一个
+                if (slt[pos] >= 'a' && slt[pos] <= 'c') {
+                    // 标示当前位置，上面已经完成
+                    // 开始下一个
+                    ++pos;
+                }
+                // 判断当前解不符合要求，则回溯
+                else {
+                    // 清理当前状态
+                    slt[pos] = 0;
+                    // 返回上一个
+                    --pos;
+                }
+            }
+        }
+        if (0 == k) {return k_slt;}
+        return "";
+    }
+};
+TEST(Q1415, Solution05) {EXPECT_TRUE(run_testcases<Solution05>());}
 } // namespace q1415
