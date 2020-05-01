@@ -2,23 +2,39 @@
 
 to manage code solving leetcode-like problems
 
+## Articles 文章
+
+### (1) 经典算法思想
+
+[经典算法思想之回溯法 Q1415](https://mp.weixin.qq.com/s/4nbyiJ8foXIkgj3n0ccorQ)
+
+### (2) 基础算法
+
+[深度优先搜索DFS](https://mp.weixin.qq.com/s/7VwPNVWNPJmPQgzSl0xQYA)
+
+### (3) 动态规划
+
+[积分图加速矩阵块求和 Q1314](https://mp.weixin.qq.com/s/tehqEiBslkFUdarZ5vVO1w)
+
+### (4) 数学方法
+
+[钟针之间的角度 Q1344](https://mp.weixin.qq.com/s/vJ2RFrewvWYcWr4jeDzKoQ)
+
+### (5) 捋一捋逻辑
+
+[旋转矩阵 Q0048](https://mp.weixin.qq.com/s/n_0FJkuX2N0_EPMHG3MBDw)
+
+### (6) 实用STL
+
+[矩阵对角线排序 Q1329](https://mp.weixin.qq.com/s/ddnzIpv7K07urg0F0SsrRA)
+
+[更多文章>>>](https://cnbluegeek.github.io/archive/?tag=%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98)
+
 ## 1. Records 记录
 
 [第001～100期](src/e001_100/README.md)
 
 [第101～200期](src/e101_200/README.md)
-
-## Articles 文章
-
-### [Q1314 积分图加速矩阵块求和](https://mp.weixin.qq.com/s/tehqEiBslkFUdarZ5vVO1w)
-
-### [Q1344 钟针之间的角度](https://mp.weixin.qq.com/s/vJ2RFrewvWYcWr4jeDzKoQ)
-
-### [Q0048 旋转矩阵](https://mp.weixin.qq.com/s/n_0FJkuX2N0_EPMHG3MBDw)
-
-### [Q1329 矩阵对角线排序](https://mp.weixin.qq.com/s/ddnzIpv7K07urg0F0SsrRA)
-
-[更多文章>>>](https://cnbluegeek.github.io/archive/?tag=%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98)
 
 ## 2. Dependencies 依赖
 
