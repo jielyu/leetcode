@@ -10,11 +10,13 @@ to manage code solving leetcode-like problems
 
 ### (2) 基础算法
 
-[深度优先搜索DFS](https://mp.weixin.qq.com/s/7VwPNVWNPJmPQgzSl0xQYA)
+[深度优先搜索DFS Q1376](https://mp.weixin.qq.com/s/7VwPNVWNPJmPQgzSl0xQYA)
 
 ### (3) 动态规划
 
 [积分图加速矩阵块求和 Q1314](https://mp.weixin.qq.com/s/tehqEiBslkFUdarZ5vVO1w)
+
+[能被3整除的最大和 Q1262](https://mp.weixin.qq.com/s/FiSLqpGMY3b134QFsYDLLw)
 
 ### (4) 数学方法
 
