@@ -115,5 +115,22 @@ public:
     }
 };
 TEST(Q1423, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
+
+// @@Tiabeanie2
+// prefix sum approach, in-place memory
+class Solution03 {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        for (int i = 0; i < n; i++)
+            if (i > 0) cardPoints[i] += cardPoints[i - 1];
+                
+        int ans = cardPoints[n - 1] - (n >= k + 1 ? cardPoints[n - k - 1] : 0);
+        for (int j = 0; j <=k-1; j++)
+            ans = max(ans, cardPoints[j] + cardPoints[n - 1] - cardPoints[n - k + j]);
+        return ans;
+    }
+};
+TEST(Q1423, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 } // namespace q1423
 
