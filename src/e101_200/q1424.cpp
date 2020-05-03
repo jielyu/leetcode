@@ -127,4 +127,28 @@ public:
     }
 };
 TEST(Q1424, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
+
+// Runtime: 496 ms, faster than 88.83% 
+// Memory Usage: 70.0 MB, less than 100.00%
+class Solution03 {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& nums) {
+        vector<pair<int, int>> p;
+        for (int i = 0; i < nums.size(); i ++)
+            for (int j = 0; j < nums[i].size(); j ++)
+                p.push_back({i, j});
+        
+        sort(p.begin(), p.end(), [](const pair<int,int>& a, const pair<int,int>&b)
+        {
+            if (a.first + a.second != b.first + b.second)
+                return a.first + a.second < b.first + b.second;
+            return a.second < b.second;
+        });
+        
+        vector<int> ans;
+        for (auto& pair: p) ans.push_back(nums[pair.first][pair.second]);
+        return ans;
+    }
+};
+TEST(Q1424, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 } // namespace q1424
