@@ -7,6 +7,7 @@ void print(const string & info, bool enter) {
 
 template<> bool comp_vector<int>(const vector<int> & v1, const vector<int> & v2);
 template<> bool comp_vector<string>(const vector<string> & v1, const vector<string> & v2);
+template<> bool comp_vector<bool>(const vector<bool> & v1, const vector<bool> & v2);
 
 template<> 
 bool comp_matrix<int>(const vector<vector<int>> & m1, const vector<vector<int>> & m2);
