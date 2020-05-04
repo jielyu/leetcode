@@ -101,5 +101,35 @@ public:
     }
 };
 TEST(Q1431, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
+    
+ 
+//Runtime: 4 ms 
+//Memory Usage: 9 MB
+class Solution03 {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        
+        int sizeOfArray = candies.size();
+        
+        vector<bool> results(sizeOfArray);
+        int max = 0; 
+        for(int i = 0; i < sizeOfArray; i++)
+        {
+            results.at(i) = true;
+            max = candies.at(i) + extraCandies;
+            for(int j = 0; j < sizeOfArray; j++)
+            {
+                if(candies.at(j) > max)
+                {
+                    results[i] = false;
+                    break;
+                }
+            }
+        }
+        
+        return results;
+    }
+};
+TEST(Q1431, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 } // namespace q1431
 
