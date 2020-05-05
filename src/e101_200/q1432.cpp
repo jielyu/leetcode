@@ -96,4 +96,54 @@ public:
     }
 };
 TEST(Q1432, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
+
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6.2 MB, less than 100.00%
+class Solution02 {
+public:
+    int maxDiff(int num) {
+        vector<int> digits;
+        int n = num;
+        while (n > 0)
+        {
+            digits.push_back(n % 10);
+            n /= 10;
+        }
+        int sum;
+        auto it = locate(digits, true, sum);
+        int a = it == digits.rend() ? num : replace(digits, it, sum, *it, 9);
+        it = locate(digits, false, sum);
+        int b = it == digits.rend() ? num :
+            (it == digits.rbegin() ? 
+                replace(digits, it, sum, *it, 1):
+                replace(digits, it, sum, *it, 0));
+        
+        return a - b;
+    }
+    
+    vector<int>::reverse_iterator locate(vector<int>& digits, bool maximize, int& sum)
+    {
+        sum = 0;
+        auto it = digits.rbegin();
+        for (;it != digits.rend(); ++it)
+        {
+            if ((maximize && *it < 9) || (!maximize && *it > 1)) break;
+            sum = sum * 10 + *it;
+        }
+        return it;
+    }
+    
+    int replace(vector<int>& digits, vector<int>::reverse_iterator start, int partialSum, int oldDigit, int newDigit)
+    {
+        int sum = partialSum;
+        for (auto it = start; it != digits.rend(); ++it)
+        {
+            if (*it == oldDigit) sum = sum * 10 + newDigit;
+            else sum = sum * 10 + *it;
+        }
+        
+        return sum;
+    }
+};
+TEST(Q1432, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
 } // namespace q1432
