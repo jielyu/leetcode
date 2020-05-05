@@ -68,3 +68,5 @@ TEST(Q0048, Solution) {EXPECT_EQ(q0048::run_testcases<q0048::Solution>(), true);
 [jielyu](https://github.com/jielyu)
 
 [extremedeckguru](https://github.com/extremedeckguru)
+
+[yanlifang](https://github.com/yanlifang)
