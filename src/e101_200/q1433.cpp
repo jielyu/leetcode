@@ -87,4 +87,38 @@ public:
     }
 };
 TEST(Q1433, Solution02) {EXPECT_TRUE(run_testcases<Solution02>());}
+
+// Runtime: 84 ms, faster than 96.69%
+// Memory Usage: 11.6 MB, less than 100.00%
+class Solution03 {
+public:
+    bool checkIfCanBreak(string s1, string s2) {
+        count_sort(s1);
+        count_sort(s2);
+        bool seenGreater = false;
+        bool seenLess = false;
+        for (int i = 0; i < s1.size(); i ++)
+        {
+            if (s1[i] > s2[i]) seenGreater = true; 
+            if (s1[i] < s2[i]) seenLess = true;
+            if (seenGreater && seenLess) return false;
+        }
+        return true;
+    }
+    
+    void count_sort(string& str)
+    {
+        int count[26] = {0};
+        for (char c : str) count[c - 'a'] ++;
+        int index = 0;
+        for (int i = 0; i < 26; i ++)
+        {
+            while (count[i] --)
+            {
+                str[index ++] = i + 'a';
+            }
+        }
+    }
+};
+TEST(Q1433, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
 } // namespace q1433
