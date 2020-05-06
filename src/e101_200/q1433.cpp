@@ -121,4 +121,31 @@ public:
     }
 };
 TEST(Q1433, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
+
+// @Tiabeanie2
+// Runtime: 76 ms, faster than 99.23% 
+// Memory Usage: 11.5 MB, less than 100.00%
+class Solution04 {
+private:
+    bool _check(int * f1, int * f2, int len=26) {
+        int sum1 = 0, sum2 = 0;
+        for (int i = 0; i < len; ++i) {
+            sum1 += f1[i];
+            sum2 += f2[i];
+            if (f1[i] != 0 && sum1 > sum2) {return false;}
+        }
+        return true;
+    }
+public:
+    bool checkIfCanBreak(string s1, string s2) {
+        const int MAX_LEN = 26, n = s1.size();
+        int f1[MAX_LEN] = {0}, f2[MAX_LEN] = {0};
+        for (int i = 0; i < n; ++i) {
+            f1[s1[i] - 'a']++;
+            f2[s2[i] - 'a']++;
+        }
+        return _check(f1, f2, MAX_LEN) || _check(f2, f1, MAX_LEN);
+    }
+};
+TEST(Q1433, Solution04) {EXPECT_TRUE(run_testcases<Solution04>());}
 } // namespace q1433
