@@ -121,4 +121,35 @@ public:
     }
 };
 TEST(Q1433, Solution03) {EXPECT_TRUE(run_testcases<Solution03>());}
+
+// Runtime: 76 ms, faster than 99.23%
+// Memory Usage: 11.5 MB, less than 100.00%
+class Solution04 {
+public:
+    bool checkIfCanBreak(string s1, string s2) {
+        int freq1[26] = {0};
+        int freq2[26] = {0};
+        for (int i = 0; i < s1.size(); i ++)
+        {
+            freq1[s1[i] - 'a'] ++;
+            freq2[s2[i] - 'a'] ++;
+        }
+        
+        return check(freq1, freq2) || check(freq2, freq1);
+    }    
+    
+    bool check(int * f1, int * f2)
+    {
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i <26;i++)
+        {
+            sum1 += f1[i];
+            sum2 += f2[i];
+            if (f1[i] != 0 && sum1 > sum2) return false;
+        }
+        return true;
+    }
+};
+TEST(Q1433, Solution04) {EXPECT_TRUE(run_testcases<Solution04>());}
 } // namespace q1433
