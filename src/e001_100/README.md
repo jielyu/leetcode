@@ -67,7 +67,7 @@ to manage code solving leetcode-like problems
 |0042|Q1310|[1310.cpp](q1310.cpp)|--|子数组的XOR查询|2020-02-22|中|--|
 |0041|Q0779|[0779.cpp](q0779.cpp)|--|语法的第K个符号|2020-02-21|中|--|
 |0040|Q0048|[0048.cpp](q0048.cpp)|--|旋转图像|2020-02-20|中(收费)|[第78期](https://mp.weixin.qq.com/s/n_0FJkuX2N0_EPMHG3MBDw)|
-|0039|Q1311|[1311.cpp](q1311.cpp)|--|获取朋友观看的视频|2020-02-19|中|--|
+|0039|Q1311|[1311.cpp](q1311.cpp)|--|获取朋友观看的视频|2020-02-19|中|[第91期](https://mp.weixin.qq.com/s/MwACh4_Ahjamwpf6stxSmw)|
 |0038|Q1313|[1313.cpp](q1313.cpp)|--|解压缩行程编码列表|2020-02-18|低|--|
 |0037|Q1314|[1314.cpp](q1314.cpp)|--|矩阵块总和|2020-02-17|中|[第83期](https://mp.weixin.qq.com/s/tehqEiBslkFUdarZ5vVO1w)|
 |0036|Q1315|[1315.cpp](q1315.cpp)|--|具有偶值祖父母的节点总数|2020-02-16|中|--|

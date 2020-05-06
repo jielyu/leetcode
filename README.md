@@ -11,6 +11,7 @@ to manage code solving leetcode-like problems
 ### (2) 基础算法
 
 [深度优先搜索DFS Q1376](https://mp.weixin.qq.com/s/7VwPNVWNPJmPQgzSl0xQYA)
+[广度优先搜索 BFS Q102 Q1311](https://mp.weixin.qq.com/s/MwACh4_Ahjamwpf6stxSmw)
 
 ### (3) 动态规划
 
