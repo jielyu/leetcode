@@ -6,7 +6,7 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 对本项目感兴趣的朋友，麻烦加个star以示鼓励。
 
-欢迎正在使用leetcode的朋友，提交Pull Request，具体规则可以查看下文第4项“参与”。
+欢迎正在使用leetcode的朋友提交Pull Request贡献代码，具体规则可以查看下文第4项“参与”。
 
 ## Articles 文章
 
@@ -108,6 +108,8 @@ bash release.sh
 ![青衣极客](images/wechat_public.png)
 
 ## 6. 题目标记
+
+用于快速查看哪些问题已经收录。
 
 |第1个|第2个|第3个|第4个|第5个|第6个|第7个|第8个|第9个|第10个|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
