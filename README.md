@@ -4,7 +4,7 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 【译】收集leetcode类型的问题和解决方案，致力于提高算法设计的能力。
 
-对本项目感兴趣的朋友，麻烦加个star以示鼓励。
+***对本项目感兴趣的朋友，麻烦加个star以示鼓励。***
 
 欢迎正在使用leetcode的朋友提交Pull Request贡献代码，具体规则可以查看下文第4项“参与”。
 
@@ -82,6 +82,10 @@ bash release.sh
 ```bash
 ./build/leetcode
 ```
+
+### (4). 调试
+
+[VSCode 调试配置说明](doc/vscode-config.md)
 
 ## 4. Join 参与
 
