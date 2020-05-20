@@ -77,7 +77,7 @@ TEST(Q1446, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 class SolutionZY {
 public:
     int maxPower(string s) {
-        const int MAX_NUM = 26, len = s.size();
+        const int MAX_NUM = 26;
         int ret = 1, idx = 0;
         vector<int> letters(MAX_NUM, 0);
         ++letters[s[0]-'a'];
