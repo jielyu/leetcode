@@ -71,4 +71,32 @@ public:
     }
 };    
 TEST(Q1446, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
-} // namespace q1446
+
+// Runtime: 8 ms, faster than 85.75%
+// Memory Usage: 7 MB, less than 100.00%
+class SolutionZY {
+public:
+    int maxPower(string s) {
+        const int MAX_NUM = 26, len = s.size();
+        int ret = 1, idx = 0;
+        vector<int> letters(MAX_NUM, 0);
+        ++letters[s[0]-'a'];
+        int i = 1;
+        while (i < s.size()) {
+            idx = s[i] - 'a';
+            if (s[i] == s[i-1]) {
+                ++letters[idx];
+                if (letters[idx] > ret) {ret = letters[idx];}
+                i++;
+            } else {
+                letters[s[i-1]-'a']=0;
+                letters[idx] = 1;
+                i++;
+            }
+        }
+        return ret;
+    }
+};
+TEST(Q1446, SolutionZY) {EXPECT_TRUE(run_testcases<SolutionZY>());}
+} 
+// namespace q1446
