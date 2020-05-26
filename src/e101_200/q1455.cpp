@@ -53,6 +53,8 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6.3 MB, less than 100.00%
 class Solution {
 private:
     vector<string> _split_words(const string & s) {
