@@ -47,6 +47,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 ListNode * create_list(vector<int> & arr);
+vector<int> list2vector(ListNode* head);
 void delete_list(ListNode * head);
 
 /*Utils*/

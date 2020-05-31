@@ -14,6 +14,15 @@ ListNode * create_list(vector<int> & arr) {
     return head;
 }
 
+vector<int> list2vector(ListNode* head) {
+    vector<int> ret;
+    while (head) {
+        ret.push_back(head->val);
+        head = head->next;
+    }
+    return ret;
+}
+
 void delete_list(ListNode * head) {
     ListNode * next = NULL;
     while(head) {
