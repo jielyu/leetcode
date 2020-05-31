@@ -1,6 +1,6 @@
 
 /*
-#剑指Offer# Q28
+#剑指Offer# Q28 字符串的排列
 
 
 */
@@ -15,6 +15,12 @@ bool run_testcases() {
 
     return true;
 }
+
+/*
+使用回溯法枚举所有的情况
+
+第一个与其他的换，第二个与之后的换， ...
+*/
 
 class Solution {
 public:

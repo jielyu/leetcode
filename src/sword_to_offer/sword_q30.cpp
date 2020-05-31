@@ -1,7 +1,7 @@
 
 /*
-#剑指Offer# Q30
-
+#剑指Offer# Q30 最小的k个数
+输入n个整数，找出其中最小的k个数
 
 */
 #include "leetcode.h"

@@ -1,7 +1,7 @@
 
 /*
-#剑指Offer# Q35
-
+#剑指Offer# Q35 只出现过一次的字符
+在字符串中找出第一个只出现一次的字符
 
 */
 #include "leetcode.h"
@@ -15,6 +15,10 @@ bool run_testcases() {
 
     return true;
 }
+
+/*
+利用数组作为hash表
+*/
 
 class Solution {
 public:
