@@ -7,6 +7,9 @@
 #include <unordered_map>
 #include <set>
 #include <unordered_set>
+#include <stack>
+#include <queue>
+#include <deque>
 #include <iostream>
 #include <algorithm>
 #include <numeric>
@@ -31,6 +34,12 @@ struct TreeNode {
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+// 先序遍历
+void get_preorder(TreeNode * root, vector<int> & preorder);
+// 中序遍历
+void get_inorder(TreeNode * root, vector<int> & inorder);
+// 释放内存
+void delete_tree(TreeNode * root);
 
 struct ListNode {
     int val;

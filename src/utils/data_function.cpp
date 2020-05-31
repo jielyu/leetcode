@@ -22,3 +22,24 @@ void delete_list(ListNode * head) {
         head = next;
     }
 }
+
+void get_preorder(TreeNode * root, vector<int> & preorder) {
+    if (!root) {return;}
+    preorder.push_back(root->val);
+    get_preorder(root->left, preorder);
+    get_preorder(root->right, preorder);
+}
+
+void get_inorder(TreeNode * root, vector<int> & inorder) {
+    if (!root) {return;}
+    get_inorder(root->left, inorder);
+    inorder.push_back(root->val);
+    get_inorder(root->right, inorder);
+}
+
+void delete_tree(TreeNode * root) {
+    if (!root) {return;}
+    if (root->left) {delete_tree(root->left);}
+    if (root->right) {delete_tree(root->right);}
+    delete root;
+}
