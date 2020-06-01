@@ -42,6 +42,6 @@ public:
         }
     }
 };
-TEST(QuickSort, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
+TEST(Sort_QuickSort, Solution) {EXPECT_TRUE(run_testcases<Solution>());}
 } // namespace quick_sort
 
