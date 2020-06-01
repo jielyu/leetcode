@@ -6,7 +6,7 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 ***对本项目感兴趣的朋友，麻烦加个star以示鼓励。***
 
-仓库收录的搜索问题，请查看：[收录列表](src/README.md)
+仓库收录的所有问题，请查看：[收录列表](src/README.md)
 
 ## Articles 文章
 
