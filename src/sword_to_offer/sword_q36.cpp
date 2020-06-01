@@ -15,8 +15,7 @@ bool run_testcases() {
 
     {
         vector<int> arr {7,5,6,4};
-        cout << slt.countInversePairs(arr) << endl;
-        // CHECK_RET(5 == slt.countInversePairs(arr));
+        CHECK_RET(5 == slt.countInversePairs(arr));
     }
 
     return true;
