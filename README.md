@@ -46,6 +46,10 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 [第101～200期](src/e101_200/README.md)
 
+[剑指Offer](src/sword_to_offer/README.md)
+
+[经典问题和算法](src/classical/README.md)
+
 ## 2. Dependencies 依赖
 
 * cmake
