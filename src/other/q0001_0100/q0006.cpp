@@ -31,6 +31,12 @@ P     I
 
 namespace q0006{
 
+/*
+思路1：循环的周期为 2 * numRows - 2; 在不是一行和最后一行中，容易漏掉末尾的一个 j + cycle - i
+
+思路2: 使用n行vector存储每一行的string，行索引的移动方向向上或者向下，最后再把每一行的结果拼起来
+*/
+
 // Runtime: 72 ms, faster than 12.51%
 // Memory Usage: 8.2 MB, less than 100.00%
 class Solution {
@@ -45,9 +51,16 @@ public:
                 int cnt = c / (numRows - 1);
                 int res = c % (numRows - 1);
                 int index = -1;
-                if(res==0) {index = 2*cnt*(numRows-1) + r;}
-                else{if(r == numRows- 1 - res){index = (2*cnt+1)*(numRows-1) + res;}}
-                if(index >= 0 && index < size){str.append(s.substr(index, 1));}
+                if(res==0) {
+                    index = 2*cnt*(numRows-1) + r;
+                } else{
+                    if(r == numRows- 1 - res){
+                        index = (2*cnt+1)*(numRows-1) + res;
+                    }
+                }
+                if(index >= 0 && index < size){
+                    str.append(s.substr(index, 1));
+                }
             }
         }
         return str;
