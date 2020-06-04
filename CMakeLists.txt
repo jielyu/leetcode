@@ -9,14 +9,14 @@ include_directories(${gflags_INCLUDE_DIR})
 set(gflags_LIB gflags)
 set(LIBS ${LIBS} ${gflags_LIB})
 
-#depend gtest
+# depend gtest
 find_package(GTest REQUIRED)
 message(STATUS "depend gtest include: ${GTEST_INCLUDE_DIR}")
 message(STATUS "depend gtest lib: ${GTEST_BOTH_LIBRARIES}")
 include_directories(${GTEST_INCLUDE_DIR})
 set(LIBS ${LIBS} ${GTEST_BOTH_LIBRARIES})
 
-#depend glog
+# depend glog
 IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
   MESSAGE(STATUS "current platform: Linux ")
   include(./FindGlog.cmake)
@@ -53,12 +53,16 @@ message(STATUS "depend ext_libs: ${EXT_LIBS}")
 message(STATUS "CMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 
 # create executable files
+## get file of main.cpp
 aux_source_directory(./src DIR_SRC)
+
+## get files of recorded leetcode Problems
 aux_source_directory(./src/e001_100 E100_DIR_SRC)
 aux_source_directory(./src/e101_200 E200_DIR_SRC)
+
+## get source files from othter directory
 set(OTHER_DIR_SRC "")
 add_subdirectory(./src/other)
-
 set(TMP_OTHTER_SRC "")
 foreach(OTHTER_SRC ${OTHTER_DIR_SRC})
     set(TMP_OTHTER_SRC ${TMP_OTHTER_SRC} ./src/other/${OTHTER_SRC})
@@ -66,9 +70,17 @@ endforeach(OTHTER_SRC ${OTHTER_DIR_SRC})
 set(OTHER_DIR_SRC ${TMP_OTHTER_SRC})
 # message(STATUS ${OTHER_DIR_SRC})
 
+## get files of sword-to-offer problems
 aux_source_directory(./src/sword_to_offer SWORD_OFFER_DIR_SRC)
+
+## get files of classical problems and algorithms
 aux_source_directory(./src/classical CLASSICAL_DIR_SRC)
+
+## add sprcific source file for testing
+## note that the above variables which store source files should be commented.
 #set(E100_DIR_SRC src/e001_100/q0048.cpp)
-#set(E100_DIR_SRC src/e001_100/q1276.cpp)
-add_executable(${PROJECT_NAME} ${DIR_SRC} ${E100_DIR_SRC} ${E200_DIR_SRC} ${OTHER_DIR_SRC} ${SWORD_OFFER_DIR_SRC} ${CLASSICAL_DIR_SRC})
+
+## create target and link libraries
+add_executable(${PROJECT_NAME} ${DIR_SRC} ${E100_DIR_SRC} ${E200_DIR_SRC} 
+               ${OTHER_DIR_SRC} ${SWORD_OFFER_DIR_SRC} ${CLASSICAL_DIR_SRC})
 target_link_libraries(${PROJECT_NAME} ${LIBS} ${EXT_LIBS})
