@@ -1,7 +1,21 @@
 
 /*
-#LeetCode# Q0046
+#LeetCode# Q0046 排列
+难度：中
+给定一个不同的整数集合，返回所有可能的permutation。
 
+Example:
+
+Input: [1,2,3]
+Output:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
 
 */
 #include "leetcode.h"
