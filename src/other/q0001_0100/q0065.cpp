@@ -45,9 +45,78 @@ bool run_testcases() {
     return true;
 }
 
+
+// Runtime: 8 ms, faster than 17.49%
+// Runtime: 8 ms, faster than 17.49%
 class Solution {
+private:
+    bool _is_digit(char c) { return c >= '0' && c <= '9';}
+    
 public:
-    void func();
+    bool isNumber(string s) {
+        bool e_flag = false, dot_flag = false, sign_e_flag = false, d_flag = false;
+        int len = s.size(), i = 0;
+        // 找到第一个有效字符
+        while (i < len && s[i] == ' ') {++i;}
+        // 判断第一个字符是否合法
+        if ('.' == s[i]) {
+            // 小数点不能是最后一个字符
+            if (i >= len - 1) {return false;}
+            // 设置小数点标志
+            dot_flag = true;
+        } else if (s[i] != '+' && s[i] != '-' && (!_is_digit(s[i])) ) {
+            return false;
+        } else if (_is_digit(s[i])) {
+            d_flag = true;
+        }
+        ++i;
+        // 检查接下来的数字部分
+        while (i < len) {
+            if (s[i] == 'e') {
+                if (false == d_flag) {return false;}
+                // 设置e出现的标志位
+                if (e_flag == false) {
+                    e_flag=true;
+                } else {
+                    return false;
+                }
+                // e之前必须为数字
+                if ((!_is_digit(s[i-1])) && ('.' != s[i-1]) ) {return false;}
+                // e后必须为数字
+                d_flag = false;
+            } else if (s[i]=='.') {
+                // 设置小数点标志
+                if (dot_flag == false) {
+                    dot_flag = true;
+                } else {
+                    return false;
+                }
+                // e后不能出现小数点
+                if (e_flag) {return false;}
+            } else if (!_is_digit(s[i])) {
+                if (s[i] != '+' && s[i] != '-' && s[i] != ' ') {return false;}
+                
+                // 不允许出现e后面出现非“+-”的非数字字符
+                if (('-' == s[i] || '+'== s[i])) {
+                    if ( ('e' != s[i-1]) || (sign_e_flag) ) {
+                        return false;
+                    }
+                    sign_e_flag = true;
+                }
+                // 不允许中间出现空格
+                if (' ' == s[i]) {
+                    while (i < len && s[i] == ' ') {++i;}
+                    if (i < len) {return false;}
+                }
+            } else {
+                // 数字存在标志
+                d_flag = true;
+            }
+            //cout << i << endl;
+            ++i;
+        }
+        return d_flag == true;
+    }
 };
 
 } // namespace q0065

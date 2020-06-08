@@ -37,9 +37,59 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 32 ms, faster than 13.19%
+// Memory Usage: 13.1 MB, less than 11.33%
 class Solution {
 public:
-    void func();
+    bool canJump(vector<int>& nums) {
+        // 记录到达的最大索引
+        int max_idx = 0, len = nums.size();
+        // 只有一个元素直接返回
+        if (len <= 1) {return true;}
+        for (int i = 0; i < len; ++i) {
+            // 遇到0点，最大可达还没到达终点，则失败
+            if (0 == nums[i] && max_idx <= i) {return false;}
+            // 如果最大可达位置超过了长度，则成功
+            if (i + nums[i] >= len - 1) {return true;}
+            // 记录最大可到位置
+            if (max_idx < i + nums[i]) {
+                max_idx = i + nums[i];
+            }
+            //cout << max_idx << endl;
+        }
+        return true;
+    }
+};
+
+
+// untime: 24 ms, faster than 20.49%
+// Memory Usage: 13.1 MB, less than 8.69%
+class Solution02 {
+public:
+    bool canJump(vector<int>& nums) {
+        // 记录到达的最大索引
+        int len = nums.size(), i = 0;
+        // 只有一个元素直接返回
+        if (len <= 1) {return true;}
+        while (i < len) {
+            // 到达一个吸收节点，则失败
+            if (nums[i] == 0 && i < len) {return false;}
+            if (i + nums[i] >= len - 1) {return true;}
+            // 搜索i到i+nums[i] 之间的所有位置，选择最好的位置
+            int max_pos = i + nums[i], best_idx = i + 1, max_idx = 0;
+            for (int k = i + 1; k <= max_pos && k < len; ++k) {
+                // 最好的节点也就是跳得最远的节点
+                if (k + nums[k] > max_idx) {
+                    // 记录最远的位置和当前位置
+                    max_idx = k + nums[k];
+                    best_idx = k;
+                }
+            }
+            i = best_idx;
+            //cout << i << "," << max_idx << endl;
+        }
+        return true;
+    }
 };
 
 } // namespace q0055

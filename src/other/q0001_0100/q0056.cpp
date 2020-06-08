@@ -30,9 +30,39 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 28 ms, faster than 66.75%
+// Memory Usage: 16.9 MB, less than 62.54%
 class Solution {
 public:
-    void func();
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> ret;
+        int len = intervals.size();
+        bool fused = false;
+        for (int i = 0; i < len; ++i) {
+            // 新区间完全在当前区间右边
+            if (intervals[i][1] < newInterval[0]) {
+                ret.push_back(intervals[i]);
+            // 新区间完全在当前区间左边
+            } else if (intervals[i][0] > newInterval[1]) {
+                // 接受新区间
+                if (fused==false) {
+                     ret.push_back(newInterval);
+                     fused = true;
+                }
+                // 接受当前区间
+                ret.push_back(intervals[i]);
+                
+            } else {
+                // 融合当前区间和新区间
+                newInterval[0] = min(newInterval[0], intervals[i][0]);
+                newInterval[1] = max(newInterval[1], intervals[i][1]);
+            }
+        }
+        if (false == fused) {
+            ret.push_back(newInterval);
+        }
+        return ret;
+    }
 };
 
 } // namespace q0056
