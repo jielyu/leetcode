@@ -63,9 +63,40 @@ bool run_testcases() {
     return true;
 }
 
+
+// untime: 8 ms, faster than 83.50% o
+// Memory Usage: 9.1 MB, less than 68.97%
 class Solution {
 public:
-    void func();
+    bool isScramble(string s1, string s2) {
+        if (s1 == s2) {return true;}
+        int len = s1.size();
+        if (s2.size() != len) {return false;}
+        // 检查字母的统计直方图
+        const int MAX_NUM = 26;
+        int hist[MAX_NUM] = {0};
+        for (int i = 0; i < len; ++i) {
+            hist[s1[i] - 'a']++;
+            hist[s2[i] - 'a']--;
+        }
+        for (int i = 0; i < MAX_NUM; ++i) {
+            if (hist[i] != 0) {return false;}
+        }
+        // 逐个长度试探
+        for (int i = 1; i <= len-1; ++i) {
+            auto s1_left = s1.substr(0, i), s1_right = s1.substr(i);
+            auto s2_left = s2.substr(0, i), s2_right = s2.substr(i);
+            if (isScramble(s1_left, s2_left) && isScramble(s1_right, s2_right)) {
+                return true;
+            } 
+            s2_right = s2.substr(len-i); 
+            s2_left = s2.substr(0,len-i);
+            if (isScramble(s1_left, s2_right) && isScramble(s1_right, s2_left)) {
+                return true;
+            } 
+        }
+        return false;
+    }
 };
 
 } // namespace q0087
