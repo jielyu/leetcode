@@ -18,6 +18,7 @@
 #include <regex>
 
 #include <stddef.h>
+#include <limits>
 #include <cmath>
 
 using namespace std;
