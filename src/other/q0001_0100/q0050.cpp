@@ -35,9 +35,50 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6 MB, less than 64.28%
 class Solution {
+double _helper(double x, long n) {
+    if (0 == n) {return 1.0;}
+    if (n % 2 == 1) {
+        return x * _helper(x, n-1);
+    }
+    double tmp = _helper(x, n / 2);
+    return tmp*tmp;
+}
 public:
-    void func();
+    double myPow(double x, int n) {
+        if (x > -1e-5 && x < 1e-5 && n < 0) {return 0.0;}
+        long abs_exp = n;
+        if (n < 0) {abs_exp = - abs_exp;}
+        double ret = _helper(x, abs_exp);
+        if (n < 0) {ret = 1.0 / ret;}
+        return ret;
+    }
+};
+
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6.1 MB, less than 38.10% 
+class Solution02 {
+double _helper(double x, long n) {
+    if (0 == n) {return 1.0;}
+    double ret = 1.0;
+    while (n) {
+        if (n & 0x01) {ret *= x;}
+        x *= x;
+        n >>= 1;
+    }
+    return ret;
+}
+public:
+    double myPow(double x, int n) {
+        if (x > -1e-5 && x < 1e-5 && n < 0) {return 0.0;}
+        long abs_exp = n;
+        if (n < 0) {abs_exp = - abs_exp;}
+        double ret = _helper(x, abs_exp);
+        if (n < 0) {ret = 1.0 / ret;}
+        return ret;
+    }
 };
 
 } // namespace q0050
