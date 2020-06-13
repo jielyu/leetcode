@@ -37,9 +37,21 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 0 ms, faster than 100.00%
+// Memory Usage: 6.1 MB, less than 39.04%
 class Solution {
 public:
-    void func();
+    int climbStairs(int n) {
+        if (0 == n) {return 1;}
+        if (1 == n) {return 1;}
+        int n_1 = 1, n_2 = 1, ret = 0;
+        for (int i = 2; i <= n; ++i) {
+            ret = n_1 + n_2;
+            n_2 = n_1;
+            n_1 = ret;
+        }
+        return ret;
+    }
 };
 
 } // namespace q0070

@@ -34,9 +34,28 @@ bool run_testcases() {
     return true;
 }
 
+// Runtime: 4 ms, faster than 54.79% 
+// Memory Usage: 6.4 MB, less than 49.80%
 class Solution {
 public:
-    void func();
+    int numDecodings(string s) {
+        int len = s.length();
+        if (0 == len) {return 0;}
+        
+        vector<int> dp (len + 1, 0);
+        // 空字符串的情况
+        dp[0] = 1;
+        // 长度为1的字符串的情况
+        if (s[0] != '0') {dp[1] = 1;}
+        // 长度大于等于2的字符串的状态
+        for (int i = 2; i <= len; ++i) {
+            int n1 = stoi(s.substr(i-1, 1));
+            int n2 = stoi(s.substr(i-2, 2));
+            if (n1 >= 1 && n1 <= 9) {dp[i] += dp[i-1];}
+            if (n2 >= 10 && n2 <= 26) {dp[i] += dp[i-2];}
+        }
+        return dp[len];
+    }
 };
 
 } // namespace q0091
