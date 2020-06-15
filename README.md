@@ -42,9 +42,9 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 ## 1. Records 记录
 
-[第001～100期](src/e001_100/README.md)
+[第001～100期](doc/episode001_100.md)
 
-[第101～200期](src/e101_200/README.md)
+[第101～200期](doc/episode101_200.md)
 
 [剑指Offer](src/sword_to_offer/README.md)
 

@@ -56,19 +56,16 @@ message(STATUS "CMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 ## get file of main.cpp
 aux_source_directory(./src DIR_SRC)
 
-## get files of recorded leetcode Problems
-aux_source_directory(./src/e001_100 E100_DIR_SRC)
-aux_source_directory(./src/e101_200 E200_DIR_SRC)
-
-## get source files from othter directory
-set(OTHER_DIR_SRC "")
-add_subdirectory(./src/other)
-set(TMP_OTHTER_SRC "")
-foreach(OTHTER_SRC ${OTHTER_DIR_SRC})
-    set(TMP_OTHTER_SRC ${TMP_OTHTER_SRC} ./src/other/${OTHTER_SRC})
-endforeach(OTHTER_SRC ${OTHTER_DIR_SRC})
-set(OTHER_DIR_SRC ${TMP_OTHTER_SRC})
-# message(STATUS ${OTHER_DIR_SRC})
+## get source files from leetcode directory
+set(LEETCODE_DIR ./src/leetcode)
+set(LEETCODE_DIR_SRC "")
+add_subdirectory(${LEETCODE_DIR})
+set(TMP_LEETCODE_SRC "")
+foreach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
+    set(TMP_LEETCODE_SRC ${TMP_LEETCODE_SRC} ${LEETCODE_DIR}/${LEETCODE_SRC})
+endforeach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
+set(LEETCODE_DIR_SRC ${TMP_LEETCODE_SRC})
+message(STATUS ${LEETCODE_DIR_SRC})
 
 ## get files of sword-to-offer problems
 aux_source_directory(./src/sword_to_offer SWORD_OFFER_DIR_SRC)
@@ -76,11 +73,14 @@ aux_source_directory(./src/sword_to_offer SWORD_OFFER_DIR_SRC)
 ## get files of classical problems and algorithms
 aux_source_directory(./src/classical CLASSICAL_DIR_SRC)
 
+## get other files
+aux_source_directory(./src/other OTHER_DIR_SRC)
+
 ## add sprcific source file for testing
 ## note that the above variables which store source files should be commented.
 #set(E100_DIR_SRC src/e001_100/q0048.cpp)
 
 ## create target and link libraries
-add_executable(${PROJECT_NAME} ${DIR_SRC} ${E100_DIR_SRC} ${E200_DIR_SRC} 
+add_executable(${PROJECT_NAME} ${DIR_SRC} ${LEETCODE_DIR_SRC} 
                ${OTHER_DIR_SRC} ${SWORD_OFFER_DIR_SRC} ${CLASSICAL_DIR_SRC})
 target_link_libraries(${PROJECT_NAME} ${LIBS} ${EXT_LIBS})

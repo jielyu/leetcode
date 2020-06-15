@@ -1,6 +1,6 @@
-# 其他
+# LeetCode
 
-用于存储当前代码库尚未正式收录的问题和解决方案
+用于存储LeetCode网站上的问题和解决方案
 
 ## LeetCode Q0001～Q0100
 
@@ -28,3 +28,6 @@
 
 ## LeetCode Q1201～Q1300
 
+## LeetCode Q1301～Q1400
+
+## LeetCode Q1401～Q1500
