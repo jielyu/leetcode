@@ -65,7 +65,7 @@ foreach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
     set(TMP_LEETCODE_SRC ${TMP_LEETCODE_SRC} ${LEETCODE_DIR}/${LEETCODE_SRC})
 endforeach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
 set(LEETCODE_DIR_SRC ${TMP_LEETCODE_SRC})
-message(STATUS ${LEETCODE_DIR_SRC})
+#message(STATUS ${LEETCODE_DIR_SRC})
 
 ## get files of sword-to-offer problems
 aux_source_directory(./src/sword_to_offer SWORD_OFFER_DIR_SRC)
