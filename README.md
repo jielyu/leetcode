@@ -14,6 +14,8 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 [经典算法思想之回溯法 Q1415](https://mp.weixin.qq.com/s/4nbyiJ8foXIkgj3n0ccorQ)
 
+[经典算法思想之动态规划](https://mp.weixin.qq.com/s/c9_dDxy1jKH9LDnzLlGFhg)
+
 ### (2) 基础算法
 
 [深度优先搜索DFS Q1376](https://mp.weixin.qq.com/s/7VwPNVWNPJmPQgzSl0xQYA)
@@ -38,7 +40,7 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 [矩阵对角线排序 Q1329](https://mp.weixin.qq.com/s/ddnzIpv7K07urg0F0SsrRA)
 
-[更多文章>>>](https://cnbluegeek.github.io/archive/?tag=%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98)
+[更多文章>>>](https://blog.bluegeek.me/archive/?tag=%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98)
 
 ## 1. Records 记录
 
