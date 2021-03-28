@@ -111,9 +111,9 @@ F&Q
 
 [面试刷题Leetcode群组](https://t.me/interview_leetcode)
 
-国内私聊可以添加本人微信：cnbluegeek
+国内私聊可以添加本人微信：无忆
 
-<div style="text-align:center;width:100%;"><img width="150" height="150" src="images/cnbluegeek-qr.jpeg" /></div>
+<div style="text-align:center;width:100%;"><img width="150" height="150" src="images/wuyi.jpg" /></div>
 
 更多文章，请关注【青衣极客】公众号
 
