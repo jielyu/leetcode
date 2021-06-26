@@ -105,16 +105,8 @@ F&Q
 
 ## 5. Communicate 交流
 
-关于“Leetcode面试刷题”或者“计算机编程”相关的讨论可以加入 ***电报群*** ：
+关于“Leetcode面试刷题”或者“计算机编程”相关的讨论可以提交ISSUE
 
-[面试刷题Leetcode频道](https://t.me/interview_leetcode_channel)
+国内私聊可以发送邮件到： jiejielyu@outlook.com
 
-[面试刷题Leetcode群组](https://t.me/interview_leetcode)
-
-国内私聊可以添加本人微信：无忆
-
-<div style="text-align:center;width:100%;"><img width="150" height="150" src="images/wuyi.jpg" /></div>
-
-更多文章，请关注【青衣极客】公众号
-
-![青衣极客](images/wechat_public.png)
+更多文章，请关注【bluegeek】公众号

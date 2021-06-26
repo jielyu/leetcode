@@ -6,5 +6,25 @@
 
 namespace sword_p02
 {
+
+class Singleton{
+	
+private:
+	static Singleton * pSingleton;
+	Singleton(){}
+	
+public:
+	static Singleton * getSingleton(){
+		if(Singleton::pSingleton == NULL){
+			Singleton::pSingleton = new Singleton();
+		}
+		return Singleton::pSingleton;
+	}
+	
+	static void delSingleton(){
+		delete Singleton::pSingleton;
+		Singleton::pSingleton = NULL;
+	}
+};
     
 } // namespace sp02
