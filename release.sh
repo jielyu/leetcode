@@ -10,7 +10,7 @@ mkdir -p ${build_dir}
 
 # compile 
 cd ${build_dir}
-cmake ..
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j6
 cd ..
 echo "compile finished"
