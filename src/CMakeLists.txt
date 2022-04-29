@@ -38,8 +38,7 @@ message(STATUS ${DIR_SRC})
 ## create target and link libraries
 add_executable(${PROJECT_NAME}_testcase ${DIR_SRC})
 target_link_libraries(${PROJECT_NAME}_testcase ${LIBS} ${EXT_LIBS})
-add_custom_target(deploy)
-add_custom_command(TARGET deploy
+add_custom_command(TARGET ${PROJECT_NAME}_testcase
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E echo "deploy to ${CMAKE_BINARY_DIR}/${PROJECT_NAME}"
     COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_NAME}_testcase ${CMAKE_BINARY_DIR}/${PROJECT_NAME}
