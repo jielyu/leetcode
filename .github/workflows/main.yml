@@ -4,85 +4,86 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: Installation depends
-      run: |
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        brew install protobuf
-        brew install gflags
-        brew install glog
-        brew install tree
-        git clone http://github.com/google/googletest
-        cd googletest
-        echo `cmake --version`
-        mkdir build && cd build
-        echo "running cmake ..."
-        cmake .. -DCMAKE_CXX_STANDARD=11
-        echo "running make ..."
-        make
-        echo "running install ..."
-        make install
+      - name: Installation depends
+        run: |
+          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          brew install protobuf
+          brew install gflags
+          brew install glog
+          brew install tree
+          git clone http://github.com/google/googletest
+          cd googletest
+          echo `cmake --version`
+          mkdir build && cd build
+          echo "running cmake ..."
+          cmake .. -DCMAKE_CXX_STANDARD=11
+          echo "running make ..."
+          make
+          echo "running install ..."
+          make install
 
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Check Source Code Dir
-      run: |
-        pwd
-        tree .
+      - name: Check Source Code Dir
+        run: |
+          pwd
+          tree .
 
-    - name: Build
-      run: |
-        mkdir logdir
-        ./release.sh >> ./logdir/release.log
+      - name: Build
+        run: |
+          mkdir logdir
+          ./release.sh >> ./logdir/release.log
 
-    - name: Run TestCases and Generate Report
-      run: |
-        ./build/leetcode >> ./logdir/testcase_report.txt
-        cp ./build/leetcode ./logdir/leetcode
-        
-    - name : Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: TestcaseReport-macOS
-        path: ./logdir
+      - name: Run TestCases and Generate Report
+        run: |
+          ./build/leetcode >> ./logdir/testcase_report.txt
+          cp ./build/leetcode ./logdir/leetcode
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: TestcaseReport-macOS
+          path: ./logdir
   build_on_ubuntu:
+    if: 0 == 1
     runs-on: ubuntu-latest
     steps:
-    - name: Installation depends
-      run: |
-        sudo apt install -y build-essential cmake git 
-        sudo apt install -y libprotobuf-dev protobuf-compiler libgflags-dev libgoogle-glog-dev tree
-        git clone http://github.com/google/googletest
-        cd googletest
-        echo `cmake --version`
-        mkdir build && cd build
-        echo "running cmake ..."
-        cmake .. -DCMAKE_CXX_STANDARD=11
-        echo "running make ..."
-        make
-        echo "running install ..."
-        sudo make install
+      - name: Installation depends
+        run: |
+          sudo apt install -y build-essential cmake git 
+          sudo apt install -y libprotobuf-dev protobuf-compiler libgflags-dev libgoogle-glog-dev tree
+          git clone http://github.com/google/googletest
+          cd googletest
+          echo `cmake --version`
+          mkdir build && cd build
+          echo "running cmake ..."
+          cmake .. -DCMAKE_CXX_STANDARD=11
+          echo "running make ..."
+          make
+          echo "running install ..."
+          sudo make install
 
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Check Source Code Dir
-      run: |
-        pwd
-        tree .
+      - name: Check Source Code Dir
+        run: |
+          pwd
+          tree .
 
-    - name: Build
-      run: |
-        mkdir logdir
-        ./release.sh >> ./logdir/release.log
+      - name: Build
+        run: |
+          mkdir logdir
+          ./release.sh >> ./logdir/release.log
 
-    - name: Run TestCases and Generate Report
-      run: |
-        ./build/leetcode >> ./logdir/testcase_report.txt
-        cp ./build/leetcode ./logdir/leetcode
-        
-    - name : Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: TestcaseReport-Ubuntu
-        path: ./logdir
+      - name: Run TestCases and Generate Report
+        run: |
+          ./build/leetcode >> ./logdir/testcase_report.txt
+          cp ./build/leetcode ./logdir/leetcode
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: TestcaseReport-Ubuntu
+          path: ./logdir
