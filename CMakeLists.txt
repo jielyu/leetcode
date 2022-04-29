@@ -73,8 +73,6 @@ aux_source_directory(./src/sword_to_offer SWORD_OFFER_DIR_SRC)
 ## get files of classical problems and algorithms
 aux_source_directory(./src/classical CLASSICAL_DIR_SRC)
 
-## get other files
-aux_source_directory(./src/other OTHER_DIR_SRC)
 
 ## add sprcific source file for testing
 ## note that the above variables which store source files should be commented.
@@ -82,5 +80,5 @@ aux_source_directory(./src/other OTHER_DIR_SRC)
 
 ## create target and link libraries
 add_executable(${PROJECT_NAME} ${DIR_SRC} ${LEETCODE_DIR_SRC} 
-               ${OTHER_DIR_SRC} ${SWORD_OFFER_DIR_SRC} ${CLASSICAL_DIR_SRC})
+               ${SWORD_OFFER_DIR_SRC} ${CLASSICAL_DIR_SRC})
 target_link_libraries(${PROJECT_NAME} ${LIBS} ${EXT_LIBS})
