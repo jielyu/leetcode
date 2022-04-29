@@ -11,6 +11,6 @@ mkdir -p ${build_dir}
 # compile 
 cd ${build_dir}
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j6
+make -j6 && make deploy
 cd ..
 echo "compile finished"
