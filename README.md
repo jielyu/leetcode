@@ -76,7 +76,7 @@ bash release.sh
 工程本身是会一次编译所有解决方案的，因此会在增加新解决方案时造成调试上的麻烦。
 对于这种情况，可以通过设置 `src/CMakeLists.txt` 文件中的一个变量 `DIR_SRC` 解决，具体如下图
 
-![调试设置](doc/debug-setting.png)
+![调试设置](images/debug-setting.png)
 
 注意一定要在注释提示的位置修改，不然还是会把其他源码文件加载进来。
 
