@@ -14,13 +14,11 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 ## 1. Records 记录
 
-[第001～100期](doc/episode001_100.md)
+[Leetcode](src/leetcode/)
 
-[第101～200期](doc/episode101_200.md)
+[剑指Offer](src/sword_to_offer/)
 
-[剑指Offer](src/sword_to_offer/README.md)
-
-[经典问题和算法](src/classical/README.md)
+[经典问题和算法](src/classical/)
 
 ## 2. Dependencies 依赖
 
@@ -67,11 +65,22 @@ bash release.sh
 
 欢迎正在使用leetcode的朋友提交Pull Request贡献代码，相关规范，请查看：[贡献说明](CONTRIBUTING.md)
 
-F&Q
+### F&Q
 
-[为什么要学会Git？](https://mp.weixin.qq.com/s/GH6ka8zI2sqYQGmZyA-oKQ)
+#### 1. [为什么要学会Git？](https://mp.weixin.qq.com/s/GH6ka8zI2sqYQGmZyA-oKQ)
 
-[如何在Github上提交 Pull Request ？](https://mp.weixin.qq.com/s/4MH6edEc1TXieEUwwXj1Iw)
+#### 2. [如何在Github上提交 Pull Request ？](https://mp.weixin.qq.com/s/4MH6edEc1TXieEUwwXj1Iw)
+
+#### 3. 怎样只调试和运行一个解决方案？
+
+工程本身是会一次编译所有解决方案的，因此会在增加新解决方案时造成调试上的麻烦。
+对于这种情况，可以通过设置 `src/CMakeLists.txt` 文件中的一个变量 `DIR_SRC` 解决，具体如下图
+
+![调试设置](doc/debug-setting.png)
+
+注意一定要在注释提示的位置修改，不然还是会把其他源码文件加载进来。
+
+
 
 ## 5. Communicate 交流
 
