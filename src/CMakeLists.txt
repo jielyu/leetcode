@@ -9,19 +9,12 @@ message(STATUS "CMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
 aux_source_directory(. DIR_SRC)
 
 ## get source files from leetcode directory
-set(LEETCODE_DIR leetcode)
-set(LEETCODE_DIR_SRC "")
-add_subdirectory(${LEETCODE_DIR})
-set(TMP_LEETCODE_SRC "")
-foreach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
-    set(TMP_LEETCODE_SRC ${TMP_LEETCODE_SRC} ${LEETCODE_DIR}/${LEETCODE_SRC})
-endforeach(LEETCODE_SRC ${LEETCODE_DIR_SRC})
-set(LEETCODE_DIR_SRC ${TMP_LEETCODE_SRC})
+aux_source_directory(./leetcode/cpp LEETCODE_DIR_SRC)
 set(DIR_SRC ${DIR_SRC} ${LEETCODE_DIR_SRC})
 #message(STATUS ${LEETCODE_DIR_SRC})
 
 ## get files of sword-to-offer problems
-aux_source_directory(./sword_to_offer SWORD_OFFER_DIR_SRC)
+aux_source_directory(./sword_to_offer/cpp SWORD_OFFER_DIR_SRC)
 set(DIR_SRC ${DIR_SRC} ${SWORD_OFFER_DIR_SRC})
 
 ## get files of classical problems and algorithms
