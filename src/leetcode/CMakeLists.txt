@@ -1,5 +1,0 @@
-aux_source_directory(. LEETCODE_DIR_SRC0)
-aux_source_directory(cpp LEETCODE_DIR_SRC1)
-
-set(LEETCODE_DIR_SRC ${LEETCODE_DIR_SRC} ${LEETCODE_DIR_SRC0} ${LEETCODE_DIR_SRC1}  PARENT_SCOPE)
-
