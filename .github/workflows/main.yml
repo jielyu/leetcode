@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Installation depends
         run: |
-          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install protobuf
           brew install gflags
           brew install glog
