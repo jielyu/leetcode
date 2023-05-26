@@ -22,39 +22,42 @@ Collect leetcode-like problems and solutions dedicated to improving algorithm de
 
 ## 2. Dependencies 依赖
 
-* cmake
-* gflags
-* glog
-* gtest
+本项目使用 `xmake` 管理依赖，因此在运行之前，先安装 `xmake`
+
+```shell
+curl -fsSL https://xmake.io/shget.text | bash
+```
+
+在Windows上可以使用如下指令
+
+```shell
+winget install xmake
+```
 
 ## 3. Compile 编译
 
 ### (1). 操作系统
 
-目前的编译配置支持的操作系统为：***MacOS和Ubuntu***，其他操作系统下可能需要自行稍作修改。
+目前只在 `macOS` 和 `Ubuntu` 上测试
 
 ### (2). 安装依赖
 
-MacOS：
-
-参考 `.github/workflows/main.yml`文件中的`build`任务中的`Installation depends`步骤即可
-
-Ubuntu：
-
-参考 `.github/workflows/main.yml`文件中的`build_on_ubuntu`任务中的`Installation depends`步骤即可
+```shell
+xmake require
+```
 
 ### (3). 指令
 
-安装完成编译依赖之后，直接运行 `release.sh`脚本即可在 `build`目录下生成`leetcode`可执行文件。
+安装完成编译依赖之后，直接运行 `xmake`
 
 ```bash
-bash release.sh
+xmake
 ```
 
 运行所有测试用例：
 
 ```bash
-./build/leetcode
+xmake run leetcode
 ```
 
 ### (4). 调试
@@ -73,15 +76,6 @@ bash release.sh
 
 #### 3. 怎样只调试和运行一个解决方案？
 
-工程本身是会一次编译所有解决方案的，因此会在增加新解决方案时造成调试上的麻烦。
-对于这种情况，可以通过设置 `src/CMakeLists.txt` 文件中的一个变量 `DIR_SRC` 解决，具体如下图
+`xmake.lua`  中配置的 `test` 目标就是用于调试和运行一个问题的解决方案。
 
-![调试设置](images/debug-setting.png)
-
-注意一定要在注释提示的位置修改，不然还是会把其他源码文件加载进来。
-
-
-
-## 5. Communicate 交流
-
-关于“Leetcode面试刷题”或者“计算机编程”相关的讨论可以提交ISSUE
+将其中的 `src/leetcode/cpp/q0001.cpp` 字符串修改为想要调试的文件路径即可。

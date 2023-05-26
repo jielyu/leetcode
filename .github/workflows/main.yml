@@ -5,40 +5,22 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Installation depends
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew install protobuf
-          brew install gflags
-          brew install glog
-          brew install tree
-          git clone http://github.com/google/googletest
-          cd googletest
-          echo `cmake --version`
-          mkdir build && cd build
-          echo "running cmake ..."
-          cmake .. -DCMAKE_CXX_STANDARD=11
-          echo "running make ..."
-          make
-          echo "running install ..."
-          make install
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: latest
 
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Check Source Code Dir
-        run: |
-          pwd
-          tree .
-
       - name: Build
         run: |
           mkdir logdir
-          ./release.sh >> ./logdir/release.log
+          xmake require -y
+          xmake
 
       - name: Run TestCases and Generate Report
         run: |
-          ./build/leetcode >> ./logdir/testcase_report.txt
-          cp ./build/leetcode ./logdir/leetcode
+          xmake run leetcode >> ./logdir/testcase_report.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
@@ -50,37 +32,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installation depends
-        run: |
-          sudo apt install -y build-essential cmake git 
-          sudo apt install -y libprotobuf-dev protobuf-compiler libgflags-dev libgoogle-glog-dev tree
-          git clone http://github.com/google/googletest
-          cd googletest
-          echo `cmake --version`
-          mkdir build && cd build
-          echo "running cmake ..."
-          cmake .. -DCMAKE_CXX_STANDARD=11
-          echo "running make ..."
-          make
-          echo "running install ..."
-          sudo make install
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: latest
 
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Check Source Code Dir
-        run: |
-          pwd
-          tree .
-
       - name: Build
         run: |
           mkdir logdir
-          ./release.sh >> ./logdir/release.log
+          xmake require -y
+          xmake
 
       - name: Run TestCases and Generate Report
         run: |
-          ./build/leetcode >> ./logdir/testcase_report.txt
-          cp ./build/leetcode ./logdir/leetcode
+          xmake run leetcode >> ./logdir/testcase_report.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@master

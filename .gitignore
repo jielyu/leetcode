@@ -5,6 +5,7 @@
 *~
 .vscode/
 build/
+.xmake/
 
 # Prerequisites
 *.d
